@@ -16,18 +16,33 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: YatayatAppbar(
+        leadingIcon: Icons.menu,
         height: 65,
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 5,
+            ),
+            Text(
+              'Yatayat',
+              style: kAppbarTitleStyle,
+            ),
+            Text(
+              'Hire any Vehicle',
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+            )
+          ],
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 10, bottom: 10),
-              child: Align(
-                alignment: Alignment.center,
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              child: Expanded(
                 child: Container(
                   height: 147,
-                  width: 361,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
                     color: Colors.grey,
@@ -37,17 +52,16 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Container(
-              width: 361,
-              margin: EdgeInsets.symmetric(vertical: 10),
+              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'Book Now',
-                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+                    style: kComponentTitleStyle,
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 10,
                   ),
                   Row(
                     children: [
@@ -81,14 +95,13 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Container(
-              width: 361,
-              margin: EdgeInsets.symmetric(vertical: 10),
+              margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'My Bookings',
-                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+                    style: kComponentTitleStyle,
                   ),
                   SizedBox(
                     height: 15,

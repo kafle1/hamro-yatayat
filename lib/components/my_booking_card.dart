@@ -25,7 +25,6 @@ class MyBookingCard extends StatelessWidget {
               onTap: onClick,
               child: Container(
                 height: 80,
-                width: double.infinity,
                 decoration: BoxDecoration(
                   boxShadow: [kBoxShadow],
                   color: status == 'Pending' ? kThemeColor : Colors.white,
@@ -34,34 +33,37 @@ class MyBookingCard extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 15),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Vehicle Type: $vehicleType',
-                            style: kBookingTextStyle.copyWith(
-                                color: status == 'Pending'
-                                    ? Colors.white
-                                    : Colors.black),
-                          ),
-                          Text(
-                            'Date: $date',
-                            style: kBookingTextStyle.copyWith(
-                                color: status == 'Pending'
-                                    ? Colors.white
-                                    : Colors.black),
-                          ),
-                          Text(
-                            'Status: $status',
-                            style: kBookingTextStyle.copyWith(
-                                color: status == 'Pending'
-                                    ? Colors.white
-                                    : Colors.black),
-                          ),
-                        ],
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.70,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 15),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Vehicle Type: $vehicleType',
+                              style: kBookingTextStyle.copyWith(
+                                  color: status == 'Pending'
+                                      ? Colors.white
+                                      : Colors.black),
+                            ),
+                            Text(
+                              'Date: $date',
+                              style: kBookingTextStyle.copyWith(
+                                  color: status == 'Pending'
+                                      ? Colors.white
+                                      : Colors.black),
+                            ),
+                            Text(
+                              'Status: $status',
+                              style: kBookingTextStyle.copyWith(
+                                  color: status == 'Pending'
+                                      ? Colors.white
+                                      : Colors.black),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     VehicleCard(

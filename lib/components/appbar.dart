@@ -3,10 +3,15 @@ import 'package:yatayat/constants.dart';
 
 class YatayatAppbar extends StatelessWidget implements PreferredSizeWidget {
   final double height;
+  final Widget title;
+  final IconData? actionIcon;
+  final IconData leadingIcon;
 
-  YatayatAppbar({
-    required this.height,
-  });
+  YatayatAppbar(
+      {required this.height,
+      required this.title,
+      this.actionIcon,
+      required this.leadingIcon});
 
   @override
   Widget build(BuildContext context) {
@@ -15,31 +20,22 @@ class YatayatAppbar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       leading: IconButton(
         icon: Icon(
-          Icons.menu,
+          leadingIcon,
           size: 25,
         ),
         onPressed: () => null,
       ),
-      title: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: 5,
-          ),
-          Text(
-            'Yatayat',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          Text(
-            'Hire any Vehicle',
-            style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
-          )
-        ],
-      ),
+      title: title,
       actions: [
         IconButton(
+            onPressed: () => null,
+            icon: Icon(
+              actionIcon,
+              size: 25,
+            )),
+        IconButton(
           icon: Icon(
-            Icons.person,
+            Icons.person_rounded,
             size: 25,
           ),
           onPressed: () => null,
