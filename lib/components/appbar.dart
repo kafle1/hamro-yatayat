@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yatayat/constants.dart';
+import 'package:yatayat/screens/profile_screen.dart';
 
 class YatayatAppbar extends StatelessWidget implements PreferredSizeWidget {
   final double height;
@@ -32,7 +33,7 @@ class YatayatAppbar extends StatelessWidget implements PreferredSizeWidget {
             Icons.person_rounded,
             size: 25,
           ),
-          onPressed: () => null,
+          onPressed: () => {Navigator.pushNamed(context, ProfileScreen.id)},
         ),
       ],
     );

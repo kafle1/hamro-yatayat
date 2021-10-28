@@ -5,6 +5,8 @@ import 'package:yatayat/components/vehicle_card.dart';
 import 'package:yatayat/components/yatayatDrawer.dart';
 import 'package:yatayat/components/yatayat_bottom_navigation.dart';
 import 'package:yatayat/constants.dart';
+import 'package:yatayat/screens/create_booking_screen.dart';
+import 'package:flutter/services.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String id = 'HomeScreen';
@@ -14,6 +16,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  void initState() {
+    super.initState();
+
+    //Hide Status Bar
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+        overlays: SystemUiOverlay.values);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,25 +89,33 @@ class HomePage extends StatelessWidget {
                   children: [
                     VehicleCard(
                       iconPath: 'assets/images/icons/Bus.png',
-                      onClick: () => {},
+                      onClick: () => {
+                        Navigator.pushNamed(context, CreateBookingScreen.id)
+                      },
                       lable: 'Bus',
                       booking: false,
                     ),
                     VehicleCard(
                       iconPath: 'assets/images/icons/Car.png',
-                      onClick: () => {},
+                      onClick: () => {
+                        Navigator.pushNamed(context, CreateBookingScreen.id)
+                      },
                       lable: 'Car',
                       booking: false,
                     ),
                     VehicleCard(
                       iconPath: 'assets/images/icons/Taxi.png',
-                      onClick: () => {},
+                      onClick: () => {
+                        Navigator.pushNamed(context, CreateBookingScreen.id)
+                      },
                       lable: 'Taxi',
                       booking: false,
                     ),
                     VehicleCard(
                       iconPath: 'assets/images/icons/Other.png',
-                      onClick: () => {},
+                      onClick: () => {
+                        Navigator.pushNamed(context, CreateBookingScreen.id)
+                      },
                       lable: 'Other',
                       booking: false,
                     ),

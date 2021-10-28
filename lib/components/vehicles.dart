@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:yatayat/constants.dart';
-import 'package:yatayat/screens/create_booking_screen.dart';
 
 class Vehicles extends StatefulWidget {
   static const String id = 'vehicles';
@@ -31,7 +30,7 @@ class _VehiclesState extends State<Vehicles> {
                 child: ListTile(
                   onTap: () {
                     print(index);
-                    Navigator.popAndPushNamed(context, CreateBookingScreen.id);
+                    Navigator.pop(context);
                   },
                   title: Text(vehicles[index]['title']),
                   leading: Image(
