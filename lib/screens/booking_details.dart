@@ -10,7 +10,6 @@ class BookingDetailsScreen extends StatelessWidget {
     return Scaffold(
       appBar: YatayatAppbar(
         height: 60,
-        leadingIcon: Icons.chevron_left,
         title: Text(
           'Booking Details',
           style: kAppbarTitleStyle,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:yatayat/components/appbar.dart';
 import 'package:yatayat/components/my_booking_card.dart';
+import 'package:yatayat/components/yatayatDrawer.dart';
+import 'package:yatayat/components/yatayat_bottom_navigation.dart';
 import 'package:yatayat/constants.dart';
 
 class MyBookingScreen extends StatefulWidget {
@@ -13,13 +15,16 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: YatayatDrawer(),
+      bottomNavigationBar: YatayatBottomNavigation(
+        index: 1,
+      ),
       appBar: YatayatAppbar(
         height: 65,
         title: Text(
           'My Bookings',
           style: kAppbarTitleStyle,
         ),
-        leadingIcon: Icons.chevron_left,
       ),
       body: SingleChildScrollView(
         child: SafeArea(

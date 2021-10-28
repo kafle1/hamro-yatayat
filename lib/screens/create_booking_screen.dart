@@ -27,7 +27,6 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
           'Create Booking',
           style: kAppbarTitleStyle,
         ),
-        leadingIcon: Icons.chevron_left_rounded,
       ),
       body: SingleChildScrollView(
         child: SafeArea(

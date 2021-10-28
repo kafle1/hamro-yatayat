@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:yatayat/components/appbar.dart';
 import 'package:yatayat/components/button.dart';
 import 'package:yatayat/components/input_field.dart';
+import 'package:yatayat/components/yatayatDrawer.dart';
+import 'package:yatayat/components/yatayat_bottom_navigation.dart';
 import 'package:yatayat/constants.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -10,15 +12,18 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: YatayatBottomNavigation(
+        index: 3,
+      ),
       appBar: YatayatAppbar(
         height: 60,
         title: Text(
           'My Bookings',
           style: kAppbarTitleStyle,
         ),
-        leadingIcon: Icons.chevron_left_rounded,
         actionIcon: Icons.logout_rounded,
       ),
+      drawer: YatayatDrawer(),
       body: SingleChildScrollView(
         child: Column(
           children: [
