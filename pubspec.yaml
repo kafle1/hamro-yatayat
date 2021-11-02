@@ -9,13 +9,13 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
+  carousel_pro_nullsafety: ^1.0.2
   cupertino_icons: ^1.0.2
   fluentui_system_icons: ^1.1.143
   flutter:
     sdk: flutter
 
 dev_dependencies:
-  
   flutter_lints: ^1.0.0
   flutter_test:
     sdk: flutter

@@ -96,7 +96,7 @@ class IconBottomBar extends StatelessWidget {
             icon: Icon(
               icon,
               size: selected ? 30 : 25,
-              color: selected ? Colors.white : Colors.grey[400],
+              color: selected ? Colors.white : Colors.grey[350],
             )),
       ],
     );

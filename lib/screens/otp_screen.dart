@@ -18,13 +18,13 @@ class _OTPScreenState extends State<OTPScreen> {
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
-            color: Colors.white,
             margin: EdgeInsets.all(10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image(
                   image: AssetImage('assets/images/otp.png'),
+                  height: 300,
                 ),
                 SizedBox(
                   height: 10,

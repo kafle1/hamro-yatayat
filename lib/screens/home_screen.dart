@@ -1,3 +1,4 @@
+import 'package:carousel_pro_nullsafety/carousel_pro_nullsafety.dart';
 import 'package:flutter/material.dart';
 import 'package:yatayat/components/appbar.dart';
 import 'package:yatayat/components/my_booking_card.dart';
@@ -61,20 +62,38 @@ class HomePage extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-            child: Expanded(
-              child: Container(
-                height: 147,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
-                  color: Colors.grey,
-                  boxShadow: [kBoxShadow],
+            margin: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+            height: 160,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              color: Colors.grey,
+              boxShadow: [kBoxShadow],
+            ),
+            child: Carousel(
+              images: [
+                Image.asset(
+                  'assets/images/avatar.png',
+                  fit: BoxFit.cover,
                 ),
-              ),
+                Image.asset(
+                  'assets/images/avatar.png',
+                  fit: BoxFit.cover,
+                ),
+                Image.asset(
+                  'assets/images/avatar.png',
+                  fit: BoxFit.cover,
+                )
+              ],
+              dotSize: 6,
+              dotSpacing: 15,
+              indicatorBgPadding: 5,
+              dotBgColor: Colors.transparent,
             ),
           ),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            margin: EdgeInsets.symmetric(
+              horizontal: 10,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -125,7 +144,7 @@ class HomePage extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+            margin: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

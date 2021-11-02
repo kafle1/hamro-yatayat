@@ -34,8 +34,11 @@ class SigninScreen extends StatelessWidget {
                   fontSize: 15,
                   fontWeight: FontWeight.w600),
             ),
-            Image(
-              image: AssetImage('assets/images/signin.png'),
+            Flexible(
+              child: Image(
+                image: AssetImage('assets/images/signin.png'),
+                height: 300,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),

@@ -11,46 +11,48 @@ class PhoneAuthScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: SafeArea(
-            child: Container(
-          color: Colors.white,
-          margin: EdgeInsets.all(10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image(
-                image: AssetImage('assets/images/phoneAuth.png'),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                'OTP Verification',
-                style: kComponentTitleStyle.copyWith(fontSize: 25),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                'We will send you an One Time Password on this mobile number',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: kThemeColor,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 15,
+          child: Container(
+            margin: EdgeInsets.all(10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image(
+                  image: AssetImage('assets/images/phoneAuth.png'),
+                  height: 300,
                 ),
-              ),
-              InputField(
-                  label: 'Enter Mobile Number',
-                  placeholder: '+9779861212121',
-                  onChange: (value) {}),
-              YatayatButton(
-                  label: 'Get OTP',
-                  onClick: () {
-                    Navigator.popAndPushNamed(context, OTPScreen.id);
-                  })
-            ],
+                Text(
+                  'OTP Verification',
+                  style: kComponentTitleStyle.copyWith(fontSize: 25),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  'We will send you an One Time Password on this mobile number',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: kThemeColor,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 15,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                InputField(
+                    label: 'Enter Mobile Number',
+                    placeholder: '+9779861212121',
+                    onChange: (value) {}),
+                YatayatButton(
+                    label: 'Get OTP',
+                    onClick: () {
+                      Navigator.popAndPushNamed(context, OTPScreen.id);
+                    })
+              ],
+            ),
           ),
-        )),
+        ),
       ),
     );
   }

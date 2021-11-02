@@ -24,7 +24,7 @@ class Yatayat extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Nunito'),
       home: SplashScreen(),
-      initialRoute: SplashScreen.id,
+      initialRoute: HomeScreen.id,
       routes: {
         SplashScreen.id: (context) => SplashScreen(),
         SigninScreen.id: (context) => SigninScreen(),
