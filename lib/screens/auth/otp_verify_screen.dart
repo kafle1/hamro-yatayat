@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yatayat/components/button.dart';
-import 'package:yatayat/constants.dart';
-import 'package:yatayat/screens/home_screen.dart';
+import 'package:yatayat/shared/constants.dart';
+import 'package:yatayat/screens/home/home_screen.dart';
 
 class OTPScreen extends StatefulWidget {
   static const String id = 'otp';

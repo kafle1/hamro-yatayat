@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:yatayat/constants.dart';
-import 'package:yatayat/screens/profile_screen.dart';
+import 'package:yatayat/shared/constants.dart';
+import 'package:yatayat/screens/profile/profile_screen.dart';
 
 class YatayatAppbar extends StatelessWidget implements PreferredSizeWidget {
   final double height;

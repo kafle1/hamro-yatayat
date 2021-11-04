@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
-import 'package:yatayat/screens/signin_screen.dart';
+import 'package:yatayat/screens/auth/signin_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   static const String id = 'SplashScreen';

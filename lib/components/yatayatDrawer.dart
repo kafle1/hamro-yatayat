@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yatayat/components/drawer_list.dart';
-import 'package:yatayat/screens/my_bookings_screen.dart';
-import 'package:yatayat/screens/profile_screen.dart';
+import 'package:yatayat/screens/booking/myBookings/my_bookings_screen.dart';
+import 'package:yatayat/screens/profile/profile_screen.dart';
 
 class YatayatDrawer extends StatefulWidget {
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:yatayat/constants.dart';
-import 'package:yatayat/screens/phone_auth_screen.dart';
+import 'package:yatayat/shared/constants.dart';
+import 'package:yatayat/screens/auth/phone_num_screen.dart';
 
 class SigninScreen extends StatelessWidget {
   static const String id = 'SigninScreen';

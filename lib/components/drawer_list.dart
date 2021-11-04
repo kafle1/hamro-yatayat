@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yatayat/constants.dart';
+import 'package:yatayat/shared/constants.dart';
 
 class DrawerListBuilder extends StatelessWidget {
   final IconData? icon;

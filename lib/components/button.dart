@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yatayat/constants.dart';
+import 'package:yatayat/shared/constants.dart';
 
 class YatayatButton extends StatelessWidget {
   final String label;

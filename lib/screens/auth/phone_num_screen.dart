@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:yatayat/components/button.dart';
 import 'package:yatayat/components/input_field.dart';
-import 'package:yatayat/constants.dart';
-import 'package:yatayat/screens/otp_screen.dart';
+import 'package:yatayat/shared/constants.dart';
+import 'package:yatayat/screens/auth/otp_verify_screen.dart';
 
 class PhoneAuthScreen extends StatelessWidget {
   static const String id = 'phoneAuth';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yatayat/components/vehicle_card.dart';
-import 'package:yatayat/constants.dart';
+import 'package:yatayat/shared/constants.dart';
 
 class MyBookingCard extends StatelessWidget {
   final String vehicleType;

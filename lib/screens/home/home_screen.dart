@@ -5,8 +5,8 @@ import 'package:yatayat/components/my_booking_card.dart';
 import 'package:yatayat/components/vehicle_card.dart';
 import 'package:yatayat/components/yatayatDrawer.dart';
 import 'package:yatayat/components/yatayat_bottom_navigation.dart';
-import 'package:yatayat/constants.dart';
-import 'package:yatayat/screens/create_booking_screen.dart';
+import 'package:yatayat/shared/constants.dart';
+import 'package:yatayat/screens/booking/createBooking/create_booking_screen.dart';
 import 'package:flutter/services.dart';
 
 class HomeScreen extends StatefulWidget {

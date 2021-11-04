@@ -3,7 +3,7 @@ import 'package:yatayat/components/appbar.dart';
 import 'package:yatayat/components/button.dart';
 import 'package:yatayat/components/input_field.dart';
 import 'package:yatayat/components/vehicles.dart';
-import 'package:yatayat/constants.dart';
+import 'package:yatayat/shared/constants.dart';
 
 class CreateBookingScreen extends StatefulWidget {
   static const String id = 'createBooking';

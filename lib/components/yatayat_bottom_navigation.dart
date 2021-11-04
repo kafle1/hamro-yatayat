@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:yatayat/constants.dart';
-import 'package:yatayat/screens/create_booking_screen.dart';
-import 'package:yatayat/screens/home_screen.dart';
-import 'package:yatayat/screens/my_bookings_screen.dart';
-import 'package:yatayat/screens/notifications_screen.dart';
+import 'package:yatayat/shared/constants.dart';
+import 'package:yatayat/screens/booking/createBooking/create_booking_screen.dart';
+import 'package:yatayat/screens/home/home_screen.dart';
+import 'package:yatayat/screens/booking/myBookings/my_bookings_screen.dart';
+import 'package:yatayat/screens/notification/notifications_screen.dart';
 
 class YatayatBottomNavigation extends StatefulWidget {
   final int index;

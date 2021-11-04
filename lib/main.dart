@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:yatayat/components/vehicles.dart';
-import 'package:yatayat/screens/booking_details.dart';
-import 'package:yatayat/screens/booking_success.dart';
-import 'package:yatayat/screens/create_booking_screen.dart';
-import 'package:yatayat/screens/home_screen.dart';
-import 'package:yatayat/screens/my_bookings_screen.dart';
-import 'package:yatayat/screens/notifications_screen.dart';
-import 'package:yatayat/screens/otp_screen.dart';
-import 'package:yatayat/screens/phone_auth_screen.dart';
-import 'package:yatayat/screens/profile_screen.dart';
-import 'package:yatayat/screens/signin_screen.dart';
-import 'package:yatayat/screens/splash_screen.dart';
+import 'package:yatayat/screens/booking/booking_success_screen.dart';
+import 'package:yatayat/screens/bookingdetails/booking_details.dart';
+import 'package:yatayat/screens/booking/createBooking/create_booking_screen.dart';
+import 'package:yatayat/screens/home/home_screen.dart';
+import 'package:yatayat/screens/booking/myBookings/my_bookings_screen.dart';
+import 'package:yatayat/screens/notification/notifications_screen.dart';
+import 'package:yatayat/screens/auth/otp_verify_screen.dart';
+import 'package:yatayat/screens/auth/phone_num_screen.dart';
+import 'package:yatayat/screens/profile/profile_screen.dart';
+import 'package:yatayat/screens/auth/signin_screen.dart';
+import 'package:yatayat/screens/home/splash_screen.dart';
 
 void main() {
   runApp(Yatayat());

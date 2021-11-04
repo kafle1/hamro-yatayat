@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yatayat/components/appbar.dart';
 import 'package:yatayat/components/details_text.dart';
-import 'package:yatayat/constants.dart';
+import 'package:yatayat/shared/constants.dart';
 
 class BookingDetailsScreen extends StatelessWidget {
   static const String id = 'bookingScreen';
