@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:yatayat/screens/auth/phone_authtication.dart';
 import 'package:yatayat/shared/constants.dart';
-import 'package:yatayat/screens/auth/phone_num_screen.dart';
 
 class SigninScreen extends StatelessWidget {
   static const String id = 'SigninScreen';
@@ -44,7 +44,7 @@ class SigninScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.popAndPushNamed(context, PhoneAuthScreen.id);
+                  Navigator.popAndPushNamed(context, PhoneAuthentication.id);
                 },
                 child: Container(
                   height: 60,
