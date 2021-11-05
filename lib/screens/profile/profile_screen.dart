@@ -67,10 +67,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          (currentUser!.displayName == ''
-                                  ? 'Yatayat User'
-                                  : currentUser.displayName)!
-                              .toUpperCase(),
+                          currentUser!.displayName ?? 'New User',
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w600,
@@ -105,14 +102,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   InputField(
                       label: 'Email',
                       placeholder: 'Enter your Email',
-                      // value: currentUser.email ?? '${currentUser.email}',
+                      value: currentUser.email != null ? currentUser.email : '',
                       enabled: false,
                       onChange: (neValue) {}),
                   InputField(
                       label: 'Phone Number',
                       placeholder: 'Enter your Phone Number',
-                      // value: currentUser.phoneNumber ??
-                      //     currentUser.phoneNumber!.replaceRange(0, 4, ''),
+                      value: currentUser.phoneNumber != null
+                          ? currentUser.phoneNumber!.replaceRange(0, 4, '')
+                          : '',
                       maxLength: 10,
                       enabled: false,
                       onChange: (neValue) {}),
