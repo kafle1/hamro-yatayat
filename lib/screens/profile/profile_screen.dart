@@ -19,18 +19,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   //UserDetails
   String? name;
-  String? photoUrl;
 
   @override
   Widget build(BuildContext context) {
     //Get details of current user
     final currentUser = _auth.currentUser;
-    print(currentUser!.displayName);
-
-    //Set avatar to user photo
-    if (currentUser.photoURL != null) {
-      photoUrl = currentUser.photoURL;
-    }
 
     return Scaffold(
       appBar: YatayatAppbar(
@@ -61,7 +54,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         borderRadius: BorderRadius.circular(5),
                       ),
                       child: Image(
-                        image: AssetImage(photoUrl ?? 'assets/images/logo.png'),
+                        image: AssetImage('assets/images/logo.png'),
                       ),
                       height: 65,
                       width: 65,
@@ -74,7 +67,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          (currentUser.displayName == ''
+                          (currentUser!.displayName == ''
                                   ? 'Yatayat User'
                                   : currentUser.displayName)!
                               .toUpperCase(),
@@ -110,9 +103,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         name = newValue;
                       }),
                   InputField(
+                      label: 'Email',
+                      placeholder: 'Enter your Email',
+                      // value: currentUser.email ?? '${currentUser.email}',
+                      enabled: false,
+                      onChange: (neValue) {}),
+                  InputField(
                       label: 'Phone Number',
                       placeholder: 'Enter your Phone Number',
-                      value: currentUser.phoneNumber!.replaceRange(0, 4, ''),
+                      // value: currentUser.phoneNumber ??
+                      //     currentUser.phoneNumber!.replaceRange(0, 4, ''),
                       maxLength: 10,
                       enabled: false,
                       onChange: (neValue) {}),

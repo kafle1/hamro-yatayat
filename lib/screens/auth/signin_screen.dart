@@ -1,9 +1,8 @@
-import 'dart:developer';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:yatayat/screens/auth/phone_authtication.dart';
 import 'package:yatayat/screens/home/home_screen.dart';
+import 'package:yatayat/services/auth.dart';
 import 'package:yatayat/shared/constants.dart';
 
 class SigninScreen extends StatefulWidget {
@@ -107,8 +106,12 @@ class _SigninScreenState extends State<SigninScreen> {
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 10),
                     child: GestureDetector(
-                      onTap: () {
+                      onTap: () async {
                         //login using google
+                        final user =
+                            await MyAuthentication().signInWithGoogle();
+                        print(user);
+                        Navigator.popAndPushNamed(context, HomeScreen.id);
                       },
                       child: Container(
                         height: 60,

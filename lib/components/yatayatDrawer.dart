@@ -63,7 +63,9 @@ class _YatayatDrawerState extends State<YatayatDrawer> {
             title: 'Logout',
             onClick: () async {
               await _auth.signOut();
-              Navigator.popAndPushNamed(context, SigninScreen.id);
+              Navigator.pop(context);
+              Navigator.pop(context);
+              Navigator.pushNamed(context, SigninScreen.id);
             },
           ),
         ],
