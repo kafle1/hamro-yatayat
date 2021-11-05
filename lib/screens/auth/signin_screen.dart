@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:yatayat/screens/auth/phone_authtication.dart';
 import 'package:yatayat/screens/home/home_screen.dart';
 import 'package:yatayat/services/auth.dart';
+import 'package:yatayat/services/database.dart';
 import 'package:yatayat/shared/constants.dart';
 
 class SigninScreen extends StatefulWidget {
@@ -108,9 +109,15 @@ class _SigninScreenState extends State<SigninScreen> {
                     child: GestureDetector(
                       onTap: () async {
                         //login using google
-                        final user =
+                        final userDetails =
                             await MyAuthentication().signInWithGoogle();
-                        print(user);
+
+                        await Database().addNewUser(
+                          uid: userDetails.user!.uid,
+                          name: userDetails.user!.displayName,
+                          email: userDetails.user!.email,
+                          phoneNumber: userDetails.user!.phoneNumber,
+                        );
                         Navigator.popAndPushNamed(context, HomeScreen.id);
                       },
                       child: Container(

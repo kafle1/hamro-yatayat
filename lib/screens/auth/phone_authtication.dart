@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:yatayat/components/button.dart';
 import 'package:yatayat/screens/home/home_screen.dart';
+import 'package:yatayat/services/database.dart';
 import 'package:yatayat/shared/constants.dart';
 import 'package:yatayat/shared/loading.dart';
 
@@ -64,8 +65,13 @@ class _PhoneAuthenticationState extends State<PhoneAuthentication> {
     startLoading();
     try {
       //Authenticate user
-      await _auth.signInWithCredential(phoneAuthCredential);
-
+      final userDetails = await _auth.signInWithCredential(phoneAuthCredential);
+      await Database().addNewUser(
+        uid: userDetails.user!.uid,
+        name: userDetails.user!.displayName,
+        email: userDetails.user!.email,
+        phoneNumber: userDetails.user!.phoneNumber,
+      );
       stopLoading();
 
       //Redirect to home screen
