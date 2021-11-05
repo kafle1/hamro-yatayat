@@ -41,11 +41,11 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             Text(
               'Yatayat',
-              style: TextStyle(fontSize: 45, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
             ),
             Text(
               'HIRE ANY VEHICLE',
-              style: TextStyle(fontSize: 20),
+              style: TextStyle(fontSize: 15),
             )
           ],
         ),

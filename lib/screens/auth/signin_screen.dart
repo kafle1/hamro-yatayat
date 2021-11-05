@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:yatayat/screens/auth/phone_authtication.dart';
@@ -19,14 +21,12 @@ class _SigninScreenState extends State<SigninScreen> {
 
   @override
   Widget build(BuildContext context) {
-    //Listen to auth changes
-    _auth.authStateChanges().listen((User? user) {
-      if (user == null) {
-        loggedIn = false;
-      } else {
-        loggedIn = true;
-      }
-    });
+//Check if use is logged in or not
+    if (_auth.currentUser != null) {
+      loggedIn = true;
+    } else {
+      loggedIn = false;
+    }
 
     return loggedIn
         ? HomeScreen()

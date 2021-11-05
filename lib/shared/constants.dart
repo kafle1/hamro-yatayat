@@ -17,7 +17,6 @@ const kFormLabelStyle = TextStyle(fontSize: 15);
 
 const kInputFieldDecoration = InputDecoration(
   hintText: 'Enter your placeholder',
-  suffixStyle: TextStyle(fontSize: 13),
   hintStyle: TextStyle(fontSize: 13),
   contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
   border: OutlineInputBorder(

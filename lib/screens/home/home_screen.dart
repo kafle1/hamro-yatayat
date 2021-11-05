@@ -1,10 +1,12 @@
 import 'package:carousel_pro_nullsafety/carousel_pro_nullsafety.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:yatayat/components/appbar.dart';
 import 'package:yatayat/components/my_booking_card.dart';
 import 'package:yatayat/components/vehicle_card.dart';
 import 'package:yatayat/components/yatayatDrawer.dart';
 import 'package:yatayat/components/yatayat_bottom_navigation.dart';
+import 'package:yatayat/screens/auth/signin_screen.dart';
 import 'package:yatayat/shared/constants.dart';
 import 'package:yatayat/screens/booking/createBooking/create_booking_screen.dart';
 import 'package:flutter/services.dart';
@@ -20,37 +22,51 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
 
-    //Hide Status Bar
+    //Show Status Bar
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
         overlays: SystemUiOverlay.values);
   }
 
+  //Initialize firebase auth
+  final _auth = FirebaseAuth.instance;
+
+  bool loggedIn = false;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: YatayatBottomNavigation(index: 0),
-      appBar: YatayatAppbar(
-        height: 65,
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 5,
+    //Check if use is logged in or not
+    if (_auth.currentUser != null) {
+      loggedIn = true;
+    } else {
+      loggedIn = false;
+    }
+
+    return loggedIn
+        ? Scaffold(
+            bottomNavigationBar: YatayatBottomNavigation(index: 0),
+            appBar: YatayatAppbar(
+              height: 65,
+              title: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    'Yatayat',
+                    style: kAppbarTitleStyle,
+                  ),
+                  Text(
+                    'Hire any Vehicle',
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+                  )
+                ],
+              ),
             ),
-            Text(
-              'Yatayat',
-              style: kAppbarTitleStyle,
-            ),
-            Text(
-              'Hire any Vehicle',
-              style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
-            )
-          ],
-        ),
-      ),
-      drawer: YatayatDrawer(),
-      body: HomePage(),
-    );
+            drawer: YatayatDrawer(),
+            body: HomePage(),
+          )
+        : SigninScreen();
   }
 }
 
