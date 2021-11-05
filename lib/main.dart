@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:yatayat/components/vehicles.dart';
 import 'package:yatayat/screens/auth/phone_authtication.dart';
@@ -10,8 +11,11 @@ import 'package:yatayat/screens/notification/notifications_screen.dart';
 import 'package:yatayat/screens/profile/profile_screen.dart';
 import 'package:yatayat/screens/auth/signin_screen.dart';
 import 'package:yatayat/screens/home/splash_screen.dart';
+import 'package:yatayat/shared/loading.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(Yatayat());
 }
 
@@ -23,7 +27,7 @@ class Yatayat extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Nunito'),
       home: SplashScreen(),
-      initialRoute: PhoneAuthentication.id,
+      initialRoute: SplashScreen.id,
       routes: {
         SplashScreen.id: (context) => SplashScreen(),
         SigninScreen.id: (context) => SigninScreen(),
@@ -36,6 +40,7 @@ class Yatayat extends StatelessWidget {
         Notifications.id: (context) => Notifications(),
         BookingSuccess.id: (context) => BookingSuccess(),
         PhoneAuthentication.id: (context) => PhoneAuthentication(),
+        Loading.id: (context) => Loading(),
       },
       debugShowCheckedModeBanner: false,
     );
