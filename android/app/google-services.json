@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "465249750732",
+    "project_id": "yatayat-d621d",
+    "storage_bucket": "yatayat-d621d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:465249750732:android:085a389dbcbc0864193c69",
+        "android_client_info": {
+          "package_name": "com.yatayat.vehiclebooking.nepal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "465249750732-fdq6m49j3dhn1me87kk8j7da3iafs327.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yatayat.vehiclebooking.nepal",
+            "certificate_hash": "14288169478730dd63b0ef9ad5b020ec35ca83cf"
+          }
+        },
+        {
+          "client_id": "465249750732-6pvblbnsonph1mic397ue4p9lpn544bt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCk-Fx9PgWfQbz8-gleyczQysz44Y9n7kI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "465249750732-6pvblbnsonph1mic397ue4p9lpn544bt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

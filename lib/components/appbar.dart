@@ -7,12 +7,14 @@ class YatayatAppbar extends StatelessWidget implements PreferredSizeWidget {
   final Widget title;
   final IconData? actionIcon;
   final IconButton? leadingIcon;
+  final VoidCallback? onActionClick;
 
   YatayatAppbar(
       {required this.height,
       required this.title,
       this.actionIcon,
-      this.leadingIcon});
+      this.leadingIcon,
+      this.onActionClick});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class YatayatAppbar extends StatelessWidget implements PreferredSizeWidget {
       title: title,
       actions: [
         IconButton(
-            onPressed: () => null,
+            onPressed: onActionClick,
             icon: Icon(
               actionIcon,
               size: 25,

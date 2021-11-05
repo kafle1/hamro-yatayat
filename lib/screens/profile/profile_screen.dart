@@ -1,11 +1,21 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:yatayat/components/appbar.dart';
 import 'package:yatayat/components/button.dart';
 import 'package:yatayat/components/input_field.dart';
+import 'package:yatayat/screens/auth/signin_screen.dart';
 import 'package:yatayat/shared/constants.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   static const String id = 'profileScreen';
+
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  //Initialize firebase auth
+  final _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +27,10 @@ class ProfileScreen extends StatelessWidget {
           style: kAppbarTitleStyle,
         ),
         actionIcon: Icons.logout_rounded,
+        onActionClick: () async {
+          await _auth.signOut();
+          Navigator.popAndPushNamed(context, SigninScreen.id);
+        },
       ),
       body: SingleChildScrollView(
         child: Column(

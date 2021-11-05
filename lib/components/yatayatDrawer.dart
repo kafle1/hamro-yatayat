@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:yatayat/components/drawer_list.dart';
+import 'package:yatayat/screens/auth/signin_screen.dart';
 import 'package:yatayat/screens/booking/myBookings/my_bookings_screen.dart';
 import 'package:yatayat/screens/profile/profile_screen.dart';
 
@@ -9,6 +11,8 @@ class YatayatDrawer extends StatefulWidget {
 }
 
 class _YatayatDrawerState extends State<YatayatDrawer> {
+  //Initialize firebase auth
+  final _auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -57,7 +61,10 @@ class _YatayatDrawerState extends State<YatayatDrawer> {
           DrawerListBuilder(
             icon: Icons.logout_outlined,
             title: 'Logout',
-            onClick: () => selectedItem(context, 5),
+            onClick: () async {
+              await _auth.signOut();
+              Navigator.popAndPushNamed(context, SigninScreen.id);
+            },
           ),
         ],
       ),
