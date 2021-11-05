@@ -6,11 +6,17 @@ class InputField extends StatelessWidget {
   final String placeholder;
   final void Function(String) onChange;
   final String otherDetails;
+  final String? value;
+  final int? maxLength;
+  final bool? enabled;
 
   InputField(
       {required this.label,
       required this.placeholder,
       required this.onChange,
+      this.value,
+      this.maxLength,
+      this.enabled,
       this.otherDetails = ''});
 
   @override
@@ -35,8 +41,12 @@ class InputField extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          TextField(
+          TextFormField(
+              enabled: enabled,
+              initialValue: value,
+              maxLength: maxLength,
               onChanged: onChange,
+              style: TextStyle(fontSize: 13),
               decoration:
                   kInputFieldDecoration.copyWith(hintText: placeholder)),
         ],

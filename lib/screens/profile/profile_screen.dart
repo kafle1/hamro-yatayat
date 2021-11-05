@@ -17,8 +17,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
   //Initialize firebase auth
   final _auth = FirebaseAuth.instance;
 
+  //UserDetails
+  String? name;
+  String? photoUrl;
+
   @override
   Widget build(BuildContext context) {
+    //Get details of current user
+    final currentUser = _auth.currentUser;
+    print(currentUser!.displayName);
+
+    //Set avatar to user photo
+    if (currentUser.photoURL != null) {
+      photoUrl = currentUser.photoURL;
+    }
+
     return Scaffold(
       appBar: YatayatAppbar(
         height: 60,
@@ -48,7 +61,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         borderRadius: BorderRadius.circular(5),
                       ),
                       child: Image(
-                        image: AssetImage('assets/images/logo.png'),
+                        image: AssetImage(photoUrl ?? 'assets/images/logo.png'),
                       ),
                       height: 65,
                       width: 65,
@@ -61,14 +74,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'NIRAJ KAFLE',
+                          (currentUser.displayName == ''
+                                  ? 'Yatayat User'
+                                  : currentUser.displayName)!
+                              .toUpperCase(),
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w600,
                               fontSize: 20),
                         ),
                         Text(
-                          'kafleniraj@gmail.com',
+                          currentUser.email ?? 'newuser@yatayat.com',
                           style: TextStyle(color: Colors.white, fontSize: 15),
                         )
                       ],
@@ -89,18 +105,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   InputField(
                       label: 'Name',
                       placeholder: 'Enter your Name',
-                      onChange: (value) {}),
-                  InputField(
-                      label: 'Email',
-                      placeholder: 'Enter your Email',
-                      onChange: (value) {}),
+                      value: name ?? currentUser.displayName,
+                      onChange: (newValue) {
+                        name = newValue;
+                      }),
                   InputField(
                       label: 'Phone Number',
                       placeholder: 'Enter your Phone Number',
-                      onChange: (value) {}),
+                      value: currentUser.phoneNumber!.replaceRange(0, 4, ''),
+                      maxLength: 10,
+                      enabled: false,
+                      onChange: (neValue) {}),
                   YatayatButton(
                     label: 'Save',
-                    onClick: () {},
+                    onClick: () async {
+                      if (name != null) {
+                        await currentUser.updateDisplayName(name!);
+                        Navigator.pop(context);
+                      }
+                    },
                   )
                 ],
               ),

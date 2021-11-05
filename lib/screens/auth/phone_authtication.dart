@@ -12,6 +12,7 @@ enum MobileVerificationState {
 
 class PhoneAuthentication extends StatefulWidget {
   static const String id = 'phoneAuth';
+
   @override
   _PhoneAuthenticationState createState() => _PhoneAuthenticationState();
 }
@@ -92,11 +93,11 @@ class _PhoneAuthenticationState extends State<PhoneAuthentication> {
                 height: 300,
               ),
               Text(
-                'OTP Verification',
+                'Phone Authentication',
                 style: kComponentTitleStyle.copyWith(fontSize: 25),
               ),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
               Text(
                 'We will send you an One Time Password on this mobile number',
@@ -108,7 +109,7 @@ class _PhoneAuthenticationState extends State<PhoneAuthentication> {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
               Container(
                 margin: EdgeInsets.symmetric(vertical: 10),
@@ -185,9 +186,6 @@ class _PhoneAuthenticationState extends State<PhoneAuthentication> {
               Image(
                 image: AssetImage('assets/images/otp.png'),
                 height: 300,
-              ),
-              SizedBox(
-                height: 10,
               ),
               Text(
                 'OTP Verification',
