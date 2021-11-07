@@ -112,8 +112,7 @@ class _SigninScreenState extends State<SigninScreen> {
                         final userDetails =
                             await MyAuthentication().signInWithGoogle();
 
-                        await Database().addNewUser(
-                          uid: userDetails.user!.uid,
+                        await Database(uid: userDetails.user!.uid).addNewUser(
                           name: userDetails.user!.displayName,
                           email: userDetails.user!.email,
                           phoneNumber: userDetails.user!.phoneNumber,

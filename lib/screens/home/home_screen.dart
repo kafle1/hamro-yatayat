@@ -100,9 +100,10 @@ class HomePage extends StatelessWidget {
                   fit: BoxFit.cover,
                 )
               ],
-              dotSize: 6,
+              dotSize: 5,
               dotSpacing: 15,
               indicatorBgPadding: 5,
+              dotColor: Colors.white60,
               dotBgColor: Colors.transparent,
             ),
           ),
@@ -125,7 +126,8 @@ class HomePage extends StatelessWidget {
                     VehicleCard(
                       iconPath: 'assets/images/icons/Bus.png',
                       onClick: () => {
-                        Navigator.pushNamed(context, CreateBookingScreen.id)
+                        Navigator.pushNamed(context, CreateBookingScreen.id,
+                            arguments: 'Bus')
                       },
                       lable: 'Bus',
                       booking: false,
@@ -133,7 +135,8 @@ class HomePage extends StatelessWidget {
                     VehicleCard(
                       iconPath: 'assets/images/icons/Car.png',
                       onClick: () => {
-                        Navigator.pushNamed(context, CreateBookingScreen.id)
+                        Navigator.pushNamed(context, CreateBookingScreen.id,
+                            arguments: "Car")
                       },
                       lable: 'Car',
                       booking: false,
@@ -141,7 +144,8 @@ class HomePage extends StatelessWidget {
                     VehicleCard(
                       iconPath: 'assets/images/icons/Taxi.png',
                       onClick: () => {
-                        Navigator.pushNamed(context, CreateBookingScreen.id)
+                        Navigator.pushNamed(context, CreateBookingScreen.id,
+                            arguments: "Taxi")
                       },
                       lable: 'Taxi',
                       booking: false,
@@ -149,7 +153,8 @@ class HomePage extends StatelessWidget {
                     VehicleCard(
                       iconPath: 'assets/images/icons/Other.png',
                       onClick: () => {
-                        Navigator.pushNamed(context, CreateBookingScreen.id)
+                        Navigator.pushNamed(context, CreateBookingScreen.id,
+                            arguments: '')
                       },
                       lable: 'Other',
                       booking: false,

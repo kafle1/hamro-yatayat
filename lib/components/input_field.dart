@@ -9,6 +9,8 @@ class InputField extends StatelessWidget {
   final String? value;
   final int? maxLength;
   final bool? enabled;
+  final TextInputType? keyboard;
+  final String? Function(String?)? validation;
 
   InputField(
       {required this.label,
@@ -17,6 +19,8 @@ class InputField extends StatelessWidget {
       this.value,
       this.maxLength,
       this.enabled,
+      this.validation,
+      this.keyboard,
       this.otherDetails = ''});
 
   @override
@@ -42,11 +46,13 @@ class InputField extends StatelessWidget {
             height: 10,
           ),
           TextFormField(
+              validator: validation,
               enabled: enabled,
               initialValue: value,
               maxLength: maxLength,
               onChanged: onChange,
               style: TextStyle(fontSize: 13),
+              keyboardType: keyboard,
               decoration:
                   kInputFieldDecoration.copyWith(hintText: placeholder)),
         ],
