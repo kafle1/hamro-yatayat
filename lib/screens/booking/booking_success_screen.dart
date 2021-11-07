@@ -13,6 +13,7 @@ class BookingSuccess extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Spacer(),
             Image(
               image: AssetImage('assets/images/book_confirm.png'),
               height: 300,
@@ -35,9 +36,7 @@ class BookingSuccess extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(
-              height: 25,
-            ),
+            Spacer(),
             YatayatButton(
                 label: 'Back to Home',
                 onClick: () {

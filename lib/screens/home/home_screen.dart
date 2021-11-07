@@ -1,4 +1,5 @@
 import 'package:carousel_pro_nullsafety/carousel_pro_nullsafety.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:yatayat/components/appbar.dart';
@@ -7,6 +8,7 @@ import 'package:yatayat/components/vehicle_card.dart';
 import 'package:yatayat/components/yatayatDrawer.dart';
 import 'package:yatayat/components/yatayat_bottom_navigation.dart';
 import 'package:yatayat/screens/auth/signin_screen.dart';
+import 'package:yatayat/screens/booking/bookingDetails/booking_details_screen.dart';
 import 'package:yatayat/shared/constants.dart';
 import 'package:yatayat/screens/booking/createBooking/create_booking_screen.dart';
 import 'package:flutter/services.dart';
@@ -71,9 +73,28 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 //HomePage
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  //Initialize firebase auth
+  final _auth = FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
+    //Get details of current user
+    final currentUser = _auth.currentUser;
+
+    //Getting stream of bookings from firebase
+    final Stream<QuerySnapshot> _bookingStream = FirebaseFirestore.instance
+        .collection('users')
+        .doc(currentUser!.uid)
+        .collection('bookings')
+        .limit(4)
+        .snapshots();
+
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -167,7 +188,7 @@ class HomePage extends StatelessWidget {
           Container(
             margin: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
                   'My Bookings',
@@ -176,27 +197,40 @@ class HomePage extends StatelessWidget {
                 SizedBox(
                   height: 15,
                 ),
-                Column(
-                  children: [
-                    MyBookingCard(
-                      vehicleType: 'Bus',
-                      date: '20th Nov, 2021',
-                      status: 'Pending',
-                    ),
-                    MyBookingCard(
-                        vehicleType: 'Car',
-                        date: '20th Nov, 2021',
-                        status: 'Completed'),
-                    MyBookingCard(
-                        vehicleType: 'Taxi',
-                        date: '20th Nov, 2021',
-                        status: 'Completed'),
-                    MyBookingCard(
-                        vehicleType: 'Taxi',
-                        date: '20th Nov, 2021',
-                        status: 'Completed'),
-                  ],
-                )
+                StreamBuilder<QuerySnapshot>(
+                  stream: _bookingStream,
+                  builder: (BuildContext context,
+                      AsyncSnapshot<QuerySnapshot> snapshot) {
+                    if (snapshot.hasError) {
+                      return Text('Something went wrong');
+                    }
+
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Text("Loading");
+                    }
+                    if (snapshot.hasData) {
+                      return Column(
+                        children: snapshot.data!.docs
+                            .map((DocumentSnapshot document) {
+                          Map<String, dynamic> data =
+                              document.data()! as Map<String, dynamic>;
+                          return MyBookingCard(
+                            vehicleType: data['vehicleType'] ?? '',
+                            date: data['bookingDate'] ?? '',
+                            status: data['status'] ?? '',
+                            onClick: () {
+                              Navigator.pushNamed(
+                                  context, BookingDetailsScreen.id,
+                                  arguments: data);
+                            },
+                          );
+                        }).toList(),
+                      );
+                    } else {
+                      return Text("No data");
+                    }
+                  },
+                ),
               ],
             ),
           ),
