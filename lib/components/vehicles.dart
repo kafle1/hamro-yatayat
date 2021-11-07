@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:yatayat/components/appbar.dart';
 import 'package:yatayat/shared/constants.dart';
 
 class Vehicles extends StatefulWidget {

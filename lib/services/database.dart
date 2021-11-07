@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:intl/intl.dart';
 
 class Database {
   String uid;
@@ -40,7 +41,6 @@ class Database {
       String? email,
       bool? emergencyBooking}) async {
     try {
-      print(uid);
       final newBooking =
           await usersCollection.doc(uid).collection('bookings').add({
         'name': name,
@@ -52,7 +52,10 @@ class Database {
         'noOfTrips': noOfTrips,
         'phoneNumber': phoneNumber,
         'email': email,
-        'isEmergency': emergencyBooking
+        'isEmergency': emergencyBooking,
+        'status': 'Pending',
+        'bookingDate':
+            DateFormat('yyyy-MM-dd  kk:mm').format(DateTime.now()).toString()
       });
       return newBooking;
     } catch (e) {

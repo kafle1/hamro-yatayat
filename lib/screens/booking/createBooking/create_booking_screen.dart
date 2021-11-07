@@ -31,7 +31,7 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
   String? name;
   String? pickupLocation;
   String? destination;
-  String? vehicleType;
+  dynamic vehicleType;
   String? phoneNumber = '';
   String? days;
   String? email;
@@ -112,7 +112,7 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                             MaterialButton(
                               onPressed: () async {
                                 dynamic newValue = await Navigator.pushNamed(
-                                    context, Vehicles.id) as String;
+                                    context, Vehicles.id);
 
                                 if (newValue != null) {
                                   setState(() {
@@ -167,7 +167,11 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                                 }
                               },
                               height: 50,
-                              child: Text('Enter your pickup date'),
+                              child: Text(_date != null
+                                  ? _date
+                                      .toString()
+                                      .replaceAll('00:00:00.000', '')
+                                  : 'Enter your pickup date'),
                               color: kThemeColor,
                               textColor: Colors.white,
                               minWidth: double.infinity,
@@ -309,6 +313,10 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                                   ShowSnackBar().error(
                                       'Phone number must be of 10 digits',
                                       context);
+                                } else if (vehicleType.toString() == '') {
+                                  ShowSnackBar().error(
+                                      'Select a vehicle you want to book',
+                                      context);
                                 } else {
                                   //Save in the db
 
@@ -317,7 +325,8 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                                         await Database(uid: currentUser.uid)
                                             .createNewBooking(
                                                 name: name,
-                                                vehicleType: vehicleType,
+                                                vehicleType:
+                                                    vehicleType.toString(),
                                                 pickupLocation: pickupLocation,
                                                 pickupDate: _date
                                                     .toString()
