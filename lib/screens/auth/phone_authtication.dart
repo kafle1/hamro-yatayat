@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:yatayat/components/button.dart';
+import 'package:yatayat/components/snackbar.dart';
 import 'package:yatayat/screens/home/home_screen.dart';
 import 'package:yatayat/services/database.dart';
 import 'package:yatayat/shared/constants.dart';
@@ -47,27 +48,13 @@ class _PhoneAuthenticationState extends State<PhoneAuthentication> {
   final _phoneController = TextEditingController();
   final _otpController = TextEditingController();
 
-  //Snackbar
-  dynamic showSnackBar(String? text) {
-    return ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        backgroundColor: Color(0xffe74c3c),
-        content: Text(
-          '$text',
-          style: TextStyle(color: Colors.white),
-        ),
-      ),
-    );
-  }
-
   //Signin user with phone
   void signIn(PhoneAuthCredential phoneAuthCredential) async {
     startLoading();
     try {
       //Authenticate user
       final userDetails = await _auth.signInWithCredential(phoneAuthCredential);
-      await Database().addNewUser(
-        uid: userDetails.user!.uid,
+      await Database(uid: userDetails.user!.uid).addNewUser(
         name: userDetails.user!.displayName,
         email: userDetails.user!.email,
         phoneNumber: userDetails.user!.phoneNumber,
@@ -80,7 +67,8 @@ class _PhoneAuthenticationState extends State<PhoneAuthentication> {
       stopLoading();
 
       //show snackbar
-      showSnackBar(e.message);
+
+      ShowSnackBar().error(e.message, context);
     }
   }
 
@@ -169,7 +157,7 @@ class _PhoneAuthenticationState extends State<PhoneAuthentication> {
                         verificationFailed: (e) {
                           stopLoading();
                           //Show snack bar
-                          showSnackBar(e.message);
+                          ShowSnackBar().error(e.message, context);
                         },
                         codeAutoRetrievalTimeout: (verificationId) async {});
                   }),
@@ -201,7 +189,7 @@ class _PhoneAuthenticationState extends State<PhoneAuthentication> {
                 height: 10,
               ),
               Text(
-                'Enter the otp sent to : +9779861212121',
+                'Enter the otp sent to : +977${_phoneController.text}',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: kThemeColor,

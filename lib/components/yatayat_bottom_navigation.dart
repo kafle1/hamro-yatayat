@@ -63,7 +63,8 @@ class _YatayatBottomNavigationState extends State<YatayatBottomNavigation> {
                     onPressed: () {
                       setState(() {
                         _selectedIndex = 3;
-                        Navigator.pushNamed(context, CreateBookingScreen.id);
+                        Navigator.pushNamed(context, CreateBookingScreen.id,
+                            arguments: '');
                       });
                     })
               ],
