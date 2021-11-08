@@ -23,7 +23,7 @@ class _YatayatDrawerState extends State<YatayatDrawer> {
               image: _auth.currentUser!.photoURL ??
                   'https://i.ibb.co/4W0rPzP/logo.png',
               name: _auth.currentUser!.displayName ?? 'New User',
-              email: _auth.currentUser!.email ?? 'newUser@yatayat.com',
+              email: _auth.currentUser!.email ?? 'newuser@yatayat.com',
               onClick: () =>
                   {Navigator.popAndPushNamed(context, ProfileScreen.id)}),
           SizedBox(

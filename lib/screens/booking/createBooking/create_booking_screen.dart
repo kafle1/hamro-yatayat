@@ -52,7 +52,7 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
           name = currentUser.displayName ?? '';
         });
       }
-      if (phoneNumber == null) {
+      if (phoneNumber == '') {
         setState(() {
           phoneNumber = currentUser.phoneNumber!.replaceAll('+977', '');
         });
@@ -205,7 +205,7 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                               });
                             }),
                         Text(
-                          'Number of Trips',
+                          'Number of Trips :',
                           style: kFormLabelStyle,
                         ),
                         Row(
