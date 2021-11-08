@@ -42,7 +42,7 @@ Widget buildHeader({
               width: 50,
               decoration: BoxDecoration(borderRadius: BorderRadius.circular(5)),
               child: Image(
-                image: AssetImage(image),
+                image: NetworkImage(image),
               ),
             ),
             SizedBox(

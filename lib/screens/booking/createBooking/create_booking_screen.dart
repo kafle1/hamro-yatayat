@@ -46,22 +46,25 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
     final currentUser = _auth.currentUser;
 
     //Set values of predefined values
-    if (currentUser!.displayName != null) {
-      setState(() {
-        name = currentUser.displayName;
-      });
-    }
-    if (currentUser.phoneNumber != null) {
-      setState(() {
-        phoneNumber = currentUser.phoneNumber!.replaceAll('+977', '');
-      });
+    if (currentUser != null) {
+      if (name == null) {
+        setState(() {
+          name = currentUser.displayName ?? '';
+        });
+      }
+      if (phoneNumber == null) {
+        setState(() {
+          phoneNumber = currentUser.phoneNumber!.replaceAll('+977', '');
+        });
+      }
+
+      if (email == null) {
+        setState(() {
+          email = currentUser.email;
+        });
+      }
     }
 
-    if (currentUser.email != null) {
-      setState(() {
-        email = currentUser.email;
-      });
-    }
     //Get value from home screen  and set vehicle type accordingly
     if (vehicleType == null) {
       final vehicle = ModalRoute.of(context)!.settings.arguments as String;
@@ -302,6 +305,7 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                         YatayatButton(
                             label: 'Confirm Booking',
                             onClick: () async {
+                              print(phoneNumber);
                               if (_formKey.currentState!.validate()) {
                                 if (tripSelected == '') {
                                   ShowSnackBar()
@@ -321,26 +325,21 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                                   //Save in the db
 
                                   try {
-                                    final newUser =
-                                        await Database(uid: currentUser.uid)
-                                            .createNewBooking(
-                                                name: name,
-                                                vehicleType:
-                                                    vehicleType.toString(),
-                                                pickupLocation: pickupLocation,
-                                                pickupDate: _date
-                                                    .toString()
-                                                    .replaceAll(
-                                                        '00:00:00.000', ''),
-                                                destinationLocation:
-                                                    destination,
-                                                noOfDays: days,
-                                                noOfTrips: tripSelected,
-                                                phoneNumber: phoneNumber,
-                                                email: email,
-                                                emergencyBooking:
-                                                    isEmergencyBooking);
-                                    // print(newUser);
+                                    await Database(uid: currentUser!.uid)
+                                        .createNewBooking(
+                                            name: name,
+                                            vehicleType: vehicleType.toString(),
+                                            pickupLocation: pickupLocation,
+                                            pickupDate: _date
+                                                .toString()
+                                                .replaceAll('00:00:00.000', ''),
+                                            destinationLocation: destination,
+                                            noOfDays: days,
+                                            noOfTrips: tripSelected,
+                                            phoneNumber: phoneNumber,
+                                            email: email,
+                                            emergencyBooking:
+                                                isEmergencyBooking);
                                     ShowSnackBar().success(
                                         'New  Booking Created Successfully!',
                                         context);

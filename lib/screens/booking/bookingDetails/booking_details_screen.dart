@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:yatayat/components/appbar.dart';
 import 'package:yatayat/components/button.dart';
+import 'package:yatayat/models/createBookingPdf.dart';
 import 'package:yatayat/shared/constants.dart';
 
 class BookingDetailsScreen extends StatefulWidget {
@@ -15,6 +16,8 @@ class BookingDetailsScreen extends StatefulWidget {
 class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
   //Initialize firebase auth
   final _auth = FirebaseAuth.instance;
+
+  late Map<String, dynamic> data;
 
   @override
   Widget build(BuildContext context) {
@@ -57,8 +60,7 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                     }
 
                     if (snapshot.connectionState == ConnectionState.done) {
-                      Map<String, dynamic> data =
-                          snapshot.data!.data() as Map<String, dynamic>;
+                      data = snapshot.data!.data() as Map<String, dynamic>;
                       return Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
@@ -70,7 +72,7 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                                 style: kDetailsLableStyle,
                               ),
                               Text(
-                                'Order ID :',
+                                'Booking ID :',
                                 style: kDetailsLableStyle,
                               ),
                               Text(
@@ -114,6 +116,10 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                                 style: kDetailsLableStyle,
                               ),
                               Text(
+                                'Booking Date :',
+                                style: kDetailsLableStyle,
+                              ),
+                              Text(
                                 'Status :',
                                 style: kDetailsLableStyle,
                               ),
@@ -136,6 +142,10 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                                 'Total Amount :',
                                 style: kDetailsLableStyle,
                               ),
+                              Text(
+                                'Payment Status :',
+                                style: kDetailsLableStyle,
+                              ),
                             ],
                           ),
                           Column(
@@ -146,7 +156,7 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                                 style: kDetailsValueStyle,
                               ),
                               Text(
-                                '#${data['orderId']}',
+                                '#${data['bookingId']}',
                                 style: kDetailsValueStyle,
                               ),
                               Text(
@@ -190,6 +200,10 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                                 style: kDetailsValueStyle,
                               ),
                               Text(
+                                data['bookingDate'],
+                                style: kDetailsValueStyle,
+                              ),
+                              Text(
                                 data['status'],
                                 style: kDetailsValueStyle,
                               ),
@@ -212,6 +226,10 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                                 data['amount'] ?? '---',
                                 style: kDetailsValueStyle,
                               ),
+                              Text(
+                                data['paymentStatus'] ?? '---',
+                                style: kDetailsValueStyle,
+                              ),
                             ],
                           ),
                         ],
@@ -221,7 +239,11 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                     return Text("Loading...");
                   },
                 ),
-                YatayatButton(label: 'Download Details as PDF', onClick: () {})
+                YatayatButton(
+                    label: 'Download Details as PDF',
+                    onClick: () async {
+                      createPdf(data);
+                    })
               ],
             ),
           ),

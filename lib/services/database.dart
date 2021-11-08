@@ -59,7 +59,8 @@ class Database {
         'email': email,
         'isEmergency': emergencyBooking,
         'status': 'Pending',
-        'orderId': random.nextInt(1000000),
+        'bookingId': random.nextInt(1000000),
+        'paymentStatus': 'Pending',
         'bookingDate':
             DateFormat('yyyy-MM-dd  kk:mm').format(DateTime.now()).toString()
       });
