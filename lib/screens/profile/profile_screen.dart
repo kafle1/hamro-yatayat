@@ -41,6 +41,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               actionIcon: Icons.logout_rounded,
               onActionClick: () async {
                 await _auth.signOut();
+                Navigator.pop(context);
                 Navigator.popAndPushNamed(context, SigninScreen.id);
               },
             ),
@@ -61,7 +62,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                             child: Image(
                               image: NetworkImage(currentUser!.photoURL ??
-                                  'assets/images/logo.png'),
+                                  'https://i.ibb.co/4W0rPzP/logo.png'),
                             ),
                             height: 65,
                             width: 65,
