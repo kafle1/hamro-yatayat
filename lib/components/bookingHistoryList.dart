@@ -24,6 +24,7 @@ class _BookingHistoryListState extends State<BookingHistoryList> {
         .collection('users')
         .doc(currentUser!.uid)
         .collection('bookings')
+        .orderBy('bookingDate', descending: true)
         .snapshots();
 
     return StreamBuilder<QuerySnapshot>(
@@ -47,7 +48,7 @@ class _BookingHistoryListState extends State<BookingHistoryList> {
                 status: data['status'] ?? '',
                 onClick: () {
                   Navigator.pushNamed(context, BookingDetailsScreen.id,
-                      arguments: data);
+                      arguments: document.id);
                 },
               );
             }).toList(),

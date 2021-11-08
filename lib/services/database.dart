@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
+import 'dart:math';
 
 class Database {
   String uid;
@@ -41,6 +42,10 @@ class Database {
       String? email,
       bool? emergencyBooking}) async {
     try {
+      //Create a random order id
+      Random random = new Random();
+
+      //Save the details to firestore database
       final newBooking =
           await usersCollection.doc(uid).collection('bookings').add({
         'name': name,
@@ -54,6 +59,7 @@ class Database {
         'email': email,
         'isEmergency': emergencyBooking,
         'status': 'Pending',
+        'orderId': random.nextInt(1000000),
         'bookingDate':
             DateFormat('yyyy-MM-dd  kk:mm').format(DateTime.now()).toString()
       });

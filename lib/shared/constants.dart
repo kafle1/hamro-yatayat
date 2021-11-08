@@ -30,3 +30,8 @@ const kInputFieldDecoration = InputDecoration(
     borderRadius: BorderRadius.all(Radius.circular(5)),
   ),
 );
+
+const kDetailsLableStyle =
+    TextStyle(fontSize: 15, color: kThemeColor, fontWeight: FontWeight.w600);
+
+const kDetailsValueStyle = TextStyle(fontSize: 15, fontWeight: FontWeight.w600);

@@ -92,6 +92,7 @@ class _HomePageState extends State<HomePage> {
         .collection('users')
         .doc(currentUser!.uid)
         .collection('bookings')
+        .orderBy('bookingDate', descending: true)
         .limit(4)
         .snapshots();
 
@@ -221,7 +222,7 @@ class _HomePageState extends State<HomePage> {
                             onClick: () {
                               Navigator.pushNamed(
                                   context, BookingDetailsScreen.id,
-                                  arguments: data);
+                                  arguments: document.id);
                             },
                           );
                         }).toList(),
