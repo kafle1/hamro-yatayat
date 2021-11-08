@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yatayat/components/appbar.dart';
 import 'package:yatayat/components/bookingHistoryList.dart';
-import 'package:yatayat/components/my_booking_card.dart';
 import 'package:yatayat/components/yatayatDrawer.dart';
 import 'package:yatayat/components/yatayat_bottom_navigation.dart';
 import 'package:yatayat/shared/constants.dart';

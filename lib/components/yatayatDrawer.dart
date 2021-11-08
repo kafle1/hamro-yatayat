@@ -20,9 +20,10 @@ class _YatayatDrawerState extends State<YatayatDrawer> {
         physics: NeverScrollableScrollPhysics(),
         children: [
           buildHeader(
-              image: 'assets/images/avatar.png',
-              name: 'Niraj Kafle',
-              email: 'kafleniraj@gmail.com',
+              image: _auth.currentUser!.photoURL ??
+                  'https://i.ibb.co/4W0rPzP/logo.png',
+              name: _auth.currentUser!.displayName ?? 'New User',
+              email: _auth.currentUser!.email ?? 'newUser@yatayat.com',
               onClick: () =>
                   {Navigator.popAndPushNamed(context, ProfileScreen.id)}),
           SizedBox(
@@ -34,29 +35,24 @@ class _YatayatDrawerState extends State<YatayatDrawer> {
             onClick: () => selectedItem(context, 0),
           ),
           DrawerListBuilder(
-            icon: Icons.history_rounded,
-            title: 'My Boookings',
-            onClick: () => selectedItem(context, 1),
-          ),
-          DrawerListBuilder(
             icon: Icons.help_outline_rounded,
             title: 'FAQs',
-            onClick: () => selectedItem(context, 2),
+            onClick: () => selectedItem(context, 0),
           ),
           DrawerListBuilder(
             icon: Icons.description_outlined,
             title: 'Terms and Conditions',
-            onClick: () => selectedItem(context, 3),
+            onClick: () => selectedItem(context, 0),
           ),
           DrawerListBuilder(
             icon: Icons.person_outline_rounded,
             title: 'Contact Us',
-            onClick: () => selectedItem(context, 4),
+            onClick: () => selectedItem(context, 0),
           ),
           DrawerListBuilder(
             icon: Icons.share_outlined,
             title: 'Share App',
-            onClick: () => selectedItem(context, 5),
+            onClick: () => selectedItem(context, 0),
           ),
           DrawerListBuilder(
             icon: Icons.logout_outlined,

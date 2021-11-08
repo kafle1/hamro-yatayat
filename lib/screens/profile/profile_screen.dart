@@ -60,7 +60,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               borderRadius: BorderRadius.circular(5),
                             ),
                             child: Image(
-                              image: AssetImage('assets/images/logo.png'),
+                              image: NetworkImage(currentUser!.photoURL ??
+                                  'assets/images/logo.png'),
                             ),
                             height: 65,
                             width: 65,
@@ -73,7 +74,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                currentUser!.displayName ?? 'New User',
+                                currentUser.displayName ?? 'New User',
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.w600,
