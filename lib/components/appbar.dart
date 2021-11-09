@@ -25,11 +25,12 @@ class YatayatAppbar extends StatelessWidget implements PreferredSizeWidget {
       title: title,
       actions: [
         IconButton(
-            onPressed: onActionClick,
-            icon: Icon(
-              actionIcon,
-              size: 25,
-            )),
+          onPressed: onActionClick,
+          icon: Icon(
+            actionIcon,
+            size: 25,
+          ),
+        ),
         IconButton(
           icon: Icon(
             Icons.person_rounded,

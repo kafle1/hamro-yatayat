@@ -1,4 +1,7 @@
+import 'package:carousel_pro_nullsafety/carousel_pro_nullsafety.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'dart:math';
 
@@ -7,8 +10,12 @@ class Database {
   Database({required this.uid});
 
   FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+  //Collection references
   CollectionReference usersCollection =
       FirebaseFirestore.instance.collection('users');
+  final Stream<QuerySnapshot> _imagesStream =
+      FirebaseFirestore.instance.collection('images').snapshots();
 
   int match = 0;
 //Add new user to database
@@ -16,21 +23,45 @@ class Database {
       {String? name, String? email, String? phoneNumber}) async {
     try {
       if (phoneNumber == null) {
+        //create new user
         final user =
             await usersCollection.doc(uid).set({'name': name, 'email': email});
+        //create new notification for the new user
+        await usersCollection
+            .doc(uid)
+            .collection('notifications')
+            .doc(uid)
+            .set({
+          'title': 'Welcome to Yatayat !',
+          'body':
+              'Yatayat is a company established to provide rental service for all kinds of vehicles to its customers with best service possible. You can go to Create Booking page to create a new booking. To contact or learn more about us check out our facebook page @yatayatnep or mail us to yatayatnep@gmail.com. Thank you for downloading Yatayat. ',
+          'timestamp':
+              DateFormat('yyyy-MM-dd  kk:mm').format(DateTime.now()).toString()
+        });
         return user;
       } else {
         final user =
             await usersCollection.doc(uid).set({'phoneNumber': phoneNumber});
+        await usersCollection
+            .doc(uid)
+            .collection('notifications')
+            .doc(uid)
+            .set({
+          'title': 'Welcome to Yatayat !',
+          'body':
+              'Yatayat is a company established to provide rental service for all kinds of vehicles to its customers with best service possible. You can go to Create Booking page to create a new booking. To contact or learn more about us check out our facebook page @yatayatnep or mail us to yatayatnep@gmail.com. Thank you for downloading Yatayat. ',
+          'timestamp':
+              DateFormat('yyyy-MM-dd  kk:mm').format(DateTime.now()).toString()
+        });
         return user;
       }
     } catch (e) {
-      return e;
+      throw e;
     }
   }
 
   //Create a new booking
-  Future<dynamic> createNewBooking(
+  Future<DocumentReference> createNewBooking(
       {String? name,
       String? vehicleType,
       String? pickupLocation,
@@ -68,5 +99,70 @@ class Database {
     } catch (e) {
       throw e;
     }
+  }
+
+  //Create new notification
+  Future<DocumentReference> createNotification(
+      {required String title, required String body}) async {
+    try {
+      final newNotification =
+          await usersCollection.doc(uid).collection('notifications').add({
+        'title': title,
+        'body': body,
+        'timestamp':
+            DateFormat('yyyy-MM-dd  kk:mm').format(DateTime.now()).toString()
+      });
+      return newNotification;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  //Delete Notifications
+  Future<void> deleteNotification() async {
+    try {
+      return await usersCollection
+          .doc(uid)
+          .collection('notifications')
+          .get()
+          .then((snapshot) => {
+                for (DocumentSnapshot ds in snapshot.docs)
+                  {ds.reference.delete()}
+              });
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  //Image Crousel
+  StreamBuilder<QuerySnapshot<Object?>> createCrousel() {
+    return StreamBuilder<QuerySnapshot>(
+      stream: _imagesStream,
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return Text('Something went wrong');
+        }
+
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Text("");
+        }
+
+        return Carousel(
+          images: snapshot.data!.docs.map((DocumentSnapshot document) {
+            Map<String, dynamic> data =
+                document.data()! as Map<String, dynamic>;
+            return Image.network(
+              data['url'],
+              fit: BoxFit.cover,
+            );
+          }).toList(),
+          dotSize: 5,
+          dotSpacing: 15,
+          indicatorBgPadding: 5,
+          dotColor: Colors.white60,
+          dotBgColor: Colors.transparent,
+        );
+      },
+    );
   }
 }

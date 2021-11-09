@@ -9,6 +9,7 @@ import 'package:yatayat/components/yatayatDrawer.dart';
 import 'package:yatayat/components/yatayat_bottom_navigation.dart';
 import 'package:yatayat/screens/auth/signin_screen.dart';
 import 'package:yatayat/screens/booking/bookingDetails/booking_details_screen.dart';
+import 'package:yatayat/services/database.dart';
 import 'package:yatayat/shared/constants.dart';
 import 'package:yatayat/screens/booking/createBooking/create_booking_screen.dart';
 import 'package:flutter/services.dart';
@@ -79,6 +80,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   //Initialize firebase auth
   final _auth = FirebaseAuth.instance;
 
@@ -104,30 +110,10 @@ class _HomePageState extends State<HomePage> {
             height: 160,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
-              color: Colors.grey,
+              color: Colors.white,
               boxShadow: [kBoxShadow],
             ),
-            child: Carousel(
-              images: [
-                Image.asset(
-                  'assets/images/avatar.png',
-                  fit: BoxFit.cover,
-                ),
-                Image.asset(
-                  'assets/images/avatar.png',
-                  fit: BoxFit.cover,
-                ),
-                Image.asset(
-                  'assets/images/avatar.png',
-                  fit: BoxFit.cover,
-                )
-              ],
-              dotSize: 5,
-              dotSpacing: 15,
-              indicatorBgPadding: 5,
-              dotColor: Colors.white60,
-              dotBgColor: Colors.transparent,
-            ),
+            child: Database(uid: currentUser.uid).createCrousel(),
           ),
           Container(
             margin: EdgeInsets.symmetric(

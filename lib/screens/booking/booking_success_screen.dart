@@ -30,7 +30,7 @@ class BookingSuccess extends StatelessWidget {
               height: 10,
             ),
             Text(
-              'We will be updating you with your booking from Email and Phone Message',
+              'We will be updating you with your booking from Phone Call or Phone Message. To get more information about your booking go to \'Notifications\' or  \'My Bookings\' Screen.',
               style: TextStyle(
                 fontSize: 15,
               ),
@@ -40,6 +40,7 @@ class BookingSuccess extends StatelessWidget {
             YatayatButton(
                 label: 'Back to Home',
                 onClick: () {
+                  Navigator.pop(context);
                   Navigator.popAndPushNamed(context, HomeScreen.id);
                 })
           ],

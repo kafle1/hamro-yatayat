@@ -1,8 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:yatayat/components/appbar.dart';
-import 'package:yatayat/components/notification_card.dart';
+import 'package:yatayat/components/notificationList.dart';
 import 'package:yatayat/components/yatayatDrawer.dart';
 import 'package:yatayat/components/yatayat_bottom_navigation.dart';
+import 'package:yatayat/services/database.dart';
 import 'package:yatayat/shared/constants.dart';
 
 class Notifications extends StatefulWidget {
@@ -12,6 +14,8 @@ class Notifications extends StatefulWidget {
 }
 
 class _NotificationsState extends State<Notifications> {
+  //Initialize firebase auth
+  final _auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,19 +30,13 @@ class _NotificationsState extends State<Notifications> {
           style: kAppbarTitleStyle,
         ),
         actionIcon: Icons.delete_forever_rounded,
+        onActionClick: () async {
+          await Database(uid: _auth.currentUser!.uid).deleteNotification();
+        },
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(vertical: 10),
-        child: Column(
-          children: [
-            NotificationCard(
-                body:
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut ',
-                title: 'Your booking has been confirmed !'),
-            NotificationCard(body: 'body', title: 'title')
-          ],
-        ),
-      ),
+          padding: EdgeInsets.symmetric(vertical: 10),
+          child: NotificationList()),
     );
   }
 }
