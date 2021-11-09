@@ -5,6 +5,7 @@ import 'package:yatayat/shared/constants.dart';
 class MyBookingCard extends StatelessWidget {
   final String vehicleType;
   final String date;
+  final String icon;
   final String? status;
   final void Function()? onClick;
 
@@ -12,6 +13,7 @@ class MyBookingCard extends StatelessWidget {
       {required this.vehicleType,
       required this.date,
       required this.status,
+      required this.icon,
       this.onClick});
 
   @override
@@ -67,8 +69,8 @@ class MyBookingCard extends StatelessWidget {
                       ),
                     ),
                     VehicleCard(
-                      iconPath: 'assets/images/icons/$vehicleType.png',
-                      lable: '$vehicleType',
+                      iconPath: 'assets/images/icons/$icon.png',
+                      lable: '${vehicleType}',
                       booking: true,
                     )
                   ],

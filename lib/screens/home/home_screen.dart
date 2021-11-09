@@ -203,6 +203,7 @@ class _HomePageState extends State<HomePage> {
                               document.data()! as Map<String, dynamic>;
                           return MyBookingCard(
                             vehicleType: data['vehicleType'] ?? '',
+                            icon: data['icon'] ?? '',
                             date: data['bookingDate'] ?? '',
                             status: data['status'] ?? '',
                             onClick: () {

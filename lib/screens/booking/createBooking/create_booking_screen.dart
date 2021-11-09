@@ -36,6 +36,7 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
   String? days;
   String? email;
   DateTime? _date;
+  String? icon;
 
   @override
   Widget build(BuildContext context) {
@@ -115,11 +116,12 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                             MaterialButton(
                               onPressed: () async {
                                 dynamic newValue = await Navigator.pushNamed(
-                                    context, Vehicles.id);
+                                    context, Vehicles.id) as Map;
 
                                 if (newValue != null) {
                                   setState(() {
-                                    vehicleType = newValue;
+                                    vehicleType = newValue['vehicle'];
+                                    icon = newValue['icon'];
                                   });
                                 }
                               },
@@ -201,7 +203,7 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                                 ? 'Enter number of days you want to book the vehicle for'
                                 : null,
                             placeholder:
-                                'Enter duration of booking(Eg: 4 days, 5 Hours)',
+                                'Enter no. of days you want to book the vehicle',
                             onChange: (value) {
                               setState(() {
                                 days = value;
@@ -340,6 +342,7 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                                             noOfTrips: tripSelected,
                                             phoneNumber: phoneNumber,
                                             email: email,
+                                            icon: icon,
                                             emergencyBooking:
                                                 isEmergencyBooking);
 
