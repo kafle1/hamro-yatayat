@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:yatayat/components/drawer_list.dart';
 import 'package:yatayat/screens/auth/signin_screen.dart';
 import 'package:yatayat/screens/booking/myBookings/my_bookings_screen.dart';
@@ -61,7 +62,7 @@ class _YatayatDrawerState extends State<YatayatDrawer> {
               await _auth.signOut();
               Navigator.pop(context);
               Navigator.pop(context);
-              Navigator.pushNamed(context, SigninScreen.id);
+              SystemNavigator.pop();
             },
           ),
         ],

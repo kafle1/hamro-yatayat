@@ -53,11 +53,11 @@ class _PhoneAuthenticationState extends State<PhoneAuthentication> {
     startLoading();
     try {
       //Authenticate user
-      final userDetails = await _auth.signInWithCredential(phoneAuthCredential);
-      await Database(uid: userDetails.user!.uid).addNewUser(
-        name: userDetails.user!.displayName,
-        email: userDetails.user!.email,
-        phoneNumber: userDetails.user!.phoneNumber,
+      await _auth.signInWithCredential(phoneAuthCredential);
+      await Database(uid: _auth.currentUser!.uid).addNewUser(
+        name: _auth.currentUser!.displayName,
+        email: _auth.currentUser!.email,
+        phoneNumber: _auth.currentUser!.phoneNumber,
       );
       stopLoading();
 

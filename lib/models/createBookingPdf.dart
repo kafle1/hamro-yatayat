@@ -63,7 +63,7 @@ Future<void> createPdf(Map data) async {
       PdfFontFamily.helvetica,
       13,
     ),
-    bounds: Rect.fromLTWH(350, 80, 0, 0),
+    bounds: Rect.fromLTWH(320, 80, 0, 0),
   );
   page.graphics.drawString(
     'Booking Date: ${data['bookingDate']}',
@@ -71,7 +71,7 @@ Future<void> createPdf(Map data) async {
       PdfFontFamily.helvetica,
       13,
     ),
-    bounds: Rect.fromLTWH(350, 100, 0, 0),
+    bounds: Rect.fromLTWH(320, 100, 0, 0),
   );
   page.graphics.drawString(
     'Status: ${data['status']}',
@@ -79,7 +79,7 @@ Future<void> createPdf(Map data) async {
       PdfFontFamily.helvetica,
       13,
     ),
-    bounds: Rect.fromLTWH(350, 120, 0, 0),
+    bounds: Rect.fromLTWH(320, 120, 0, 0),
   );
   page.graphics.drawString(
     'Payment Status: ${data['paymentStatus']}',
@@ -87,7 +87,7 @@ Future<void> createPdf(Map data) async {
       PdfFontFamily.helvetica,
       13,
     ),
-    bounds: Rect.fromLTWH(350, 140, 0, 0),
+    bounds: Rect.fromLTWH(320, 140, 0, 0),
   );
 
   //Other details

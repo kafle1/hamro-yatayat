@@ -52,7 +52,7 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
           name = currentUser.displayName ?? '';
         });
       }
-      if (phoneNumber == '') {
+      if (phoneNumber == '' && currentUser.phoneNumber != null) {
         setState(() {
           phoneNumber = currentUser.phoneNumber!.replaceAll('+977', '');
         });
@@ -194,6 +194,9 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                             }),
                         InputField(
                             label: 'Number of Days',
+                            otherDetails: '(Minimum booking is of 1 day)',
+                            keyboard: TextInputType.number,
+                            maxLength: 2,
                             validation: (val) => val!.isEmpty
                                 ? 'Enter number of days you want to book the vehicle for'
                                 : null,
@@ -322,9 +325,8 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                                       'Select a vehicle you want to book',
                                       context);
                                 } else {
-                                  //Save in the db
-
                                   try {
+                                    //Save in the db
                                     await Database(uid: currentUser!.uid)
                                         .createNewBooking(
                                             name: name,
@@ -340,9 +342,15 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                                             email: email,
                                             emergencyBooking:
                                                 isEmergencyBooking);
-                                    ShowSnackBar().success(
-                                        'New  Booking Created Successfully!',
-                                        context);
+
+//Create notification of booking
+                                    await Database(uid: currentUser.uid)
+                                        .createNotification(
+                                            title:
+                                                'New Booking created successfully!',
+                                            body:
+                                                'Your booking of type  $vehicleType has been created successfully. To check the full details of your booking go to \'My Bookings\' screen. Soon, you will get a call from Yatayat regarding further details of your booking. Thanks for using Yatayat.');
+
                                     Navigator.popAndPushNamed(
                                         context, BookingSuccess.id);
                                   } on FirebaseException catch (e) {

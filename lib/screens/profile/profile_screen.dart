@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:yatayat/components/appbar.dart';
 import 'package:yatayat/components/button.dart';
 import 'package:yatayat/components/input_field.dart';
@@ -42,7 +43,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
               onActionClick: () async {
                 await _auth.signOut();
                 Navigator.pop(context);
-                Navigator.popAndPushNamed(context, SigninScreen.id);
+                Navigator.pop(context);
+                SystemNavigator.pop();
               },
             ),
             body: SingleChildScrollView(
