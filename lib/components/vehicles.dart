@@ -25,24 +25,69 @@ class _VehiclesState extends State<Vehicles> {
               height: 15,
             ),
             VehicleTile(
-              vehicle: 'Bus',
+              vehicle: 'Bus (Normal)',
+              icon: 'Bus',
               seats: '30-45',
-              price: '💲💲💲💲💲',
             ),
             VehicleTile(
-              vehicle: 'Car',
-              seats: '4',
-              price: '💲💲💲',
+              vehicle: 'Bus (Tourist)',
+              icon: 'Bus',
+              seats: '30-45',
             ),
             VehicleTile(
-              vehicle: 'Taxi',
-              seats: '4',
-              price: '💲💲',
+              vehicle: 'Scorpio',
+              icon: 'Suv',
+              seats: '7',
             ),
             VehicleTile(
-              vehicle: 'Other',
+              vehicle: 'Landcruiser',
+              icon: 'Cruiser',
+              seats: '7-8',
+            ),
+            VehicleTile(
+              vehicle: 'Toyota Hiace',
+              icon: 'Micro',
+              seats: '13-14',
+            ),
+            VehicleTile(
+              vehicle: 'Car (Sedan)',
+              icon: 'Car',
               seats: '2',
-              price: '💲💲💲💲💲',
+            ),
+            VehicleTile(
+              vehicle: 'Car (SUV)',
+              icon: 'Suv',
+              seats: '2',
+            ),
+            VehicleTile(
+              vehicle: 'TATA Winger',
+              icon: 'Van',
+              seats: '2',
+            ),
+            VehicleTile(
+              vehicle: 'TATA Sumo (A/c)',
+              icon: 'Jeep',
+              seats: '2',
+            ),
+            VehicleTile(
+              vehicle: 'TATA Sumo - Non (A/c)',
+              icon: 'Jeep',
+              seats: '2',
+            ),
+            VehicleTile(
+              vehicle: 'Magic Van',
+              icon: 'Van',
+              seats: '2',
+            ),
+            VehicleTile(
+              vehicle: 'Delivery Van (Bolero)',
+              icon: 'Other',
+              seats: '2',
+            ),
+            VehicleTile(
+              vehicle: 'TATA Ace (Cargo / Carrier Van )',
+              icon: 'Carrier',
+              seats: '2',
             ),
           ],
         ),
@@ -53,10 +98,11 @@ class _VehiclesState extends State<Vehicles> {
 
 class VehicleTile extends StatelessWidget {
   final String? vehicle;
-  final String? seats;
-  final String? price;
+  final String? icon;
 
-  VehicleTile({this.vehicle, this.seats, this.price});
+  final String? seats;
+
+  VehicleTile({this.vehicle, this.seats, this.icon});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -67,17 +113,16 @@ class VehicleTile extends StatelessWidget {
           borderRadius: BorderRadius.circular(5)),
       child: ListTile(
         leading: Image(
-          image: AssetImage('assets/images/icons/$vehicle.png'),
+          image: AssetImage('assets/images/icons/$icon.png'),
           height: 35,
           width: 35,
         ),
-        subtitle: Text('$seats 💺'),
+        trailing: Text('$seats 💺'),
         title: Text(
           '$vehicle',
         ),
-        trailing: Text('$price'),
         onTap: () {
-          Navigator.pop(context, vehicle);
+          Navigator.pop(context, {'vehicle': vehicle, 'icon': icon});
         },
       ),
     );

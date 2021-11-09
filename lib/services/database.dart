@@ -71,6 +71,7 @@ class Database {
       String? noOfTrips,
       String? phoneNumber,
       String? email,
+      String? icon,
       bool? emergencyBooking}) async {
     try {
       //Create a random order id
@@ -92,6 +93,7 @@ class Database {
         'status': 'Pending',
         'bookingId': random.nextInt(1000000),
         'paymentStatus': 'Pending',
+        'icon': icon,
         'bookingDate':
             DateFormat('yyyy-MM-dd  kk:mm').format(DateTime.now()).toString()
       });
