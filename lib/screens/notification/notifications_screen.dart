@@ -6,6 +6,7 @@ import 'package:yatayat/components/yatayatDrawer.dart';
 import 'package:yatayat/components/yatayat_bottom_navigation.dart';
 import 'package:yatayat/services/database.dart';
 import 'package:yatayat/shared/constants.dart';
+import 'package:get/get.dart';
 
 class Notifications extends StatefulWidget {
   static const String id = 'notifications';
@@ -26,7 +27,7 @@ class _NotificationsState extends State<Notifications> {
       appBar: YatayatAppbar(
         height: 60,
         title: Text(
-          'Notifications',
+          'Notifications'.tr,
           style: kAppbarTitleStyle,
         ),
         actionIcon: Icons.delete_forever_rounded,

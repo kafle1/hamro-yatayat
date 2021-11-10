@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yatayat/components/vehicle_card.dart';
 import 'package:yatayat/shared/constants.dart';
+import 'package:get/get.dart';
 
 class MyBookingCard extends StatelessWidget {
   final String vehicleType;
@@ -44,21 +45,21 @@ class MyBookingCard extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Vehicle Type: $vehicleType',
+                              'Vehicle Type: '.tr + '$vehicleType',
                               style: kBookingTextStyle.copyWith(
                                   color: status == 'Pending'
                                       ? Colors.white
                                       : Colors.black),
                             ),
                             Text(
-                              'Date: $date',
+                              'Date: '.tr + '$date',
                               style: kBookingTextStyle.copyWith(
                                   color: status == 'Pending'
                                       ? Colors.white
                                       : Colors.black),
                             ),
                             Text(
-                              'Status: $status',
+                              'Status: '.tr + '$status',
                               style: kBookingTextStyle.copyWith(
                                   color: status == 'Pending'
                                       ? Colors.white
@@ -70,7 +71,7 @@ class MyBookingCard extends StatelessWidget {
                     ),
                     VehicleCard(
                       iconPath: 'assets/images/icons/$icon.png',
-                      lable: '${vehicleType}',
+                      lable: '${vehicleType.characters.take(11)}',
                       booking: true,
                     )
                   ],

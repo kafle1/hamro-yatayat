@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yatayat/components/button.dart';
 import 'package:yatayat/shared/constants.dart';
 import 'package:yatayat/screens/home/home_screen.dart';
+import 'package:get/get.dart';
 
 class BookingSuccess extends StatelessWidget {
   static const String id = 'bookingConfirm';
@@ -22,7 +23,7 @@ class BookingSuccess extends StatelessWidget {
               height: 25,
             ),
             Text(
-              'Your Booking has been successfully completed!',
+              'Your Booking has been successfully completed!'.tr,
               style: kComponentTitleStyle,
               textAlign: TextAlign.center,
             ),
@@ -30,7 +31,8 @@ class BookingSuccess extends StatelessWidget {
               height: 10,
             ),
             Text(
-              'We will be updating you with your booking from Phone Call or Phone Message. To get more information about your booking go to \'Notifications\' or  \'My Bookings\' Screen.',
+              'We will be updating you with your booking from Phone Call or Phone Message. To get more information about your booking go to \'Notifications\' or  \'My Bookings\' Screen.'
+                  .tr,
               style: TextStyle(
                 fontSize: 15,
               ),
@@ -38,7 +40,7 @@ class BookingSuccess extends StatelessWidget {
             ),
             Spacer(),
             YatayatButton(
-                label: 'Back to Home',
+                label: 'Back to Home'.tr,
                 onClick: () {
                   Navigator.pop(context);
                   Navigator.popAndPushNamed(context, HomeScreen.id);

@@ -6,6 +6,7 @@ import 'package:yatayat/screens/home/home_screen.dart';
 import 'package:yatayat/services/database.dart';
 import 'package:yatayat/shared/constants.dart';
 import 'package:yatayat/shared/loading.dart';
+import 'package:get/get.dart';
 
 enum MobileVerificationState {
   SHOW_MOBILE_FORM_STATE,
@@ -87,14 +88,15 @@ class _PhoneAuthenticationState extends State<PhoneAuthentication> {
                 height: 300,
               ),
               Text(
-                'Phone Authentication',
+                'Phone Authentication'.tr,
                 style: kComponentTitleStyle.copyWith(fontSize: 25),
               ),
               SizedBox(
                 height: 10,
               ),
               Text(
-                'We will send you an One Time Password on this mobile number',
+                'We will send you an One Time Password on this mobile number'
+                    .tr,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: kThemeColor,
@@ -113,7 +115,7 @@ class _PhoneAuthenticationState extends State<PhoneAuthentication> {
                     Row(
                       children: [
                         Text(
-                          'Enter Phone Number :',
+                          'Enter your phone number'.tr,
                           style: kFormLabelStyle,
                         ),
                       ],
@@ -122,6 +124,7 @@ class _PhoneAuthenticationState extends State<PhoneAuthentication> {
                       height: 10,
                     ),
                     TextField(
+                      style: TextStyle(fontSize: 13),
                       controller: _phoneController,
                       maxLength: 10,
                       onChanged: (value) {},
@@ -133,7 +136,7 @@ class _PhoneAuthenticationState extends State<PhoneAuthentication> {
                 ),
               ),
               YatayatButton(
-                  label: 'Get OTP',
+                  label: 'Get OTP'.tr,
                   onClick: () async {
                     //Show loading
                     startLoading();
@@ -182,14 +185,14 @@ class _PhoneAuthenticationState extends State<PhoneAuthentication> {
                 height: 300,
               ),
               Text(
-                'OTP Verification',
+                'OTP Verification'.tr,
                 style: kComponentTitleStyle.copyWith(fontSize: 25),
               ),
               SizedBox(
                 height: 10,
               ),
               Text(
-                'Enter the otp sent to : +977${_phoneController.text}',
+                'Enter the otp sent to :'.tr + '+977${_phoneController.text}',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: kThemeColor,
@@ -208,7 +211,7 @@ class _PhoneAuthenticationState extends State<PhoneAuthentication> {
                     Row(
                       children: [
                         Text(
-                          'Enter OTP :',
+                          'Enter OTP :'.tr,
                           style: kFormLabelStyle,
                         ),
                       ],
@@ -227,7 +230,7 @@ class _PhoneAuthenticationState extends State<PhoneAuthentication> {
                 ),
               ),
               YatayatButton(
-                  label: 'Verify & Proceed',
+                  label: 'Verify & Proceed'.tr,
                   onClick: () async {
                     PhoneAuthCredential phoneAuthCredential =
                         PhoneAuthProvider.credential(

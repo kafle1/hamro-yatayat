@@ -22,6 +22,9 @@ class Database {
   Future<dynamic> addNewUser(
       {String? name, String? email, String? phoneNumber}) async {
     try {
+      String title = 'Welcome to Yatayat ! यातायातमा तपाइलाई स्वागत  छ !';
+      String body =
+          'Yatayat is a company established to provide rental service for all kinds of vehicles to its customers with best service possible. You can go to Create Booking page to create a new booking. To contact or learn more about us check out our facebook page @yatayatnep or mail us to yatayatnep@gmail.com. Thank you for downloading Yatayat. \n \n यातायात आफ्ना ग्राहकहरूलाई भएसम्म सबै प्रकारका सवारी साधनहरू भाडामा लिने सेवा प्रदान गर्न स्थापना गरिएको कम्पनी हो। तपाईंले नयाँ बुकिङ सिर्जना गर्न \'Create Booking\' पेजमा जान सक्नुहुन्छ। सम्पर्क गर्न वा हाम्रो बारेमा थप जान्नको लागि हाम्रो फेसबुक पेज @yatayatnep हेर्नुहोस् वा हामीलाई yatayatnep@gmail.com मा मेल गर्नुहोस्। यातायात डाउनलोड गर्नुभएकोमा धन्यवाद । ';
       if (phoneNumber == null) {
         //create new user
         final user =
@@ -32,9 +35,8 @@ class Database {
             .collection('notifications')
             .doc(uid)
             .set({
-          'title': 'Welcome to Yatayat !',
-          'body':
-              'Yatayat is a company established to provide rental service for all kinds of vehicles to its customers with best service possible. You can go to Create Booking page to create a new booking. To contact or learn more about us check out our facebook page @yatayatnep or mail us to yatayatnep@gmail.com. Thank you for downloading Yatayat. ',
+          'title': title,
+          'body': body,
           'timestamp':
               DateFormat('yyyy-MM-dd  kk:mm').format(DateTime.now()).toString()
         });
@@ -47,9 +49,8 @@ class Database {
             .collection('notifications')
             .doc(uid)
             .set({
-          'title': 'Welcome to Yatayat !',
-          'body':
-              'Yatayat is a company established to provide rental service for all kinds of vehicles to its customers with best service possible. You can go to Create Booking page to create a new booking. To contact or learn more about us check out our facebook page @yatayatnep or mail us to yatayatnep@gmail.com. Thank you for downloading Yatayat. ',
+          'title': title,
+          'body': body,
           'timestamp':
               DateFormat('yyyy-MM-dd  kk:mm').format(DateTime.now()).toString()
         });

@@ -1,4 +1,4 @@
-import 'package:carousel_pro_nullsafety/carousel_pro_nullsafety.dart';
+import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +7,7 @@ import 'package:yatayat/components/my_booking_card.dart';
 import 'package:yatayat/components/vehicle_card.dart';
 import 'package:yatayat/components/yatayatDrawer.dart';
 import 'package:yatayat/components/yatayat_bottom_navigation.dart';
+import 'package:yatayat/lang/localization_service.dart';
 import 'package:yatayat/screens/auth/signin_screen.dart';
 import 'package:yatayat/screens/booking/bookingDetails/booking_details_screen.dart';
 import 'package:yatayat/services/database.dart';
@@ -22,9 +23,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late String lng;
+
   void initState() {
     super.initState();
 
+    lng = LocalizationService().getCurrentLang();
     //Show Status Bar
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
         overlays: SystemUiOverlay.values);
@@ -56,15 +60,29 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 5,
                   ),
                   Text(
-                    'Yatayat',
+                    'Yatayat'.tr,
                     style: kAppbarTitleStyle,
                   ),
                   Text(
-                    'Hire any Vehicle',
+                    'Hire any Vehicle'.tr,
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
                   )
                 ],
               ),
+              actionIcon: Icons.translate_rounded,
+              onActionClick: () {
+                if (lng == 'English') {
+                  setState(() {
+                    lng = 'Nepali';
+                    LocalizationService().changeLocale('Nepali');
+                  });
+                } else if (lng == 'Nepali') {
+                  setState(() {
+                    lng = 'English';
+                    LocalizationService().changeLocale('English');
+                  });
+                }
+              },
             ),
             drawer: YatayatDrawer(),
             body: HomePage(),
@@ -123,7 +141,7 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Book Now',
+                  'Book Now'.tr,
                   style: kComponentTitleStyle,
                 ),
                 SizedBox(
@@ -137,7 +155,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.pushNamed(context, CreateBookingScreen.id,
                             arguments: 'Bus')
                       },
-                      lable: 'Bus',
+                      lable: 'Bus'.tr,
                       booking: false,
                     ),
                     VehicleCard(
@@ -146,7 +164,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.pushNamed(context, CreateBookingScreen.id,
                             arguments: "Car")
                       },
-                      lable: 'Car',
+                      lable: 'Car'.tr,
                       booking: false,
                     ),
                     VehicleCard(
@@ -155,7 +173,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.pushNamed(context, CreateBookingScreen.id,
                             arguments: "Taxi")
                       },
-                      lable: 'Taxi',
+                      lable: 'Taxi'.tr,
                       booking: false,
                     ),
                     VehicleCard(
@@ -164,7 +182,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.pushNamed(context, CreateBookingScreen.id,
                             arguments: '')
                       },
-                      lable: 'Other',
+                      lable: 'Other'.tr,
                       booking: false,
                     ),
                   ],
@@ -178,7 +196,7 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  'My Bookings',
+                  'My Bookings'.tr,
                   style: kComponentTitleStyle,
                 ),
                 SizedBox(
@@ -189,11 +207,11 @@ class _HomePageState extends State<HomePage> {
                   builder: (BuildContext context,
                       AsyncSnapshot<QuerySnapshot> snapshot) {
                     if (snapshot.hasError) {
-                      return Text('Something went wrong');
+                      return Text('Something went wrong'.tr);
                     }
 
                     if (snapshot.connectionState == ConnectionState.waiting) {
-                      return Text("Loading");
+                      return Text("Loading...");
                     }
                     if (snapshot.hasData) {
                       return Column(

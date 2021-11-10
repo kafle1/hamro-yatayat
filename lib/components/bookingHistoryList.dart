@@ -45,7 +45,7 @@ class _BookingHistoryListState extends State<BookingHistoryList> {
               return MyBookingCard(
                 vehicleType: data['vehicleType'] ?? '',
                 date: data['bookingDate'] ?? '',
-                icon: data['icons'],
+                icon: data['icon'] ?? '',
                 status: data['status'] ?? '',
                 onClick: () {
                   Navigator.pushNamed(context, BookingDetailsScreen.id,
