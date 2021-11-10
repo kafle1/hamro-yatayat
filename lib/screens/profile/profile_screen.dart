@@ -4,9 +4,9 @@ import 'package:flutter/services.dart';
 import 'package:yatayat/components/appbar.dart';
 import 'package:yatayat/components/button.dart';
 import 'package:yatayat/components/input_field.dart';
-import 'package:yatayat/screens/auth/signin_screen.dart';
 import 'package:yatayat/shared/constants.dart';
 import 'package:yatayat/shared/loading.dart';
+import 'package:get/get.dart';
 
 class ProfileScreen extends StatefulWidget {
   static const String id = 'profileScreen';
@@ -36,7 +36,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             appBar: YatayatAppbar(
               height: 60,
               title: Text(
-                'Profile',
+                'Profile'.tr,
                 style: kAppbarTitleStyle,
               ),
               actionIcon: Icons.logout_rounded,
@@ -100,34 +100,34 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Basic Details',
+                          'Basic Details'.tr,
                           style: kComponentTitleStyle,
                         ),
                         InputField(
-                            label: 'Name',
-                            placeholder: 'Enter your Name',
+                            label: 'Name'.tr,
+                            placeholder: 'Enter your full name'.tr,
                             value: name ?? currentUser.displayName,
                             onChange: (newValue) {
                               name = newValue;
                             }),
                         InputField(
-                            label: 'Email',
-                            placeholder: 'Enter your Email',
+                            label: 'Email'.tr,
+                            placeholder: 'Enter your email'.tr,
                             value: currentUser.email != null
                                 ? currentUser.email
                                 : '',
                             enabled: false,
                             onChange: (neValue) {}),
                         InputField(
-                            label: 'Phone Number',
-                            placeholder: 'Enter your Phone Number',
+                            label: 'Phone Number'.tr,
+                            placeholder: 'Enter your phone number'.tr,
                             value: currentUser.phoneNumber != null
                                 ? currentUser.phoneNumber
                                 : '',
                             enabled: false,
                             onChange: (neValue) {}),
                         YatayatButton(
-                          label: 'Save',
+                          label: 'Save'.tr,
                           onClick: () async {
                             if (name != null) {
                               setState(() {

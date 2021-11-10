@@ -4,6 +4,7 @@ import 'package:yatayat/components/bookingHistoryList.dart';
 import 'package:yatayat/components/yatayatDrawer.dart';
 import 'package:yatayat/components/yatayat_bottom_navigation.dart';
 import 'package:yatayat/shared/constants.dart';
+import 'package:get/get.dart';
 
 class MyBookingScreen extends StatefulWidget {
   static const String id = 'MyBookingsScreen';
@@ -22,7 +23,7 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
       appBar: YatayatAppbar(
         height: 65,
         title: Text(
-          'My Bookings',
+          'My Bookings '.tr,
           style: kAppbarTitleStyle,
         ),
       ),

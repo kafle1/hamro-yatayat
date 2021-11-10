@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:yatayat/components/appbar.dart';
 import 'package:yatayat/components/button.dart';
 import 'package:yatayat/components/input_field.dart';
@@ -78,7 +79,7 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
             appBar: YatayatAppbar(
               height: 65,
               title: Text(
-                'Create Booking',
+                'Create Booking'.tr,
                 style: kAppbarTitleStyle,
               ),
             ),
@@ -92,10 +93,10 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         InputField(
-                          label: 'Name',
-                          placeholder: 'Enter Full Name',
+                          label: 'Name'.tr,
+                          placeholder: 'Enter your full name'.tr,
                           validation: (val) =>
-                              val!.isEmpty ? 'Enter your name' : null,
+                              val!.isEmpty ? 'Enter your full name'.tr : null,
                           value: name,
                           onChange: (value) {
                             setState(() {
@@ -107,7 +108,7 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Vehicle Type :',
+                              'Vehicle Type :'.tr,
                               style: kFormLabelStyle,
                             ),
                             SizedBox(
@@ -116,7 +117,7 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                             MaterialButton(
                               onPressed: () async {
                                 dynamic newValue = await Navigator.pushNamed(
-                                    context, Vehicles.id) as Map;
+                                    context, Vehicles.id);
 
                                 if (newValue != null) {
                                   setState(() {
@@ -127,7 +128,7 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                               },
                               height: 50,
                               child: Text(vehicleType == ''
-                                  ? 'Enter your vehicle type'
+                                  ? 'Enter your vehicle type'.tr
                                   : '$vehicleType'),
                               color: kThemeColor,
                               textColor: Colors.white,
@@ -136,10 +137,11 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                           ],
                         ),
                         InputField(
-                            label: 'Pickup Location',
-                            placeholder: 'Enter your pickup location',
-                            validation: (val) =>
-                                val!.isEmpty ? 'Enter pickup location' : null,
+                            label: 'Pickup Location'.tr,
+                            placeholder: 'Enter your pickup location'.tr,
+                            validation: (val) => val!.isEmpty
+                                ? 'Enter your pickup location'
+                                : null,
                             onChange: (value) {
                               setState(() {
                                 pickupLocation = value;
@@ -149,7 +151,7 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Pickup Date :',
+                              'Pickup Date :'.tr,
                               style: kFormLabelStyle,
                             ),
                             SizedBox(
@@ -162,7 +164,7 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                                   initialDate: DateTime.now(),
                                   firstDate: DateTime.now(),
                                   lastDate: DateTime(2024, 1),
-                                  helpText: 'Select pickup date',
+                                  helpText: 'Select pickup date'.tr,
                                 );
 
                                 if (newDate != null) {
@@ -176,7 +178,7 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                                   ? _date
                                       .toString()
                                       .replaceAll('00:00:00.000', '')
-                                  : 'Enter your pickup date'),
+                                  : 'Enter your pickup date'.tr),
                               color: kThemeColor,
                               textColor: Colors.white,
                               minWidth: double.infinity,
@@ -184,33 +186,35 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                           ],
                         ),
                         InputField(
-                            label: 'Destination Location',
+                            label: 'Destination Location'.tr,
                             validation: (val) => val!.isEmpty
-                                ? 'Enter destination location'
+                                ? 'Enter your destination location'.tr
                                 : null,
-                            placeholder: 'Enter your destination location',
+                            placeholder: 'Enter your destination location'.tr,
                             onChange: (value) {
                               setState(() {
                                 destination = value;
                               });
                             }),
                         InputField(
-                            label: 'Number of Days',
-                            otherDetails: '(Minimum booking is of 1 day)',
+                            label: 'Booking Days'.tr,
+                            otherDetails: '(Minimum booking is of 1 day)'.tr,
                             keyboard: TextInputType.number,
                             maxLength: 2,
                             validation: (val) => val!.isEmpty
-                                ? 'Enter number of days you want to book the vehicle for'
+                                ? 'Enter no. of days you want to book the vehicle for'
+                                    .tr
                                 : null,
                             placeholder:
-                                'Enter no. of days you want to book the vehicle',
+                                'Enter no. of days you want to book the vehicle for'
+                                    .tr,
                             onChange: (value) {
                               setState(() {
                                 days = value;
                               });
                             }),
                         Text(
-                          'Number of Trips :',
+                          'Number of Trips :'.tr,
                           style: kFormLabelStyle,
                         ),
                         Row(
@@ -232,9 +236,10 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                             ),
                             Tooltip(
                               message:
-                                  '1 Trip includes: Pickup Location to Destination',
+                                  '1 Trip includes: Pickup Location to Destination'
+                                      .tr,
                               child: Text(
-                                '1 Trip',
+                                '1 Trip'.tr,
                                 style: TextStyle(fontSize: 15),
                               ),
                             ),
@@ -255,21 +260,23 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                             ),
                             Tooltip(
                               message:
-                                  '2 Trip includes: Pickup Location to Destination and again to Pickup Location',
+                                  '2 Trip includes: Pickup Location to Destination and again to Pickup Location'
+                                      .tr,
                               child: Text(
-                                '2 Trip',
+                                '2 Trip'.tr,
                                 style: TextStyle(fontSize: 15),
                               ),
                             ),
                           ],
                         ),
                         InputField(
-                            label: 'Phone Number',
-                            placeholder: 'Enter your phone number',
+                            label: 'Phone Number'.tr,
+                            placeholder: 'Enter your phone number'.tr,
                             keyboard: TextInputType.phone,
                             maxLength: 10,
-                            validation: (val) =>
-                                val!.isEmpty ? 'Enter your phone number' : null,
+                            validation: (val) => val!.isEmpty
+                                ? 'Enter your phone number'.tr
+                                : null,
                             value: phoneNumber!.replaceAll('+977', ''),
                             onChange: (value) {
                               setState(() {
@@ -277,11 +284,11 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                               });
                             }),
                         InputField(
-                            label: 'Email',
+                            label: 'Email'.tr,
                             keyboard: TextInputType.emailAddress,
-                            otherDetails: '(Optional)',
+                            otherDetails: '(Optional)'.tr,
                             value: email,
-                            placeholder: 'Enter your Email',
+                            placeholder: 'Enter your email'.tr,
                             onChange: (value) {
                               setState(() {
                                 email = value;
@@ -300,31 +307,32 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                             ),
                             Tooltip(
                                 message:
-                                    'Check this if you want to make an emergency booking!',
+                                    'Check this if you want to make an emergency booking!'
+                                        .tr,
                                 child: Text(
-                                  'Emergency Booking',
+                                  'Emergency Booking'.tr,
                                   style: TextStyle(fontSize: 15),
                                 )),
                           ],
                         ),
                         YatayatButton(
-                            label: 'Confirm Booking',
+                            label: 'Confirm Booking'.tr,
                             onClick: () async {
                               print(phoneNumber);
                               if (_formKey.currentState!.validate()) {
                                 if (tripSelected == '') {
-                                  ShowSnackBar()
-                                      .error('Select number of trips', context);
+                                  ShowSnackBar().error(
+                                      'Select number of trips'.tr, context);
                                 } else if (_date == null) {
-                                  ShowSnackBar()
-                                      .error('Choose a pickup date', context);
+                                  ShowSnackBar().error(
+                                      'Choose a pickup date'.tr, context);
                                 } else if (phoneNumber!.length < 10) {
                                   ShowSnackBar().error(
-                                      'Phone number must be of 10 digits',
+                                      'Phone number must be of 10 digits'.tr,
                                       context);
                                 } else if (vehicleType.toString() == '') {
                                   ShowSnackBar().error(
-                                      'Select a vehicle you want to book',
+                                      'Select a vehicle you want to book'.tr,
                                       context);
                                 } else {
                                   try {
@@ -350,9 +358,11 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                                     await Database(uid: currentUser.uid)
                                         .createNotification(
                                             title:
-                                                'New Booking created successfully!',
+                                                'New Booking created successfully!'
+                                                    .tr,
                                             body:
-                                                'Your booking of type  $vehicleType has been created successfully. To check the full details of your booking go to \'My Bookings\' screen. Soon, you will get a call from Yatayat regarding further details of your booking. Thanks for using Yatayat.');
+                                                'Your booking has been created successfully. To check the full details of your booking go to \'My Bookings\' screen. Soon, you will get a call from Yatayat regarding further details of your booking. Thanks for using Yatayat.'
+                                                    .tr);
 
                                     Navigator.popAndPushNamed(
                                         context, BookingSuccess.id);

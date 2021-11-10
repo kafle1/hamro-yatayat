@@ -5,6 +5,7 @@ import 'package:yatayat/screens/home/home_screen.dart';
 import 'package:yatayat/services/auth.dart';
 import 'package:yatayat/services/database.dart';
 import 'package:yatayat/shared/constants.dart';
+import 'package:get/get.dart';
 
 class SigninScreen extends StatefulWidget {
   static const String id = 'SigninScreen';
@@ -48,11 +49,11 @@ class _SigninScreenState extends State<SigninScreen> {
                     height: 10,
                   ),
                   Text(
-                    'Yatayat',
+                    'Yatayat'.tr,
                     style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    'Hire any vehicle',
+                    'Hire any vehicle'.tr,
                     style: TextStyle(
                         color: Color(0xffB7B3B3),
                         fontSize: 15,
@@ -90,7 +91,7 @@ class _SigninScreenState extends State<SigninScreen> {
                               width: 13,
                             ),
                             Text(
-                              'SIGN IN WITH PHONE',
+                              'SIGN IN WITH PHONE'.tr,
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 15,
@@ -139,7 +140,7 @@ class _SigninScreenState extends State<SigninScreen> {
                               width: 13,
                             ),
                             Text(
-                              'SIGN IN WITH GOOGLE',
+                              'SIGN IN WITH GOOGLE'.tr,
                               style: TextStyle(
                                   color: kThemeColor,
                                   fontSize: 15,
@@ -154,7 +155,7 @@ class _SigninScreenState extends State<SigninScreen> {
                     height: 10,
                   ),
                   Text(
-                    'I agree all the terms and conditions',
+                    'I agree all the terms and conditions'.tr,
                     style: TextStyle(color: Color(0xffB7B3B3), fontSize: 12),
                   )
                 ],

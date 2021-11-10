@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yatayat/shared/constants.dart';
+import 'package:get/get.dart';
 
 class Vehicles extends StatefulWidget {
   static const String id = 'vehicles';
@@ -17,7 +18,7 @@ class _VehiclesState extends State<Vehicles> {
           children: [
             Center(
               child: Text(
-                'Select your vehicle : ',
+                'Select your vehicle : '.tr,
                 style: kComponentTitleStyle,
               ),
             ),
@@ -105,25 +106,24 @@ class VehicleTile extends StatelessWidget {
   VehicleTile({this.vehicle, this.seats, this.icon});
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 5),
-      decoration: BoxDecoration(
-          boxShadow: [kBoxShadow],
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(5)),
-      child: ListTile(
-        leading: Image(
-          image: AssetImage('assets/images/icons/$icon.png'),
-          height: 35,
-          width: 35,
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5),
+      child: Material(
+        elevation: 4.0,
+        child: ListTile(
+          leading: Image(
+            image: AssetImage('assets/images/icons/$icon.png'),
+            height: 35,
+            width: 35,
+          ),
+          trailing: Text('$seats 💺'),
+          title: Text(
+            '$vehicle',
+          ),
+          onTap: () {
+            Navigator.pop(context, {'vehicle': vehicle, 'icon': icon});
+          },
         ),
-        trailing: Text('$seats 💺'),
-        title: Text(
-          '$vehicle',
-        ),
-        onTap: () {
-          Navigator.pop(context, {'vehicle': vehicle, 'icon': icon});
-        },
       ),
     );
   }
