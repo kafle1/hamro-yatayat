@@ -1,15 +1,15 @@
 const Map<String, String> neNP = {
   'hello_title': 'नमस्ते, कस्तो हुनुहुन्छ ?',
-  'Create Booking': 'नयाँ बूकिंग',
+  'Create Booking': 'नयाँ बुकिङ',
   'Name': 'नाम',
   'Enter your full name': 'पुरा नाम लेख्नुहोस्',
   'Vehicle Type :': 'गाडीको प्रकार',
   'Enter your vehicle type': 'गाडीको प्रकार छनोट गर्नुहोस',
-  'Pickup Location': 'पिकअप स्थान ',
-  'Enter your pickup location': 'पिकअप स्थान लेख्नुहोस्',
-  'Pickup Date :': 'पिकअप मिति',
-  'Select pickup date': 'पिकअप मिति छनोट गर्नुहोस्',
-  'Enter your pickup date': 'पिकअप मिति लेख्नुहोस्',
+  'Pickup Location': 'चढ्ने स्थान ',
+  'Enter your pickup location': 'चढ्ने स्थान लेख्नुहोस्',
+  'Pickup Date :': 'चढ्ने मिति',
+  'Select pickup date': 'चढ्ने मिति छनोट गर्नुहोस्',
+  'Enter your pickup date': 'चढ्ने मिति लेख्नुहोस्',
   'Destination Location': 'गन्तब्य स्थान ',
   'Enter your destination location': 'गन्तब्य स्थान लेख्नुहोस्',
   'Booking Days': 'बुकिंग दिन',
@@ -18,10 +18,10 @@ const Map<String, String> neNP = {
       'तपाईले गाडी बुक गर्न चाहनुभएको दिनको संख्या लेख्नुहोस्',
   'Number of Trips :': 'यात्रा संख्या (Trip)',
   '1 Trip includes: Pickup Location to Destination Location':
-      '१ यात्रा समावेश: गन्तव्य देखि पिकअप स्थान',
+      '१ यात्रा समावेश: गन्तव्य देखि चढ्ने स्थान',
   '1 Trip': '१ यात्रा',
   '2 Trip includes: Pickup Location to Destination and again to Pickup Location':
-      '२ यात्रा समावेश: गन्तव्य देखि पिकअप स्थान अनि फिर्ता पिकअप स्थान सम्म',
+      '२ यात्रा समावेश: गन्तव्य देखि चढ्ने स्थान अनि फिर्ता चढ्ने स्थान सम्म',
   '2 Trip': '२ यात्रा',
   'Phone Number': 'फोन नंबर',
   'Enter your phone number': 'फोन नंबर लेख्नुहोस्',
@@ -30,16 +30,16 @@ const Map<String, String> neNP = {
   'Enter your email': 'इमेल लेख्नुहोस्',
   'Check this if you want to make an emergency booking!':
       'यदि तपाईं आपतकालीन बुकिंग गर्न चाहनुहुन्छ भने यो जाँच गर्नुहोस्!',
-  'Emergency Booking': 'आपतकालीन बूकिंग',
-  'Confirm Booking': 'बूकिंग गर्नुहोस',
+  'Emergency Booking': 'आपतकालीन बुकिङ',
+  'Confirm Booking': 'बुकिङ गर्नुहोस',
   'Select number of trips': 'यात्रा संख्या चयन गर्नुहोस्',
-  'Choose a pickup date': 'पिकअप मिति छान्नुहोस्',
+  'Choose a pickup date': 'चढ्ने मिति छान्नुहोस्',
   'Phone number must be of 10 digits': 'फोन नम्बर १० अंकको हुनुपर्छ',
   'Select a vehicle you want to book':
       'तपाईंले बुक गर्न चाहनुभएको गाडी चयन गर्नुहोस्',
   'New Booking created successfully!': 'नयाँ बुकिङ सफलतापूर्वक सिर्जना भयो!',
   'Your booking has been created successfully. To check the full details of your booking go to \'My Bookings\' screen. Soon, you will get a call from Yatayat regarding further details of your booking. Thanks for using Yatayat.':
-      'तपाइको बूकिंग सफलता पुर्बक सम्पन्न भएको छ | आफ्नो बुकिङको पूर्ण विवरण जाँच गर्न \'My Bookings\' स्क्रिनमा जानुहोस्। चाँडै, तपाईलाई आफ्नो बुकिङको थप विवरणहरूकोलागि यातायात बाट कल प्राप्त आउनेछ | यातायात प्रयोग गर्नुभएकोमा धन्यवाद।',
+      'तपाइको बुकिङ सफलता पुर्बक सम्पन्न भएको छ | आफ्नो बुकिङको पूर्ण विवरण जाँच गर्न \'My Bookings\' स्क्रिनमा जानुहोस्। चाँडै, तपाईलाई बुकिङको थप विवरणहरूकोलागि यातायातबाट कल प्राप्त हुनेछ | यातायात प्रयोग गर्नुभएकोमा धन्यवाद।',
   'Your Booking has been successfully completed!':
       'तपाईको बुकिङ सफलतापूर्वक सम्पन्न भएको छ!',
   'We will be updating you with your booking from Phone Call or Phone Message. To get more information about your booking go to \'Notifications\' or  \'My Bookings\' Screen.':
@@ -56,7 +56,7 @@ const Map<String, String> neNP = {
   'Other': 'अन्य',
   'Something went wrong': 'केहि गलत भयो',
   'Vehicle Type: ': 'गाडीको प्रकार : ',
-  'Date: ': 'बुकिंग मिति : ',
+  'Date: ': 'बुकिङ मिति : ',
   'Status: ': 'स्थिति : ',
   'My Bookings ': 'मेरो बुकिङहरू',
   'Notifications': 'सूचनाहरू',
@@ -67,6 +67,8 @@ const Map<String, String> neNP = {
   'SIGN IN WITH PHONE': 'फोन मार्फत साइन इन गर्नुहोस्',
   'SIGN IN WITH GOOGLE': 'गुगल मार्फत साइन इन गर्नुहोस्',
   'Phone Authentication': 'फोन प्रमाणीकरण',
+  'We will send you an One Time Password on this mobile number':
+      'हामी तपाईंलाई यो मोबाइल नम्बरमा एक पटकको पासवर्ड (OTP) पठाउनेछौं',
   'Get OTP': 'OTP प्राप्त गर्नुहोस्',
   'OTP Verification': 'OTP प्रमाणीकरण',
   'Enter the otp sent to :': 'यहाँ पठाइएको OTP प्रविष्ट गर्नुहोस्:',

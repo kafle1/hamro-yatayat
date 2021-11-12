@@ -28,12 +28,12 @@ class _VehiclesState extends State<Vehicles> {
             VehicleTile(
               vehicle: 'Bus (Normal)',
               icon: 'Bus',
-              seats: '30-45',
+              seats: '30-40',
             ),
             VehicleTile(
               vehicle: 'Bus (Tourist)',
               icon: 'Bus',
-              seats: '30-45',
+              seats: '35-45',
             ),
             VehicleTile(
               vehicle: 'Scorpio',
@@ -53,32 +53,32 @@ class _VehiclesState extends State<Vehicles> {
             VehicleTile(
               vehicle: 'Car (Sedan)',
               icon: 'Car',
-              seats: '2',
+              seats: '4',
             ),
             VehicleTile(
               vehicle: 'Car (SUV)',
               icon: 'Suv',
-              seats: '2',
+              seats: '4',
             ),
             VehicleTile(
               vehicle: 'TATA Winger',
               icon: 'Van',
-              seats: '2',
+              seats: '13',
             ),
             VehicleTile(
               vehicle: 'TATA Sumo (A/c)',
               icon: 'Jeep',
-              seats: '2',
+              seats: '7',
             ),
             VehicleTile(
               vehicle: 'TATA Sumo - Non (A/c)',
               icon: 'Jeep',
-              seats: '2',
+              seats: '7',
             ),
             VehicleTile(
               vehicle: 'Magic Van',
               icon: 'Van',
-              seats: '2',
+              seats: '9-10',
             ),
             VehicleTile(
               vehicle: 'Delivery Van (Bolero)',

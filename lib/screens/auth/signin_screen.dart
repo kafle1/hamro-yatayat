@@ -53,7 +53,7 @@ class _SigninScreenState extends State<SigninScreen> {
                     style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    'Hire any vehicle'.tr,
+                    'Hire any Vehicle'.tr,
                     style: TextStyle(
                         color: Color(0xffB7B3B3),
                         fontSize: 15,

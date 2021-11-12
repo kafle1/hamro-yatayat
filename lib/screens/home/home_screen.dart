@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:nepali_utils/nepali_utils.dart';
 import 'package:yatayat/components/appbar.dart';
 import 'package:yatayat/components/my_booking_card.dart';
 import 'package:yatayat/components/vehicle_card.dart';
@@ -75,11 +76,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   setState(() {
                     lng = 'Nepali';
                     LocalizationService().changeLocale('Nepali');
+                    NepaliUtils(Language.nepali);
                   });
                 } else if (lng == 'Nepali') {
                   setState(() {
                     lng = 'English';
                     LocalizationService().changeLocale('English');
+                    NepaliUtils(Language.english);
                   });
                 }
               },
@@ -186,7 +189,7 @@ class _HomePageState extends State<HomePage> {
                       iconPath: 'assets/images/icons/Other.png',
                       onClick: () => {
                         Navigator.pushNamed(context, CreateBookingScreen.id,
-                            arguments: '')
+                            arguments: {'vehicle': '', 'icon': ''})
                       },
                       lable: 'Other'.tr,
                       booking: false,

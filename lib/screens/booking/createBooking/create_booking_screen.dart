@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:nepali_date_picker/nepali_date_picker.dart';
 import 'package:yatayat/components/appbar.dart';
 import 'package:yatayat/components/button.dart';
 import 'package:yatayat/components/input_field.dart';
@@ -9,6 +10,7 @@ import 'package:yatayat/components/vehicles.dart';
 import 'package:yatayat/screens/booking/booking_success_screen.dart';
 import 'package:yatayat/services/database.dart';
 import 'package:yatayat/shared/constants.dart';
+import 'package:nepali_date_picker/nepali_date_picker.dart' as picker;
 
 class CreateBookingScreen extends StatefulWidget {
   static const String id = 'createBooking';
@@ -70,6 +72,7 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
     //Get value from home screen  and set vehicle type and icons accordingly
     if (vehicleType == null) {
       final data = ModalRoute.of(context)!.settings.arguments as Map;
+
       vehicleType = data['vehicle'];
       icon = data['icon'];
     }
@@ -141,7 +144,7 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                             label: 'Pickup Location'.tr,
                             placeholder: 'Enter your pickup location'.tr,
                             validation: (val) => val!.isEmpty
-                                ? 'Enter your pickup location'
+                                ? 'Enter your pickup location'.tr
                                 : null,
                             onChange: (value) {
                               setState(() {
@@ -160,12 +163,13 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                             ),
                             MaterialButton(
                               onPressed: () async {
-                                final DateTime? newDate = await showDatePicker(
+                                picker.NepaliDateTime? newDate =
+                                    await picker.showMaterialDatePicker(
                                   context: context,
-                                  initialDate: DateTime.now(),
-                                  firstDate: DateTime.now(),
-                                  lastDate: DateTime(2024, 1),
-                                  helpText: 'Select pickup date'.tr,
+                                  initialDate: NepaliDateTime.now(),
+                                  firstDate: NepaliDateTime.now(),
+                                  lastDate: NepaliDateTime(2090),
+                                  initialDatePickerMode: DatePickerMode.day,
                                 );
 
                                 if (newDate != null) {
