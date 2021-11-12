@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'dart:math';
 
+import 'package:nepali_date_picker/nepali_date_picker.dart';
+
 class Database {
   String uid;
   Database({required this.uid});
@@ -37,8 +39,9 @@ class Database {
             .set({
           'title': title,
           'body': body,
-          'timestamp':
-              DateFormat('yyyy-MM-dd  kk:mm').format(DateTime.now()).toString()
+          'timestamp': DateFormat('yyyy-MM-dd  kk:mm')
+              .format(NepaliDateTime.now())
+              .toString()
         });
         return user;
       } else {
@@ -51,8 +54,9 @@ class Database {
             .set({
           'title': title,
           'body': body,
-          'timestamp':
-              DateFormat('yyyy-MM-dd  kk:mm').format(DateTime.now()).toString()
+          'timestamp': DateFormat('yyyy-MM-dd  kk:mm')
+              .format(NepaliDateTime.now())
+              .toString()
         });
         return user;
       }
@@ -95,8 +99,9 @@ class Database {
         'bookingId': random.nextInt(1000000),
         'paymentStatus': 'Pending',
         'icon': icon,
-        'bookingDate':
-            DateFormat('yyyy-MM-dd  kk:mm').format(DateTime.now()).toString()
+        'bookingDate': DateFormat('yyyy-MM-dd  kk:mm')
+            .format(NepaliDateTime.now())
+            .toString()
       });
       return newBooking;
     } catch (e) {
@@ -112,8 +117,9 @@ class Database {
           await usersCollection.doc(uid).collection('notifications').add({
         'title': title,
         'body': body,
-        'timestamp':
-            DateFormat('yyyy-MM-dd  kk:mm').format(DateTime.now()).toString()
+        'timestamp': DateFormat('yyyy-MM-dd  kk:mm')
+            .format(NepaliDateTime.now())
+            .toString()
       });
       return newNotification;
     } catch (e) {

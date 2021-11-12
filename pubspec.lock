@@ -287,6 +287,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.7.0"
+  nepali_date_picker:
+    dependency: "direct main"
+    description:
+      name: nepali_date_picker
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.2.0"
+  nepali_utils:
+    dependency: "direct main"
+    description:
+      name: nepali_utils
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.1"
   open_file:
     dependency: "direct main"
     description:

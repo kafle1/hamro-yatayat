@@ -64,7 +64,7 @@ class _YatayatBottomNavigationState extends State<YatayatBottomNavigation> {
                       setState(() {
                         _selectedIndex = 3;
                         Navigator.pushNamed(context, CreateBookingScreen.id,
-                            arguments: '');
+                            arguments: {'vehicle': '', 'icon': ''});
                       });
                     })
               ],
