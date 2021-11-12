@@ -67,10 +67,11 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
       }
     }
 
-    //Get value from home screen  and set vehicle type accordingly
+    //Get value from home screen  and set vehicle type and icons accordingly
     if (vehicleType == null) {
-      final vehicle = ModalRoute.of(context)!.settings.arguments as String;
-      vehicleType = vehicle;
+      final data = ModalRoute.of(context)!.settings.arguments as Map;
+      vehicleType = data['vehicle'];
+      icon = data['icon'];
     }
 
     return showVehicles

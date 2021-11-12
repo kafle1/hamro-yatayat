@@ -153,7 +153,10 @@ class _HomePageState extends State<HomePage> {
                       iconPath: 'assets/images/icons/Bus.png',
                       onClick: () => {
                         Navigator.pushNamed(context, CreateBookingScreen.id,
-                            arguments: 'Bus')
+                            arguments: {
+                              'vehicle': 'Bus (Normal)',
+                              'icon': 'Bus'
+                            })
                       },
                       lable: 'Bus'.tr,
                       booking: false,
@@ -162,7 +165,10 @@ class _HomePageState extends State<HomePage> {
                       iconPath: 'assets/images/icons/Car.png',
                       onClick: () => {
                         Navigator.pushNamed(context, CreateBookingScreen.id,
-                            arguments: "Car")
+                            arguments: {
+                              'vehicle': 'Car (Sedan)',
+                              'icon': 'Car'
+                            })
                       },
                       lable: 'Car'.tr,
                       booking: false,
@@ -171,7 +177,7 @@ class _HomePageState extends State<HomePage> {
                       iconPath: 'assets/images/icons/Taxi.png',
                       onClick: () => {
                         Navigator.pushNamed(context, CreateBookingScreen.id,
-                            arguments: "Taxi")
+                            arguments: {'vehicle': 'Taxi', 'icon': 'Taxi'})
                       },
                       lable: 'Taxi'.tr,
                       booking: false,
