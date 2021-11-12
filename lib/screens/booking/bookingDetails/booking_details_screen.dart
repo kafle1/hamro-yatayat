@@ -5,6 +5,7 @@ import 'package:yatayat/components/appbar.dart';
 import 'package:yatayat/components/button.dart';
 import 'package:yatayat/models/createBookingPdf.dart';
 import 'package:yatayat/shared/constants.dart';
+import 'package:get/get.dart';
 
 class BookingDetailsScreen extends StatefulWidget {
   static const String id = 'bookingScreen';
@@ -37,7 +38,7 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
       appBar: YatayatAppbar(
         height: 60,
         title: Text(
-          'Booking Details',
+          'Booking Details'.tr,
           style: kAppbarTitleStyle,
         ),
       ),
@@ -68,82 +69,82 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Name :',
+                                'Name :'.tr,
                                 style: kDetailsLableStyle,
                               ),
                               Text(
-                                'Booking ID :',
+                                'Booking ID :'.tr,
                                 style: kDetailsLableStyle,
                               ),
                               Text(
-                                'Vehicle ID :',
+                                'Vehicle ID :'.tr,
                                 style: kDetailsLableStyle,
                               ),
                               Text(
-                                'Vehicle Type :',
+                                'Vehicle Type :'.tr,
                                 style: kDetailsLableStyle,
                               ),
                               Text(
-                                'Pickup Location :',
+                                'Pickup Location :'.tr,
                                 style: kDetailsLableStyle,
                               ),
                               Text(
-                                'Destination Location :',
+                                'Destination Location :'.tr,
                                 style: kDetailsLableStyle,
                               ),
                               Text(
-                                'No. Of Trip :',
+                                'No. Of Trip :'.tr,
                                 style: kDetailsLableStyle,
                               ),
                               Text(
-                                'Pickup Date :',
+                                'Pickup Date :'.tr,
                                 style: kDetailsLableStyle,
                               ),
                               Text(
-                                'Days of Booking :',
+                                'Days of Booking :'.tr,
                                 style: kDetailsLableStyle,
                               ),
                               Text(
-                                'Booking Type :',
+                                'Booking Type :'.tr,
                                 style: kDetailsLableStyle,
                               ),
                               Text(
-                                'Phone Number :',
+                                'Phone Number :'.tr,
                                 style: kDetailsLableStyle,
                               ),
                               Text(
-                                'Email :',
+                                'Email :'.tr,
                                 style: kDetailsLableStyle,
                               ),
                               Text(
-                                'Booking Date :',
+                                'Booking Date :'.tr,
                                 style: kDetailsLableStyle,
                               ),
                               Text(
-                                'Status :',
+                                'Booking Status :'.tr,
                                 style: kDetailsLableStyle,
                               ),
                               SizedBox(
                                 height: 20,
                               ),
                               Text(
-                                'Driver\'s Name :',
+                                'Driver\'s Name :'.tr,
                                 style: kDetailsLableStyle,
                               ),
                               Text(
-                                'Driver\'s Phone Number :',
+                                'Driver\'s Phone Number :'.tr,
                                 style: kDetailsLableStyle,
                               ),
                               Text(
-                                'Vehicle Number :',
+                                'Vehicle Number :'.tr,
                                 style: kDetailsLableStyle,
                               ),
                               Text(
-                                'Total Amount :',
+                                'Total Amount :'.tr,
                                 style: kDetailsLableStyle,
                               ),
                               Text(
-                                'Payment Status :',
+                                'Payment Status :'.tr,
                                 style: kDetailsLableStyle,
                               ),
                             ],
