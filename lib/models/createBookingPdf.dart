@@ -152,7 +152,7 @@ Future<void> createPdf(Map data) async {
 
   page.graphics.drawString(
     data['driverName'] != null
-        ? 'Driver\'s Name: ${data['diverName']}'
+        ? 'Driver\'s Name: ${data['driverName']}'
         : 'Driver\'s Name: ---',
     PdfStandardFont(
       PdfFontFamily.helvetica,

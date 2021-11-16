@@ -13,7 +13,7 @@ const Map<String, String> neNP = {
   'Destination Location': 'गन्तब्य स्थान ',
   'Enter your destination location': 'गन्तब्य स्थान लेख्नुहोस्',
   'Booking Days': 'बुकिंग दिन',
-  '(Minimum booking is of 1 day)': 'बुकिंग कम्तिमा १ दिन गर्नुपर्छ',
+  '(Minimum booking is of 1 day)': 'बुकिङ कम्तिमा १ दिन गर्नुपर्छ',
   'Enter no. of days you want to book the vehicle for':
       'तपाईले गाडी बुक गर्न चाहनुभएको दिनको संख्या लेख्नुहोस्',
   'Number of Trips :': 'यात्रा संख्या (Trip)',
@@ -29,7 +29,7 @@ const Map<String, String> neNP = {
   '(Optional)': '(वैकल्पिक)',
   'Enter your email': 'इमेल लेख्नुहोस्',
   'Check this if you want to make an emergency booking!':
-      'यदि तपाईं आपतकालीन बुकिंग गर्न चाहनुहुन्छ भने यो जाँच गर्नुहोस्!',
+      'यदि तपाईं आपतकालीन बुकिङ गर्न चाहनुहुन्छ भने यो जाँच गर्नुहोस्!',
   'Emergency Booking': 'आपतकालीन बुकिङ',
   'Confirm Booking': 'बुकिङ गर्नुहोस',
   'Select number of trips': 'यात्रा संख्या चयन गर्नुहोस्',
