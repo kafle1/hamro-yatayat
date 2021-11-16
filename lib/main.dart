@@ -24,9 +24,13 @@ void main() async {
   runApp(Yatayat());
 }
 
-class Yatayat extends StatelessWidget {
-  const Yatayat({Key? key}) : super(key: key);
+class Yatayat extends StatefulWidget {
+  @override
+  State<Yatayat> createState() => _YatayatState();
+}
 
+class _YatayatState extends State<Yatayat> {
+  @override
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
