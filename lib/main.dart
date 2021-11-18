@@ -71,10 +71,19 @@ class _YatayatState extends State<Yatayat> {
   @override
   void initState() {
     super.initState();
+    const AndroidInitializationSettings initializationSettingsAndroid =
+        AndroidInitializationSettings("ic_launcher");
+
+    final InitializationSettings initializationSettings =
+        InitializationSettings(android: initializationSettingsAndroid);
+
+    flutterLocalNotificationsPlugin.initialize(initializationSettings);
 
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       RemoteNotification? notification = message.notification;
+
       AndroidNotification? android = message.notification?.android;
+
       if (notification != null && android != null && !kIsWeb) {
         flutterLocalNotificationsPlugin.show(
             notification.hashCode,
@@ -82,8 +91,7 @@ class _YatayatState extends State<Yatayat> {
             notification.body,
             NotificationDetails(
               android: AndroidNotificationDetails(channel.id, channel.name,
-                  channelDescription: channel.description,
-                  icon: 'assets/playstore.png'
+                  channelDescription: channel.description, icon: 'ic_launcher'
                   // TODO add a proper drawable resource to android, for now using
                   //      one that already exists in example app.
                   ),
