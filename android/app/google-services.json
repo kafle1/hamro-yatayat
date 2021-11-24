@@ -14,11 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "465249750732-fdq6m49j3dhn1me87kk8j7da3iafs327.apps.googleusercontent.com",
+          "client_id": "465249750732-866ls5q4edm7t3afnnoh7gbdm89m0v2r.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.yatayat.vehiclebooking.nepal",
-            "certificate_hash": "14288169478730dd63b0ef9ad5b020ec35ca83cf"
+            "certificate_hash": "b8cb6e89138d7ecee09c678649796281becf7812"
           }
         },
         {
