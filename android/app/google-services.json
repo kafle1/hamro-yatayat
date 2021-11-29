@@ -7,17 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:465249750732:android:085a389dbcbc0864193c69",
+        "mobilesdk_app_id": "1:465249750732:android:2b83f9fafb22c353193c69",
         "android_client_info": {
-          "package_name": "com.yatayat.vehiclebooking.nepal"
+          "package_name": "com.yatayat.vehiclebooking.app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "465249750732-866ls5q4edm7t3afnnoh7gbdm89m0v2r.apps.googleusercontent.com",
+          "client_id": "465249750732-p4bu6m1kd8dlhrlq8d7jiafgniqj9lmr.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.yatayat.vehiclebooking.nepal",
+            "package_name": "com.yatayat.vehiclebooking.app",
             "certificate_hash": "b8cb6e89138d7ecee09c678649796281becf7812"
           }
         },
