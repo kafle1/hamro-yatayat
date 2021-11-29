@@ -71,13 +71,13 @@ class _YatayatState extends State<Yatayat> {
   @override
   void initState() {
     super.initState();
-    const AndroidInitializationSettings initializationSettingsAndroid =
-        AndroidInitializationSettings("ic_launcher");
+    // const AndroidInitializationSettings initializationSettingsAndroid =
+    //     AndroidInitializationSettings("ic_launcher");5
 
-    final InitializationSettings initializationSettings =
-        InitializationSettings(android: initializationSettingsAndroid);
+    // final InitializationSettings initializationSettings =
+    //     InitializationSettings(android: initializationSettingsAndroid);
 
-    flutterLocalNotificationsPlugin.initialize(initializationSettings);
+    // flutterLocalNotificationsPlugin.initialize(initializationSettings);
 
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       RemoteNotification? notification = message.notification;

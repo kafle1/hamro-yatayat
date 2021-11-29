@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:nepali_date_picker/nepali_date_picker.dart';
 import 'package:yatayat/components/appbar.dart';
@@ -40,6 +41,12 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
   String? email;
   DateTime? _date;
   String? icon;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

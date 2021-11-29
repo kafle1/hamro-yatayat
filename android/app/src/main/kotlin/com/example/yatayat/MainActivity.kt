@@ -1,4 +1,4 @@
-package com.example.yatayat
+package com.yatayat.vehiclebooking.app
 
 import io.flutter.embedding.android.FlutterActivity
 
