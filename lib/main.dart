@@ -15,9 +15,8 @@ import 'package:yatayat/screens/notification/notifications_screen.dart';
 import 'package:yatayat/screens/profile/profile_screen.dart';
 import 'package:yatayat/screens/auth/signin_screen.dart';
 import 'package:yatayat/screens/home/splash_screen.dart';
+import 'package:yatayat/services/notification.dart';
 import 'package:yatayat/shared/loading.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,6 +34,8 @@ class Yatayat extends StatefulWidget {
 class _YatayatState extends State<Yatayat> {
   @override
   void initState() {
+    final firebaseMessaging = FCM();
+    firebaseMessaging.setNotifications();
     super.initState();
   }
 
