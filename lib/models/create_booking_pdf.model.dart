@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
 import 'package:syncfusion_flutter_pdf/pdf.dart';
-import 'package:yatayat/models/mobile.dart';
+import 'package:yatayat/models/mobile.model.dart';
 
 Future<void> createPdf(Map data) async {
   PdfDocument document = PdfDocument();
