@@ -36,6 +36,11 @@ class _VehiclesState extends State<Vehicles> {
               seats: '35-45',
             ),
             VehicleTile(
+              vehicle: 'Taxi',
+              icon: 'Taxi',
+              seats: '4',
+            ),
+            VehicleTile(
               vehicle: 'Scorpio',
               icon: 'Suv',
               seats: '7',

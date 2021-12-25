@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:yatayat/components/appbar.dart';
 import 'package:yatayat/components/button.dart';
-import 'package:yatayat/models/createBookingPdf.dart';
+import 'package:yatayat/models/create_booking_pdf.model.dart';
 import 'package:yatayat/shared/constants.dart';
 import 'package:get/get.dart';
 
