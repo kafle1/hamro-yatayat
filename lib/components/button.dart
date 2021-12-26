@@ -4,18 +4,19 @@ import 'package:yatayat/shared/constants.dart';
 class YatayatButton extends StatelessWidget {
   final String label;
   final void Function() onClick;
+  final Color? bgColor;
 
-  YatayatButton({required this.label, required this.onClick});
+  YatayatButton({required this.label, required this.onClick, this.bgColor});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onClick,
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 25),
+        margin: EdgeInsets.symmetric(vertical: 5),
         width: double.infinity,
         height: 60,
         decoration: BoxDecoration(
-          color: kThemeColor,
+          color: bgColor != null ? bgColor : kThemeColor,
           borderRadius: BorderRadius.circular(5),
           boxShadow: [kBoxShadow],
         ),

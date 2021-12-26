@@ -177,12 +177,12 @@ class _HomePageState extends State<HomePage> {
                       booking: false,
                     ),
                     VehicleCard(
-                      iconPath: 'assets/images/icons/Taxi.png',
+                      iconPath: 'assets/images/icons/Suv.png',
                       onClick: () => {
                         Navigator.pushNamed(context, CreateBookingScreen.id,
-                            arguments: {'vehicle': 'Taxi', 'icon': 'Taxi'})
+                            arguments: {'vehicle': 'Scorpio', 'icon': 'Suv'})
                       },
-                      lable: 'Taxi'.tr,
+                      lable: 'Scorpio'.tr,
                       booking: false,
                     ),
                     VehicleCard(

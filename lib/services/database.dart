@@ -127,6 +127,38 @@ class Database {
     }
   }
 
+  //Process the booking
+  Future<String> processBooking({required String bookingDocID}) async {
+    try {
+      await usersCollection
+          .doc(uid)
+          .collection('bookings')
+          .doc(bookingDocID)
+          .update({
+        'status': 'Processed',
+      });
+      return 'Process Success';
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  //Cancel the booking
+  Future<String> cancelBooking({required String bookingDocID}) async {
+    try {
+      await usersCollection
+          .doc(uid)
+          .collection('bookings')
+          .doc(bookingDocID)
+          .update({
+        'status': 'Cancelled',
+      });
+      return 'Cancel Success';
+    } catch (e) {
+      throw e;
+    }
+  }
+
   //Delete Notifications
   Future<void> deleteNotification() async {
     try {

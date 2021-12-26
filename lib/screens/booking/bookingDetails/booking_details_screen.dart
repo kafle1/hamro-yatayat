@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:yatayat/components/appbar.dart';
 import 'package:yatayat/components/button.dart';
 import 'package:yatayat/models/create_booking_pdf.model.dart';
+import 'package:yatayat/screens/booking/booking_price_check.dart';
 import 'package:yatayat/shared/constants.dart';
 import 'package:get/get.dart';
 
@@ -62,177 +63,198 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
 
                     if (snapshot.connectionState == ConnectionState.done) {
                       data = snapshot.data!.data() as Map<String, dynamic>;
-                      return Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      return Column(
                         children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Text(
-                                'Name :'.tr,
-                                style: kDetailsLableStyle,
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Name :'.tr,
+                                    style: kDetailsLableStyle,
+                                  ),
+                                  Text(
+                                    'Booking ID :'.tr,
+                                    style: kDetailsLableStyle,
+                                  ),
+                                  Text(
+                                    'Vehicle ID :'.tr,
+                                    style: kDetailsLableStyle,
+                                  ),
+                                  Text(
+                                    'Vehicle Type :'.tr,
+                                    style: kDetailsLableStyle,
+                                  ),
+                                  Text(
+                                    'Pickup Location :'.tr,
+                                    style: kDetailsLableStyle,
+                                  ),
+                                  Text(
+                                    'Destination Location :'.tr,
+                                    style: kDetailsLableStyle,
+                                  ),
+                                  Text(
+                                    'No. Of Trip :'.tr,
+                                    style: kDetailsLableStyle,
+                                  ),
+                                  Text(
+                                    'Pickup Date :'.tr,
+                                    style: kDetailsLableStyle,
+                                  ),
+                                  Text(
+                                    'Days of Booking :'.tr,
+                                    style: kDetailsLableStyle,
+                                  ),
+                                  Text(
+                                    'Booking Type :'.tr,
+                                    style: kDetailsLableStyle,
+                                  ),
+                                  Text(
+                                    'Phone Number :'.tr,
+                                    style: kDetailsLableStyle,
+                                  ),
+                                  Text(
+                                    'Email :'.tr,
+                                    style: kDetailsLableStyle,
+                                  ),
+                                  Text(
+                                    'Booking Date :'.tr,
+                                    style: kDetailsLableStyle,
+                                  ),
+                                  Text(
+                                    'Booking Status :'.tr,
+                                    style: kDetailsLableStyle,
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  Text(
+                                    'Driver\'s Name :'.tr,
+                                    style: kDetailsLableStyle,
+                                  ),
+                                  Text(
+                                    'Driver\'s Phone Number :'.tr,
+                                    style: kDetailsLableStyle,
+                                  ),
+                                  Text(
+                                    'Vehicle Number :'.tr,
+                                    style: kDetailsLableStyle,
+                                  ),
+                                  Text(
+                                    'Total Amount :'.tr,
+                                    style: kDetailsLableStyle,
+                                  ),
+                                  Text(
+                                    'Payment Status :'.tr,
+                                    style: kDetailsLableStyle,
+                                  ),
+                                ],
                               ),
-                              Text(
-                                'Booking ID :'.tr,
-                                style: kDetailsLableStyle,
-                              ),
-                              Text(
-                                'Vehicle ID :'.tr,
-                                style: kDetailsLableStyle,
-                              ),
-                              Text(
-                                'Vehicle Type :'.tr,
-                                style: kDetailsLableStyle,
-                              ),
-                              Text(
-                                'Pickup Location :'.tr,
-                                style: kDetailsLableStyle,
-                              ),
-                              Text(
-                                'Destination Location :'.tr,
-                                style: kDetailsLableStyle,
-                              ),
-                              Text(
-                                'No. Of Trip :'.tr,
-                                style: kDetailsLableStyle,
-                              ),
-                              Text(
-                                'Pickup Date :'.tr,
-                                style: kDetailsLableStyle,
-                              ),
-                              Text(
-                                'Days of Booking :'.tr,
-                                style: kDetailsLableStyle,
-                              ),
-                              Text(
-                                'Booking Type :'.tr,
-                                style: kDetailsLableStyle,
-                              ),
-                              Text(
-                                'Phone Number :'.tr,
-                                style: kDetailsLableStyle,
-                              ),
-                              Text(
-                                'Email :'.tr,
-                                style: kDetailsLableStyle,
-                              ),
-                              Text(
-                                'Booking Date :'.tr,
-                                style: kDetailsLableStyle,
-                              ),
-                              Text(
-                                'Booking Status :'.tr,
-                                style: kDetailsLableStyle,
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Text(
-                                'Driver\'s Name :'.tr,
-                                style: kDetailsLableStyle,
-                              ),
-                              Text(
-                                'Driver\'s Phone Number :'.tr,
-                                style: kDetailsLableStyle,
-                              ),
-                              Text(
-                                'Vehicle Number :'.tr,
-                                style: kDetailsLableStyle,
-                              ),
-                              Text(
-                                'Total Amount :'.tr,
-                                style: kDetailsLableStyle,
-                              ),
-                              Text(
-                                'Payment Status :'.tr,
-                                style: kDetailsLableStyle,
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    data['name'],
+                                    style: kDetailsValueStyle,
+                                  ),
+                                  Text(
+                                    '#${data['bookingId']}',
+                                    style: kDetailsValueStyle,
+                                  ),
+                                  Text(
+                                    data['vehicleId'] ?? '---',
+                                    style: kDetailsValueStyle,
+                                  ),
+                                  Text(
+                                    data['vehicleType'],
+                                    style: kDetailsValueStyle,
+                                  ),
+                                  Text(
+                                    data['pickupLocation'],
+                                    style: kDetailsValueStyle,
+                                  ),
+                                  Text(
+                                    data['destinationLocation'],
+                                    style: kDetailsValueStyle,
+                                  ),
+                                  Text(
+                                    data['noOfTrips'],
+                                    style: kDetailsValueStyle,
+                                  ),
+                                  Text(
+                                    data['pickupDate'],
+                                    style: kDetailsValueStyle,
+                                  ),
+                                  Text(
+                                    data['noOfDays'],
+                                    style: kDetailsValueStyle,
+                                  ),
+                                  Text(
+                                    data['isEmergency']
+                                        ? 'Emergency'
+                                        : 'Normal',
+                                    style: kDetailsValueStyle,
+                                  ),
+                                  Text(
+                                    data['phoneNumber'],
+                                    style: kDetailsValueStyle,
+                                  ),
+                                  Text(
+                                    data['email'] ?? '---',
+                                    style: kDetailsValueStyle,
+                                  ),
+                                  Text(
+                                    data['bookingDate'],
+                                    style: kDetailsValueStyle,
+                                  ),
+                                  Text(
+                                    data['status'],
+                                    style: kDetailsValueStyle,
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  Text(
+                                    data['driverName'] ?? '---',
+                                    style: kDetailsValueStyle,
+                                  ),
+                                  Text(
+                                    data['driverNumber'] ?? '---',
+                                    style: kDetailsValueStyle,
+                                  ),
+                                  Text(
+                                    data['vehicleNumber'] ?? '---',
+                                    style: kDetailsValueStyle,
+                                  ),
+                                  Text(
+                                    data['amount'] ?? '---',
+                                    style: kDetailsValueStyle,
+                                  ),
+                                  Text(
+                                    data['paymentStatus'] ?? '---',
+                                    style: kDetailsValueStyle,
+                                  ),
+                                ],
                               ),
                             ],
                           ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                data['name'],
-                                style: kDetailsValueStyle,
-                              ),
-                              Text(
-                                '#${data['bookingId']}',
-                                style: kDetailsValueStyle,
-                              ),
-                              Text(
-                                data['vehicleId'] ?? '---',
-                                style: kDetailsValueStyle,
-                              ),
-                              Text(
-                                data['vehicleType'],
-                                style: kDetailsValueStyle,
-                              ),
-                              Text(
-                                data['pickupLocation'],
-                                style: kDetailsValueStyle,
-                              ),
-                              Text(
-                                data['destinationLocation'],
-                                style: kDetailsValueStyle,
-                              ),
-                              Text(
-                                data['noOfTrips'],
-                                style: kDetailsValueStyle,
-                              ),
-                              Text(
-                                data['pickupDate'],
-                                style: kDetailsValueStyle,
-                              ),
-                              Text(
-                                data['noOfDays'],
-                                style: kDetailsValueStyle,
-                              ),
-                              Text(
-                                data['isEmergency'] ? 'Emergency' : 'Normal',
-                                style: kDetailsValueStyle,
-                              ),
-                              Text(
-                                data['phoneNumber'],
-                                style: kDetailsValueStyle,
-                              ),
-                              Text(
-                                data['email'] ?? '---',
-                                style: kDetailsValueStyle,
-                              ),
-                              Text(
-                                data['bookingDate'],
-                                style: kDetailsValueStyle,
-                              ),
-                              Text(
-                                data['status'],
-                                style: kDetailsValueStyle,
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Text(
-                                data['driverName'] ?? '---',
-                                style: kDetailsValueStyle,
-                              ),
-                              Text(
-                                data['driverNumber'] ?? '---',
-                                style: kDetailsValueStyle,
-                              ),
-                              Text(
-                                data['vehicleNumber'] ?? '---',
-                                style: kDetailsValueStyle,
-                              ),
-                              Text(
-                                data['amount'] ?? '---',
-                                style: kDetailsValueStyle,
-                              ),
-                              Text(
-                                data['paymentStatus'] ?? '---',
-                                style: kDetailsValueStyle,
-                              ),
-                            ],
+                          SizedBox(
+                            height: 20,
                           ),
+                          YatayatButton(
+                              label: 'Download Details as PDF'.tr,
+                              onClick: () async {
+                                createPdf(data);
+                              }),
+                          YatayatButton(
+                              label: 'Check Total Price',
+                              onClick: () {
+                                Navigator.popAndPushNamed(
+                                    context, BookingPrice.id,
+                                    arguments: {'data': data, 'docId': docId});
+                              }),
                         ],
                       );
                     }
@@ -240,11 +262,6 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                     return Text("Loading...");
                   },
                 ),
-                YatayatButton(
-                    label: 'Download Details as PDF',
-                    onClick: () async {
-                      createPdf(data);
-                    })
               ],
             ),
           ),
