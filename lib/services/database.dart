@@ -159,6 +159,21 @@ class Database {
     }
   }
 
+  //Delete the booking
+  Future<String> deleteBooking({required String bookingDocID}) async {
+    try {
+      await usersCollection
+          .doc(uid)
+          .collection('bookings')
+          .doc(bookingDocID)
+          .delete();
+
+      return 'Cancel Success';
+    } catch (e) {
+      throw e;
+    }
+  }
+
   //Delete Notifications
   Future<void> deleteNotification() async {
     try {
