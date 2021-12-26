@@ -30,7 +30,15 @@ class MyBookingCard extends StatelessWidget {
                 height: 80,
                 decoration: BoxDecoration(
                   boxShadow: [kBoxShadow],
-                  color: status == 'Pending' ? kThemeColor : Colors.white,
+                  color: status == 'Pending'
+                      ? kThemeColor
+                      : status == 'Cancelled'
+                          ? Colors.red[900]
+                          : status == 'Processed'
+                              ? Colors.black
+                              : status == 'Confirmed'
+                                  ? Colors.green[900]
+                                  : Colors.white,
                   borderRadius: BorderRadius.circular(5),
                 ),
                 child: Row(
@@ -47,21 +55,30 @@ class MyBookingCard extends StatelessWidget {
                             Text(
                               'Vehicle Type: '.tr + '$vehicleType',
                               style: kBookingTextStyle.copyWith(
-                                  color: status == 'Pending'
+                                  color: status == 'Pending' ||
+                                          status == 'Cancelled' ||
+                                          status == 'Processed' ||
+                                          status == 'Confirmed'
                                       ? Colors.white
                                       : Colors.black),
                             ),
                             Text(
                               'Date: '.tr + '$date',
                               style: kBookingTextStyle.copyWith(
-                                  color: status == 'Pending'
+                                  color: status == 'Pending' ||
+                                          status == 'Cancelled' ||
+                                          status == 'Processed' ||
+                                          status == 'Confirmed'
                                       ? Colors.white
                                       : Colors.black),
                             ),
                             Text(
                               'Status: '.tr + '$status',
                               style: kBookingTextStyle.copyWith(
-                                  color: status == 'Pending'
+                                  color: status == 'Pending' ||
+                                          status == 'Cancelled' ||
+                                          status == 'Processed' ||
+                                          status == 'Confirmed'
                                       ? Colors.white
                                       : Colors.black),
                             ),

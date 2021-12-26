@@ -26,4 +26,17 @@ class ShowSnackBar {
       ),
     );
   }
+
+//Info
+  dynamic info(String? text, context) {
+    return ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        backgroundColor: Color(0xff2980b9),
+        content: Text(
+          '$text',
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
+    );
+  }
 }

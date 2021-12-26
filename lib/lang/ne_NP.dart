@@ -52,7 +52,7 @@ const Map<String, String> neNP = {
   'My Bookings': 'मेरो बुकिङहरू',
   'Bus': 'बस',
   'Car': 'कार',
-  'Taxi': 'ट्याक्सी',
+  'Scorpio': 'स्कोर्पीयो',
   'Other': 'अन्य',
   'Something went wrong': 'केहि गलत भयो',
   'Vehicle Type: ': 'गाडीको प्रकार : ',
@@ -92,4 +92,5 @@ const Map<String, String> neNP = {
   'Total Amount :': 'पुरा रकम/पैसा :',
   'Payment Status :': 'भुक्तानी स्थिति :',
   'Booking Details': 'बुकिङको जानकारी',
+  'Download Details as PDF': 'PDF डाउनलोड गर्नुहोस'
 };

@@ -213,12 +213,12 @@ Future<void> createPdf(Map data) async {
     PdfStandardFont(PdfFontFamily.helvetica, 15, style: PdfFontStyle.bold),
     bounds: Rect.fromLTWH(0, 510, 0, 0),
   );
-  page.graphics.drawImage(PdfBitmap(await _readImageData('qrCode.png')),
+  page.graphics.drawImage(PdfBitmap(await _readImageData('qrCode.jpg')),
       Rect.fromLTWH(0, 530, 150, 150));
 
   //Footer
   page.graphics.drawString(
-    'Yatayat | Kathmandu, Nepal  | 9861595869, 9860461944 | yatayatnep@gmail.com',
+    'Yatayat | Nawalpur, Chitwan  | 9829490671 ,9861595869 | yatayatnep@gmail.com',
     PdfStandardFont(
       PdfFontFamily.helvetica,
       12,
