@@ -19,10 +19,10 @@ const Map<String, String> neNP = {
   'Number of Trips :': 'यात्रा संख्या (Trip)',
   '1 Trip includes: Pickup Location to Destination Location':
       '१ यात्रा समावेश: गन्तव्य देखि चढ्ने स्थान',
-  '1 Trip': '१ यात्रा',
+  'One Way': '१ यात्रा',
   '2 Trip includes: Pickup Location to Destination and again to Pickup Location':
       '२ यात्रा समावेश: गन्तव्य देखि चढ्ने स्थान अनि फिर्ता चढ्ने स्थान सम्म',
-  '2 Trip': '२ यात्रा',
+  'Two Way': '२ यात्रा',
   'Phone Number': 'फोन नंबर',
   'Enter your phone number': 'फोन नंबर लेख्नुहोस्',
   'Email': 'इमेल',
@@ -92,5 +92,22 @@ const Map<String, String> neNP = {
   'Total Amount :': 'पुरा रकम/पैसा :',
   'Payment Status :': 'भुक्तानी स्थिति :',
   'Booking Details': 'बुकिङको जानकारी',
-  'Download Details as PDF': 'PDF डाउनलोड गर्नुहोस'
+  'Download Details as PDF': 'PDF डाउनलोड गर्नुहोस',
+  'Check Total Price': 'अन्तिम मूल्य हेर्नुहोस',
+  'Delete Booking': 'बुकिङ Delete गर्नुहोस',
+  'Cannot delete this booking as it\'s status is':
+      'बुकिङ Delete गर्न मिलेन, तपाइको बुकिङ स्थिति: ',
+  'Error occured deleting the booking !':
+      'केही कारण बस बुकिङ Delete गर्न मिलेन !!',
+  "Total Booking Price": 'बुकिङको अन्तिम मूल्य',
+  "The Total Price is:": 'बुकिङको अन्तिम मूल्य यति हो: ',
+  "Rs. ": 'रू. ',
+  "Price of your booking will be shown once your booking is processed !!":
+      'तपाईंको बुकिङ Process भएपछि तपाईंको बुकिङको अन्तिम मूल्य देखाइनेछ !!',
+  'I agree with this price, Confirm Booking':
+      'म यो मूल्यसँग सहमत छु, बुकिंग फाइनल गर्नुहोस',
+  "I disagree with this price, Cancel Booking":
+      "म यो मूल्यसँग सहमत छैन, बुकिंग रद्द गर्नुहोस",
+  "Your booking price is not finalized yet, Please wait !":
+      "तपाईंको बुकिङ मूल्य अझै तय भएको छैन, कृपया प्रतीक्षा गर्नुहोस्!"
 };

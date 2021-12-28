@@ -45,21 +45,22 @@ class _BookingPriceState extends State<BookingPrice> {
                 style: kDetailsLableStyle.copyWith(fontSize: 16),
               ),
               Text(
-                'The Total Price is:',
+                'The Total Price is:'.tr,
                 style: kDetailsLableStyle.copyWith(fontSize: 16),
               ),
               SizedBox(
                 height: 10,
               ),
               Text(
-                '${userData['price'] != null ? 'Rs. ' + userData['price'].toString() : '---'}',
+                '${userData['price'] != null ? 'Rs. '.tr + userData['price'].toString() : '---'}',
                 style: kComponentTitleStyle,
               ),
               SizedBox(
                 height: 20,
               ),
               Text(
-                'Price of your booking will be shown once your booking is processed!!',
+                'Price of your booking will be shown once your booking is processed !!'
+                    .tr,
                 style: TextStyle(
                   color: Color(0xffB7B3B3),
                   fontSize: 15,
@@ -71,7 +72,7 @@ class _BookingPriceState extends State<BookingPrice> {
                 height: 30,
               ),
               YatayatButton(
-                label: 'I agree with this price, Confirm Booking',
+                label: 'I agree with this price, Confirm Booking'.tr,
                 onClick: () {
                   if (userData['price'] != null &&
                       userData['status'] == 'Pending') {
@@ -86,7 +87,8 @@ class _BookingPriceState extends State<BookingPrice> {
                             });
                   } else if (userData['status'] == 'Pending') {
                     ShowSnackBar().info(
-                        'Your booking price is not finalled yet, Please wait !',
+                        'Your booking price is not finalized yet, Please wait !'
+                            .tr,
                         context);
                   } else {
                     ShowSnackBar().info(
@@ -97,7 +99,7 @@ class _BookingPriceState extends State<BookingPrice> {
                 bgColor: Colors.green[900],
               ),
               YatayatButton(
-                label: 'I disagree with this price, Cancel Booking',
+                label: 'I disagree with this price, Cancel Booking'.tr,
                 onClick: () {
                   if (userData['price'] != null &&
                       userData['status'] == 'Pending') {
@@ -111,7 +113,8 @@ class _BookingPriceState extends State<BookingPrice> {
                             });
                   } else if (userData['status'] == 'Pending') {
                     ShowSnackBar().info(
-                        'Your booking price is not finalled yet, Please wait !',
+                        'Your booking price is not finalized yet, Please wait !'
+                            .tr,
                         context);
                   } else {
                     ShowSnackBar().info(
