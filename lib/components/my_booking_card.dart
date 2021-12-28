@@ -55,30 +55,21 @@ class MyBookingCard extends StatelessWidget {
                             Text(
                               'Vehicle Type: '.tr + '$vehicleType',
                               style: kBookingTextStyle.copyWith(
-                                  color: status == 'Pending' ||
-                                          status == 'Cancelled' ||
-                                          status == 'Processed' ||
-                                          status == 'Confirmed'
+                                  color: status != 'Completed'
                                       ? Colors.white
                                       : Colors.black),
                             ),
                             Text(
                               'Date: '.tr + '$date',
                               style: kBookingTextStyle.copyWith(
-                                  color: status == 'Pending' ||
-                                          status == 'Cancelled' ||
-                                          status == 'Processed' ||
-                                          status == 'Confirmed'
+                                  color: status != 'Completed'
                                       ? Colors.white
                                       : Colors.black),
                             ),
                             Text(
                               'Status: '.tr + '$status',
                               style: kBookingTextStyle.copyWith(
-                                  color: status == 'Pending' ||
-                                          status == 'Cancelled' ||
-                                          status == 'Processed' ||
-                                          status == 'Confirmed'
+                                  color: status != 'Completed'
                                       ? Colors.white
                                       : Colors.black),
                             ),

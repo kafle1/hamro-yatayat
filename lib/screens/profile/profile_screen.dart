@@ -126,6 +126,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 : '',
                             enabled: false,
                             onChange: (neValue) {}),
+                        SizedBox(
+                          height: 20,
+                        ),
                         YatayatButton(
                           label: 'Save'.tr,
                           onClick: () async {

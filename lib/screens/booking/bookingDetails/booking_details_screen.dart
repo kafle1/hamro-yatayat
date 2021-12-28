@@ -182,7 +182,9 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                                     style: kDetailsValueStyle,
                                   ),
                                   Text(
-                                    data['noOfTrips'],
+                                    data['noOfTrips'] == '1'
+                                        ? 'One Way'
+                                        : 'Two Way',
                                     style: kDetailsValueStyle,
                                   ),
                                   Text(
@@ -246,7 +248,7 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                             height: 20,
                           ),
                           YatayatButton(
-                              label: 'Check Total Price',
+                              label: 'Check Total Price'.tr,
                               onClick: () {
                                 Navigator.popAndPushNamed(
                                     context, BookingPrice.id,
@@ -259,7 +261,7 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                                 createPdf(data);
                               }),
                           YatayatButton(
-                              label: 'Delete Booking',
+                              label: 'Delete Booking'.tr,
                               bgColor: Colors.red[900],
                               onClick: () {
                                 if (data['status'] == "Pending") {
@@ -269,12 +271,15 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                                       .then((value) => Navigator.pop(context))
                                       .catchError((err) => {
                                             ShowSnackBar().error(
-                                                'Error occured deleting the booking !',
+                                                'Error occured deleting the booking !'
+                                                    .tr,
                                                 context)
                                           });
                                 } else {
                                   ShowSnackBar().info(
-                                      'Cannot delete this booking as it\'s status is ${data['status']!}',
+                                      'Cannot delete this booking as it\'s status is'
+                                              .tr +
+                                          ' ${data['status']!}',
                                       context);
                                 }
                               }),
