@@ -1,9 +1,9 @@
 name: yatayat
-description: A new Flutter project.
+description: Flutter App to rent vehicles
 
 publish_to: "none"
 
-version: 2.0.0+2
+version: 3.2.6+3
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -33,6 +33,7 @@ dependencies:
   pdf: ^3.6.1
   rename: ^2.0.1
   syncfusion_flutter_pdf: ^19.3.48-beta
+  url_launcher: ^6.0.18
 
 dev_dependencies:
   flutter_lints: ^1.0.0

@@ -31,7 +31,7 @@ class BookingSuccess extends StatelessWidget {
               height: 10,
             ),
             Text(
-              'We will be updating you with your booking from Phone Call or Phone Message. To get more information about your booking go to \'Notifications\' or  \'My Bookings\' Screen.'
+              'Please go to Booking Details section to check your booking\'s total price. It might take some time for the total price to appear as our drivers will be bidding their prices for your booking. So please have patience and keep checking the app. You can confirm this booking by choosing the price suitable for you after the bidding price is updated in your app.'
                   .tr,
               style: TextStyle(
                 fontSize: 15,

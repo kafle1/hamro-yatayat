@@ -61,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 5,
                   ),
                   Text(
-                    'Yatayat'.tr,
+                    'Hamro Yatayat'.tr,
                     style: kAppbarTitleStyle,
                   ),
                   Text(

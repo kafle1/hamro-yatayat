@@ -1,11 +1,11 @@
 // This is a generated file; do not edit or check into version control.
-FLUTTER_ROOT=C:\src\flutter
-FLUTTER_APPLICATION_PATH=E:\Projects\yatayat\yatayat-flutter
+FLUTTER_ROOT=/home/niraj/snap/flutter/common/flutter
+FLUTTER_APPLICATION_PATH=/home/niraj/Desktop/Projects/yatayat/yatayat-flutter
 COCOAPODS_PARALLEL_CODE_SIGN=true
-FLUTTER_TARGET=lib\main.dart
+FLUTTER_TARGET=lib/main.dart
 FLUTTER_BUILD_DIR=build
-FLUTTER_BUILD_NAME=2.0.0
-FLUTTER_BUILD_NUMBER=2
+FLUTTER_BUILD_NAME=3.2.6
+FLUTTER_BUILD_NUMBER=3
 EXCLUDED_ARCHS[sdk=iphonesimulator*]=i386
 DART_OBFUSCATION=false
 TRACK_WIDGET_CREATION=false

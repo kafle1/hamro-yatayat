@@ -39,7 +39,6 @@ class _SigninScreenState extends State<SigninScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     checkConnection();
   }
@@ -74,7 +73,7 @@ class _SigninScreenState extends State<SigninScreen> {
                       height: 10,
                     ),
                     Text(
-                      'Yatayat'.tr,
+                      'Hamro Yatayat'.tr,
                       style:
                           TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     ),

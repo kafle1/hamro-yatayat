@@ -10,7 +10,7 @@ Future<void> createPdf(Map data) async {
   final page = document.pages.add();
 
 //Heading
-  page.graphics.drawString('Yatayat Booking Details',
+  page.graphics.drawString('Hamro Yatayat Booking Details',
       PdfStandardFont(PdfFontFamily.helvetica, 20, style: PdfFontStyle.bold));
   page.graphics.drawString(
     'Pending',
@@ -218,18 +218,18 @@ Future<void> createPdf(Map data) async {
 
   //Footer
   page.graphics.drawString(
-    'Yatayat | Nawalpur, Chitwan  | 9829490671 ,9861595869 | yatayatnep@gmail.com',
+    'Hamro Yatayat | Nawalpur, Chitwan  | 9829490671 ,9861595869',
     PdfStandardFont(
       PdfFontFamily.helvetica,
       12,
     ),
-    bounds: Rect.fromLTWH(45, 730, 0, 0),
+    bounds: Rect.fromLTWH(75, 730, 0, 0),
   );
 
   List<int> bytes = document.save();
   document.dispose();
 
-  saveAndLaunchFile(bytes, 'yatayatBookingDetails.pdf');
+  saveAndLaunchFile(bytes, 'hamro-yatayat-booking-${data['bookingId']}.pdf');
 }
 
 Future<Uint8List> _readImageData(String name) async {
