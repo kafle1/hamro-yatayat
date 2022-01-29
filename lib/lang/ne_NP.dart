@@ -42,11 +42,11 @@ const Map<String, String> neNP = {
       'तपाइको बुकिङ सफलता पुर्बक सम्पन्न भएको छ | आफ्नो बुकिङको पूर्ण विवरण जाँच गर्न \'My Bookings\' स्क्रिनमा जानुहोस्। चाँडै, तपाईलाई बुकिङको थप विवरणहरूकोलागि यातायातबाट कल प्राप्त हुनेछ | यातायात प्रयोग गर्नुभएकोमा धन्यवाद।',
   'Your Booking has been successfully completed!':
       'तपाईको बुकिङ सफलतापूर्वक सम्पन्न भएको छ!',
-  'We will be updating you with your booking from Phone Call or Phone Message. To get more information about your booking go to \'Notifications\' or  \'My Bookings\' Screen.':
-      'हामी तपाईंलाई फोन कल वा फोन सन्देशबाट तपाईंको बुकिङको बारेमा अन्य जानकारी दिनेछौं। यस बुकिङको बारेमा थप जानकारी प्राप्त गर्न \'सूचनाहरू\' वा \'मेरो बुकिङहरू\' स्क्रिनमा जानुहोस्।',
+  'Please go to Booking Details section to check your booking\'s total price. It might take some time for the total price to appear as our drivers will be bidding their prices for your booking. So please have patience and keep checking the app. You can confirm this booking by choosing the price suitable for you after the bidding price is updated in your app.':
+      'आफ्नो बुकिङको अन्तिम मूल्य हेर्न बुकिङ विवरणमा जानुहोस्। हाम्रा ड्राइभरहरूले तपाईंको बुकिङको लागि आफ्नो मूल्य हल्नपर्ने भएकाले अन्तिम मूल्य देखिन केही समय लाग्न सक्छ। त्यसैले कृपया धैर्य राख्नुहोस् र एप जाँच गरिरहनुहोस्। तपाईंको बुकिङको मूल्य आउने बित्तिकै तपाईंले बुकिङ विवरणमा गएर आफ्नो बुकिङको लागि उपयुक्त मूल्य छनोट गरेर यो बुकिङ कन्फर्म गर्न सक्नुहुन्छ।',
   'Back to Home': 'ठिक छ',
   'Select your vehicle : ': 'आफ्नो गाडी चयन गर्नुहोस्:',
-  'Yatayat': 'यातायात',
+  'Hamro Yatayat': 'यातायात',
   'Hire any Vehicle': 'कुनै पनि गाडी भाडामा ',
   'Book Now': 'बुक गर्नुहोस्',
   'My Bookings': 'मेरो बुकिङहरू',

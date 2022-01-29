@@ -7,18 +7,71 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:465249750732:android:2b83f9fafb22c353193c69",
+        "mobilesdk_app_id": "1:465249750732:android:c2100eaba3a27d37193c69",
         "android_client_info": {
-          "package_name": "com.yatayat.vehiclebooking.app"
+          "package_name": "com.hamroyatayat.customer"
         }
       },
       "oauth_client": [
         {
+          "client_id": "465249750732-6pvblbnsonph1mic397ue4p9lpn544bt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCk-Fx9PgWfQbz8-gleyczQysz44Y9n7kI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "465249750732-6pvblbnsonph1mic397ue4p9lpn544bt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:465249750732:android:2b83f9fafb22c353193c69",
+        "android_client_info": {
+          "package_name": "com.hamroyatayat.customer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "465249750732-39i0csj9k27nn8jpchrb0h245aqchlmk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hamroyatayat.customer",
+            "certificate_hash": "e2b6202ae43422519ef6e6e3b59f53838491f0eb"
+          }
+        },
+        {
+          "client_id": "465249750732-hsdps7t0ie7iff4f98o85gcjvmqrvq27.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hamroyatayat.customer",
+            "certificate_hash": "caa4c65fbd7138912641b1eb5831b0358b95733f"
+          }
+        },
+        {
           "client_id": "465249750732-p4bu6m1kd8dlhrlq8d7jiafgniqj9lmr.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.yatayat.vehiclebooking.app",
+            "package_name": "com.hamroyatayat.customer",
             "certificate_hash": "b8cb6e89138d7ecee09c678649796281becf7812"
+          }
+        },
+        {
+          "client_id": "465249750732-taibakj2t1s9quj5bio8ucvf2avghpd1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hamroyatayat.customer",
+            "certificate_hash": "d78f023153fad6a3ee029b0db0c31d75c3360104"
           }
         },
         {

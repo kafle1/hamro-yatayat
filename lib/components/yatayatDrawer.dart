@@ -2,8 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:yatayat/components/drawer_list.dart';
+import 'package:yatayat/components/snackbar.dart';
 import 'package:yatayat/screens/booking/myBookings/my_bookings_screen.dart';
 import 'package:yatayat/screens/profile/profile_screen.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class YatayatDrawer extends StatefulWidget {
   @override
@@ -11,6 +13,10 @@ class YatayatDrawer extends StatefulWidget {
 }
 
 class _YatayatDrawerState extends State<YatayatDrawer> {
+//Terms and conditions url
+  String url =
+      'https://www.termsandconditionsgenerator.com/live.php?token=KZ5SrqJyovjZuWuLyEcbvRDWkMRQiBt7';
+
   //Initialize firebase auth
   final _auth = FirebaseAuth.instance;
   @override
@@ -42,12 +48,20 @@ class _YatayatDrawerState extends State<YatayatDrawer> {
           DrawerListBuilder(
             icon: Icons.description_outlined,
             title: 'Terms and Conditions',
-            onClick: () => selectedItem(context, 0),
+            onClick: () async => {
+              Navigator.pop(context),
+              if (!await launch(url)) throw 'Could not launch the url'
+            },
           ),
           DrawerListBuilder(
             icon: Icons.person_outline_rounded,
             title: 'Contact Us',
-            onClick: () => selectedItem(context, 0),
+            onClick: () => {
+              Navigator.pop(context),
+              ShowSnackBar().info(
+                  'Ph No: 9829490671, 9861595869 \nFacebook: @yatayatnep',
+                  context)
+            },
           ),
           DrawerListBuilder(
             icon: Icons.share_outlined,

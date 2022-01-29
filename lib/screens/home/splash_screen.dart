@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
               height: 20,
             ),
             Text(
-              'Yatayat',
+              'Hamro Yatayat',
               style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
             ),
             Text(
