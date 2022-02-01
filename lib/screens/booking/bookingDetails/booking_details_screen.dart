@@ -248,7 +248,7 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                             height: 20,
                           ),
                           YatayatButton(
-                              label: 'Check Total Price'.tr,
+                              label: 'Booking Prices'.tr,
                               onClick: () {
                                 Navigator.popAndPushNamed(
                                     context, BookingPrice.id,

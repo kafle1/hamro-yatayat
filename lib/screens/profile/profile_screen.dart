@@ -64,7 +64,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                             child: Image(
                               image: NetworkImage(currentUser!.photoURL ??
-                                  'https://i.ibb.co/4W0rPzP/logo.png'),
+                                  'https://i.ibb.co/qDv60Cw/logo.png'),
                             ),
                             height: 65,
                             width: 65,
