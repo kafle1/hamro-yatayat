@@ -27,7 +27,7 @@ class _YatayatDrawerState extends State<YatayatDrawer> {
         children: [
           buildHeader(
               image: _auth.currentUser!.photoURL ??
-                  'https://i.ibb.co/4W0rPzP/logo.png',
+                  'https://i.ibb.co/qDv60Cw/logo.png',
               name: _auth.currentUser!.displayName ?? 'New User',
               email: _auth.currentUser!.email ?? 'newuser@yatayat.com',
               onClick: () =>

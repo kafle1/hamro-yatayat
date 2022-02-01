@@ -389,7 +389,7 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                                                     'New Booking created successfully!'
                                                         .tr,
                                                 body:
-                                                    'Your booking has been created successfully. To check the full details of your booking go to \'My Bookings\' screen. Soon, you will get a call from Yatayat regarding further details of your booking. Thanks for using Yatayat.'
+                                                    'Your booking has been created successfully. To check the full details and confirm your booking go to \'My Bookings\' screen. Then go to your booking and click on \'Booking Prices\' and select your prefered price for your booking to confirm your booking. Thanks for using Hamro Yatayat.'
                                                         .tr);
 
                                         setState(() {

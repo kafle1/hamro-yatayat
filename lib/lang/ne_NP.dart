@@ -38,8 +38,8 @@ const Map<String, String> neNP = {
   'Select a vehicle you want to book':
       'तपाईंले बुक गर्न चाहनुभएको गाडी चयन गर्नुहोस्',
   'New Booking created successfully!': 'नयाँ बुकिङ सफलतापूर्वक सिर्जना भयो!',
-  'Your booking has been created successfully. To check the full details of your booking go to \'My Bookings\' screen. Soon, you will get a call from Yatayat regarding further details of your booking. Thanks for using Yatayat.':
-      'तपाइको बुकिङ सफलता पुर्बक सम्पन्न भएको छ | आफ्नो बुकिङको पूर्ण विवरण जाँच गर्न \'My Bookings\' स्क्रिनमा जानुहोस्। चाँडै, तपाईलाई बुकिङको थप विवरणहरूकोलागि यातायातबाट कल प्राप्त हुनेछ | यातायात प्रयोग गर्नुभएकोमा धन्यवाद।',
+  'Your booking has been created successfully. To check the full details and confirm your booking go to \'My Bookings\' screen. Then go to your booking, click on \'Booking Prices\' and select your prefered price to confirm your booking. Thanks for using Hamro Yatayat.':
+      'तपाइको बुकिङ सफलता पुर्बक सम्पन्न भएको छ | आफ्नो बुकिङको पूर्ण विवरण जाँच गर्न र बुकिङ कन्फर्म गर्न \'My Bookings\' स्क्रिनमा जानुहोस्। त्यसपछि आफ्नो बुकिङमा गएर \'Booking Prices\'मा क्लिक गर्नुहोस् अनि बुकिङ कनफर्म गर्न आफुलाइ उचित लाग्ने रकम चयन गर्नुहोस | हाम्रो यातायात प्रयोग गर्नुभएकोमा धन्यवाद।',
   'Your Booking has been successfully completed!':
       'तपाईको बुकिङ सफलतापूर्वक सम्पन्न भएको छ!',
   'Please go to Booking Details section to check your booking\'s total price. It might take some time for the total price to appear as our drivers will be bidding their prices for your booking. So please have patience and keep checking the app. You can confirm this booking by choosing the price suitable for you after the bidding price is updated in your app.':
@@ -93,7 +93,7 @@ const Map<String, String> neNP = {
   'Payment Status :': 'भुक्तानी स्थिति :',
   'Booking Details': 'बुकिङको जानकारी',
   'Download Details as PDF': 'PDF डाउनलोड गर्नुहोस',
-  'Check Total Price': 'अन्तिम मूल्य हेर्नुहोस',
+  'Booking Prices': 'बुकिङको मूल्य हेर्नुहोस',
   'Delete Booking': 'बुकिङ Delete गर्नुहोस',
   'Cannot delete this booking as it\'s status is':
       'बुकिङ Delete गर्न मिलेन, तपाइको बुकिङ स्थिति: ',
@@ -102,12 +102,17 @@ const Map<String, String> neNP = {
   "Total Booking Price": 'बुकिङको अन्तिम मूल्य',
   "The Total Price is:": 'बुकिङको अन्तिम मूल्य यति हो: ',
   "Rs. ": 'रू. ',
-  "Price of your booking will be shown once your booking is processed !!":
-      'तपाईंको बुकिङ Process भएपछि तपाईंको बुकिङको अन्तिम मूल्य देखाइनेछ !!',
+  "If you do not see prices, please wait. Price of your booking will be shown once your booking is processed !!":
+      'यदि तपाईंले मूल्यहरू देख्नुभएन भने, कृपया प्रतीक्षा गर्नुहोस्। तपाईंको बुकिङ Process भएपछि बुकिङको मूल्य देखाइनेछ !!',
   'I agree with this price, Confirm Booking':
-      'म यो मूल्यसँग सहमत छु, बुकिंग फाइनल गर्नुहोस',
+      'म यो मूल्यसँग सहमत छु, बुकिङ फाइनल गर्नुहोस',
   "I disagree with this price, Cancel Booking":
-      "म यो मूल्यसँग सहमत छैन, बुकिंग रद्द गर्नुहोस",
+      "म यो मूल्यसँग सहमत छैन, बुकिङ रद्द गर्नुहोस",
   "Your booking price is not finalized yet, Please wait !":
-      "तपाईंको बुकिङ मूल्य अझै तय भएको छैन, कृपया प्रतीक्षा गर्नुहोस्!"
+      "तपाईंको बुकिङ मूल्य अझै तय भएको छैन, कृपया प्रतीक्षा गर्नुहोस्!",
+  'Choose a prefered price to confirm your booking!':
+      'आफ्नो बुकिङ फाइनल गर्न इच्छित मूल्य छान्नुहोस्!',
+  'Do you want to confirm this booking ?':
+      'के तपाइँ यो बुकिङ कन्फर्म गर्न चाहनुहुन्छ ?',
+  'Confirm Booking ?': 'बुकिङ कन्फर्म गरौ ?'
 };
