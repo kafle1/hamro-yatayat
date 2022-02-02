@@ -222,7 +222,7 @@ class Database {
                 document.data()! as Map<String, dynamic>;
             return Image.network(
               data['url'],
-              fit: BoxFit.cover,
+              fit: BoxFit.fill,
             );
           }).toList(),
           dotSize: 5,
