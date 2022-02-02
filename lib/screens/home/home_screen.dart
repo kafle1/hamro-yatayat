@@ -128,7 +128,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           Container(
             margin: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
-            height: 160,
+            height: 180,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
               color: Colors.white,

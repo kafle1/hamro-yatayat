@@ -6,6 +6,7 @@ import 'package:yatayat/components/snackbar.dart';
 import 'package:yatayat/screens/booking/myBookings/my_bookings_screen.dart';
 import 'package:yatayat/screens/profile/profile_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:share_plus/share_plus.dart';
 
 class YatayatDrawer extends StatefulWidget {
   @override
@@ -66,7 +67,12 @@ class _YatayatDrawerState extends State<YatayatDrawer> {
           DrawerListBuilder(
             icon: Icons.share_outlined,
             title: 'Share App',
-            onClick: () => selectedItem(context, 0),
+            onClick: () => {
+              Navigator.pop(context),
+              Share.share(
+                  'If you need vehicle in rent then Hamro Yatayat is here for you. Download our app now and rent a vehicle of your choice. \nhttps://play.google.com/store/apps/details?id=com.hamroyatayat.customer',
+                  subject: 'Hamro Yatayat, Hire any Vehicle')
+            },
           ),
           DrawerListBuilder(
             icon: Icons.logout_outlined,
