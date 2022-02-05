@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 
 class BookingSuccess extends StatelessWidget {
   static const String id = 'bookingConfirm';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

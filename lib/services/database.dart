@@ -70,6 +70,20 @@ class Database {
     }
   }
 
+  //Add this booking to available biddings
+  static Future<String> addToAvailableBiddings(
+      {required Map<String, dynamic> booking}) async {
+    try {
+      await FirebaseFirestore.instance
+          .collection('availableBiddings')
+          .doc(booking['id'])
+          .set(booking);
+      return 'Added to available bookings successfully';
+    } catch (e) {
+      return 'Error adding the booking to available biddings';
+    }
+  }
+
   //Create a new booking
   Future<DocumentReference> createNewBooking(
       {String? name,
@@ -86,10 +100,7 @@ class Database {
     try {
       //Create a random order id
       Random random = new Random();
-
-      //Save the details to firestore database
-      final newBooking =
-          await usersCollection.doc(uid).collection('bookings').add({
+      Map<String, dynamic> details = {
         'name': name,
         'vehicleType': vehicleType,
         'pickupLocation': pickupLocation,
@@ -107,7 +118,16 @@ class Database {
         'bookingDate': DateFormat('yyyy-MM-dd  kk:mm')
             .format(NepaliDateTime.now())
             .toString()
-      });
+      };
+      //Save the details to firestore database
+      final newBooking =
+          await usersCollection.doc(uid).collection('bookings').add(details);
+      details['id'] = newBooking.id;
+      details['docId'] = uid;
+
+      print(details);
+      //Add to available bookings
+      await addToAvailableBiddings(booking: details);
       return newBooking;
     } catch (e) {
       throw e;
