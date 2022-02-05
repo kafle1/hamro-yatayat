@@ -104,10 +104,8 @@ const Map<String, String> neNP = {
   "Rs. ": 'रू. ',
   "If you do not see prices, please wait. Price of your booking will be shown once your booking is processed !!":
       'यदि तपाईंले मूल्यहरू देख्नुभएन भने, कृपया प्रतीक्षा गर्नुहोस्। तपाईंको बुकिङ Process भएपछि बुकिङको मूल्य देखाइनेछ !!',
-  'I agree with this price, Confirm Booking':
-      'म यो मूल्यसँग सहमत छु, बुकिङ फाइनल गर्नुहोस',
-  "I disagree with this price, Cancel Booking":
-      "म यो मूल्यसँग सहमत छैन, बुकिङ रद्द गर्नुहोस",
+  'Confirm Booking ': 'बुकिङ फाइनल गर्नुहोस',
+  "Cancel Booking": "बुकिङ रद्द गर्नुहोस",
   "Your booking price is not finalized yet, Please wait !":
       "तपाईंको बुकिङ मूल्य अझै तय भएको छैन, कृपया प्रतीक्षा गर्नुहोस्!",
   'Choose a prefered price to confirm your booking!':

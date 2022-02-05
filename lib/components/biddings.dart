@@ -69,7 +69,7 @@ class _GetBiddingsState extends State<GetBiddings> {
                         '\nPrice: Rs. ${data['amount']}'),
                     actions: [
                       YatayatButton(
-                        label: 'I agree with this price, Confirm Booking'.tr,
+                        label: 'Confirm Booking '.tr,
                         onClick: () {
                           if (widget.userData['status'] == 'Pending') {
                             //Process this booking
@@ -81,7 +81,12 @@ class _GetBiddingsState extends State<GetBiddings> {
                                     bidId: document.id,
                                     bookingId:
                                         widget.userData['bookingId'].toString())
-                                .then((value) => Navigator.pop(context))
+                                .then((value) => {
+                                      Navigator.pop(context),
+                                      ShowSnackBar().success(
+                                          'Your booking is confirmed with final price of Rs.${data['amount']}. You will get more details via SMS',
+                                          context)
+                                    })
                                 .catchError((err) => {
                                       ShowSnackBar().error(
                                           'Error while processing the booking !',
@@ -97,13 +102,18 @@ class _GetBiddingsState extends State<GetBiddings> {
                         bgColor: Colors.green[900],
                       ),
                       YatayatButton(
-                        label: 'I disagree with this price, Cancel Booking'.tr,
+                        label: 'Cancel Booking'.tr,
                         onClick: () {
                           if (widget.userData['status'] == 'Pending') {
                             //Process this booking
                             Database(uid: currentUser!.uid)
                                 .cancelBooking(bookingDocID: widget.docId)
-                                .then((value) => Navigator.pop(context))
+                                .then((value) => {
+                                      Navigator.pop(context),
+                                      ShowSnackBar().success(
+                                          'Your booking is cancelled. ',
+                                          context)
+                                    })
                                 .catchError((err) => {
                                       ShowSnackBar().error(
                                           'Error while cancelling the booking !',

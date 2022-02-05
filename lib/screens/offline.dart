@@ -8,21 +8,24 @@ class Offline extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            Image(image: AssetImage('assets/images/noInternet.png')),
-            Text(
-              'Uhh Oh ! No Internet Connection',
-              style: kComponentTitleStyle,
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Text(
-              'Please check your internet connection and try again.',
-              style: kDetailsLableStyle,
-            )
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            children: [
+              Image(image: AssetImage('assets/images/noInternet.png')),
+              Text(
+                'Uhh Oh ! No Internet Connection',
+                style: kComponentTitleStyle,
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Text(
+                'Please check your internet connection and try again.',
+                style: kDetailsLableStyle,
+              )
+            ],
+          ),
         ),
       ),
     );
