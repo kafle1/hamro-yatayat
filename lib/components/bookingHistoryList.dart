@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:yatayat/components/buildSheet.dart';
 import 'package:yatayat/screens/booking/bookingDetails/booking_details_screen.dart';
 
 import 'my_booking_card.dart';
@@ -48,8 +49,15 @@ class _BookingHistoryListState extends State<BookingHistoryList> {
                 icon: data['icon'] ?? '',
                 status: data['status'] ?? '',
                 onClick: () {
-                  Navigator.pushNamed(context, BookingDetailsScreen.id,
-                      arguments: document.id);
+                  //Open sliding up panel
+                  showModalBottomSheet(
+                      isScrollControlled: true,
+                      context: context,
+                      backgroundColor: Colors.transparent,
+                      builder: (context) => BuildSheet(
+                            data: data,
+                            docId: document.id,
+                          ));
                 },
               );
             }).toList(),

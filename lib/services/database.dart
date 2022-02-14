@@ -125,7 +125,6 @@ class Database {
       details['id'] = newBooking.id;
       details['docId'] = uid;
 
-      print(details);
       //Add to available bookings
       await addToAvailableBiddings(booking: details);
       return newBooking;

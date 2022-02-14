@@ -186,6 +186,20 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                                     );
 
                                     if (newDate != null) {
+                                      var timeOfDay = await showTimePicker(
+                                        initialEntryMode:
+                                            TimePickerEntryMode.input,
+                                        context: context,
+                                        initialTime: TimeOfDay.fromDateTime(
+                                          newDate.toDateTime(),
+                                        ),
+                                      );
+                                      newDate = newDate.mergeTime(
+                                        timeOfDay?.hour ?? 0,
+                                        timeOfDay?.minute ?? 0,
+                                        0,
+                                      );
+
                                       setState(() {
                                         _date = newDate;
                                       });
@@ -195,7 +209,7 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                                   child: Text(_date != null
                                       ? _date
                                           .toString()
-                                          .replaceAll('00:00:00.000', '')
+                                          .replaceAll(':00.000', '')
                                       : 'Enter your pickup date'.tr),
                                   color: kThemeColor,
                                   textColor: Colors.white,
@@ -370,8 +384,7 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                                                 pickupLocation: pickupLocation,
                                                 pickupDate: _date
                                                     .toString()
-                                                    .replaceAll(
-                                                        '00:00:00.000', ''),
+                                                    .replaceAll(':00.000', ''),
                                                 destinationLocation:
                                                     destination,
                                                 noOfDays: days,

@@ -27,6 +27,8 @@ class _GetBiddingsState extends State<GetBiddings> {
     final Stream<QuerySnapshot> _usersStream = FirebaseFirestore.instance
         .collection('biddings')
         .where('bookingId', isEqualTo: widget.docId)
+        .orderBy('amount', descending: true)
+        .limit(5)
         .snapshots();
     return StreamBuilder<QuerySnapshot>(
       stream: _usersStream,
@@ -68,9 +70,10 @@ class _GetBiddingsState extends State<GetBiddings> {
                     content: Text('Do you want to confirm this booking ?'.tr +
                         '\nPrice: Rs. ${data['amount']}'),
                     actions: [
-                      YatayatButton(
-                        label: 'Confirm Booking '.tr,
-                        onClick: () {
+                      TextButton.icon(
+                        style: TextButton.styleFrom(
+                            backgroundColor: Colors.green[900]),
+                        onPressed: () {
                           if (widget.userData['status'] == 'Pending') {
                             //Process this booking
                             Database(uid: currentUser!.uid)
@@ -99,11 +102,19 @@ class _GetBiddingsState extends State<GetBiddings> {
                                 context);
                           }
                         },
-                        bgColor: Colors.green[900],
+                        icon: Icon(
+                          Icons.check,
+                          color: Colors.white,
+                        ),
+                        label: Text(
+                          'Confirm'.tr,
+                          style: TextStyle(color: Colors.white, fontSize: 15),
+                        ),
                       ),
-                      YatayatButton(
-                        label: 'Cancel Booking'.tr,
-                        onClick: () {
+                      TextButton.icon(
+                        style: TextButton.styleFrom(
+                            backgroundColor: Colors.red[900]),
+                        onPressed: () {
                           if (widget.userData['status'] == 'Pending') {
                             //Process this booking
                             Database(uid: currentUser!.uid)
@@ -126,7 +137,14 @@ class _GetBiddingsState extends State<GetBiddings> {
                                 context);
                           }
                         },
-                        bgColor: Colors.red[900],
+                        icon: Icon(
+                          Icons.cancel,
+                          color: Colors.white,
+                        ),
+                        label: Text(
+                          'Cancel'.tr,
+                          style: TextStyle(color: Colors.white, fontSize: 15),
+                        ),
                       ),
                     ],
                   ),

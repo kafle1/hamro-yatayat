@@ -63,7 +63,6 @@ class _YatayatState extends State<Yatayat> {
         BookingSuccess.id: (context) => BookingSuccess(),
         PhoneAuthentication.id: (context) => PhoneAuthentication(),
         Loading.id: (context) => Loading(),
-        BookingPrice.id: (context) => BookingPrice(),
         Offline.id: (context) => Offline(),
       },
       debugShowCheckedModeBanner: false,
