@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nepali_utils/nepali_utils.dart';
 import 'package:yatayat/components/appbar.dart';
+import 'package:yatayat/components/bookingHistoryList.dart';
 import 'package:yatayat/components/my_booking_card.dart';
 import 'package:yatayat/components/vehicle_card.dart';
 import 'package:yatayat/components/yatayatDrawer.dart';
@@ -186,7 +187,59 @@ class _HomePageState extends State<HomePage> {
                       booking: false,
                     ),
                     VehicleCard(
-                      iconPath: 'assets/images/icons/Other.png',
+                      iconPath: 'assets/images/icons/Taxi.png',
+                      onClick: () => {
+                        Navigator.pushNamed(context, CreateBookingScreen.id,
+                            arguments: {'vehicle': 'Taxi', 'icon': 'Taxi'})
+                      },
+                      lable: 'Taxi'.tr,
+                      booking: false,
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  children: [
+                    VehicleCard(
+                      iconPath: 'assets/images/icons/Micro.png',
+                      onClick: () => {
+                        Navigator.pushNamed(context, CreateBookingScreen.id,
+                            arguments: {
+                              'vehicle': 'Toyota Hiace',
+                              'icon': 'Micro'
+                            })
+                      },
+                      lable: 'Hiace'.tr,
+                      booking: false,
+                    ),
+                    VehicleCard(
+                      iconPath: 'assets/images/icons/Jeep.png',
+                      onClick: () => {
+                        Navigator.pushNamed(context, CreateBookingScreen.id,
+                            arguments: {
+                              'vehicle': 'TATA Sumo (A/c)',
+                              'icon': 'Jeep'
+                            })
+                      },
+                      lable: 'TATA Sumo'.tr,
+                      booking: false,
+                    ),
+                    VehicleCard(
+                      iconPath: 'assets/images/icons/Cruiser.png',
+                      onClick: () => {
+                        Navigator.pushNamed(context, CreateBookingScreen.id,
+                            arguments: {
+                              'vehicle': 'Landcruiser',
+                              'icon': 'Cruiser'
+                            })
+                      },
+                      lable: 'Landcruiser'.tr,
+                      booking: false,
+                    ),
+                    VehicleCard(
+                      iconPath: 'assets/images/icons/Carrier.png',
                       onClick: () => {
                         Navigator.pushNamed(context, CreateBookingScreen.id,
                             arguments: {'vehicle': '', 'icon': ''})
@@ -211,41 +264,7 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(
                   height: 15,
                 ),
-                StreamBuilder<QuerySnapshot>(
-                  stream: _bookingStream,
-                  builder: (BuildContext context,
-                      AsyncSnapshot<QuerySnapshot> snapshot) {
-                    if (snapshot.hasError) {
-                      return Text('Something went wrong'.tr);
-                    }
-
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return Text("Loading...");
-                    }
-                    if (snapshot.hasData) {
-                      return Column(
-                        children: snapshot.data!.docs
-                            .map((DocumentSnapshot document) {
-                          Map<String, dynamic> data =
-                              document.data()! as Map<String, dynamic>;
-                          return MyBookingCard(
-                            vehicleType: data['vehicleType'] ?? '',
-                            icon: data['icon'] ?? '',
-                            date: data['bookingDate'] ?? '',
-                            status: data['status'] ?? '',
-                            onClick: () {
-                              Navigator.pushNamed(
-                                  context, BookingDetailsScreen.id,
-                                  arguments: document.id);
-                            },
-                          );
-                        }).toList(),
-                      );
-                    } else {
-                      return Text("No data");
-                    }
-                  },
-                ),
+                BookingHistoryList()
               ],
             ),
           ),

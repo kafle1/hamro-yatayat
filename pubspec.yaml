@@ -33,6 +33,7 @@ dependencies:
   pdf: ^3.6.1
   rename: ^2.0.1
   share_plus: ^3.0.4
+  sliding_up_panel: ^2.0.0+1
   syncfusion_flutter_pdf: ^19.3.48-beta
   url_launcher: ^6.0.18
 
