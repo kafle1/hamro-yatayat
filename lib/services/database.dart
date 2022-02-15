@@ -17,6 +17,8 @@ class Database {
   //Collection references
   CollectionReference usersCollection =
       FirebaseFirestore.instance.collection('users');
+  CollectionReference driverCollection =
+      FirebaseFirestore.instance.collection('drivers');
 
   CollectionReference biddingCollection =
       FirebaseFirestore.instance.collection('biddings');
@@ -157,17 +159,31 @@ class Database {
       required String driverId,
       required String price,
       required String bidId,
-      required String bookingId}) async {
+      required String bookingId,
+      required String customerDocId}) async {
     try {
+      //Get driver details of this driver
+      DocumentSnapshot driverData = await driverCollection.doc(driverId).get();
+      dynamic data = driverData.data();
+
+      //Update the booking accordingly
       await usersCollection
           .doc(uid)
           .collection('bookings')
           .doc(bookingDocID)
-          .update(
-              {'status': 'Processed', 'vehicleId': driverId, 'amount': price});
-      await biddingCollection.doc(bidId).set(
-          {"bookingStatus": "Processed", 'bookingNo': bookingId},
-          SetOptions(merge: true));
+          .update({
+        'status': 'Confirmed',
+        'driverName': data['driverName'],
+        'driverNumber': data['driverNumber'],
+        'vehicleNumber': data['vehicleNumber'],
+        'vehicleId': driverId,
+        'amount': price
+      });
+      await biddingCollection.doc(bidId).set({
+        "bookingStatus": "Confirmed",
+        'bookingNo': bookingId,
+        'customerDocId': customerDocId
+      }, SetOptions(merge: true));
       return 'Process Success';
     } catch (e) {
       throw e;

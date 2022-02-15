@@ -51,6 +51,7 @@ class _GetBiddingsState extends State<GetBiddings> {
             count++;
             return ListTile(
               leading: Text('$count.'),
+              isThreeLine: true,
               title: Text(
                 "Rs. ${data['amount']}",
                 style: kDetailsLableStyle.copyWith(
@@ -58,8 +59,7 @@ class _GetBiddingsState extends State<GetBiddings> {
               ),
               subtitle: Text('${data['remarks']}'),
               trailing: Icon(
-                Icons.price_check_rounded,
-                size: 32,
+                Icons.attach_money,
                 color: Colors.green[900],
               ),
               onTap: () {
@@ -70,37 +70,35 @@ class _GetBiddingsState extends State<GetBiddings> {
                     content: Text('Do you want to confirm this booking ?'.tr +
                         '\nPrice: Rs. ${data['amount']}'),
                     actions: [
+                      //Confirm this booking
+
                       TextButton.icon(
                         style: TextButton.styleFrom(
                             backgroundColor: Colors.green[900]),
                         onPressed: () {
-                          if (widget.userData['status'] == 'Pending') {
-                            //Process this booking
-                            Database(uid: currentUser!.uid)
-                                .processBooking(
-                                    bookingDocID: widget.docId,
-                                    driverId: data['driverId'],
-                                    price: data['amount'].toString(),
-                                    bidId: document.id,
-                                    bookingId:
-                                        widget.userData['bookingId'].toString())
-                                .then((value) => {
-                                      Navigator.pop(context),
-                                      ShowSnackBar().success(
-                                          'Your booking is confirmed with final price of Rs.${data['amount']}. You will get more details via SMS',
-                                          context)
-                                    })
-                                .catchError((err) => {
-                                      ShowSnackBar().error(
-                                          'Error while processing the booking !',
-                                          context)
-                                    });
-                          } else {
-                            Navigator.pop(context);
-                            ShowSnackBar().info(
-                                'Your booking status is ${widget.userData['status']} !',
-                                context);
-                          }
+                          //Process this booking
+                          Database(uid: currentUser!.uid)
+                              .processBooking(
+                                  customerDocId: currentUser.uid,
+                                  bookingDocID: widget.docId,
+                                  driverId: data['driverId'],
+                                  price: data['amount'].toString(),
+                                  bidId: document.id,
+                                  bookingId:
+                                      widget.userData['bookingId'].toString())
+                              .then((value) => {
+                                    Navigator.pop(context),
+                                    Navigator.pop(context),
+                                    ShowSnackBar().success(
+                                        'Your booking is confirmed with final price of Rs.${data['amount']}. Happy Journey !!',
+                                        context)
+                                  })
+                              .catchError((err) => {
+                                    Navigator.pop(context),
+                                    ShowSnackBar().error(
+                                        'Error while processing the booking !',
+                                        context)
+                                  });
                         },
                         icon: Icon(
                           Icons.check,
@@ -108,41 +106,6 @@ class _GetBiddingsState extends State<GetBiddings> {
                         ),
                         label: Text(
                           'Confirm'.tr,
-                          style: TextStyle(color: Colors.white, fontSize: 15),
-                        ),
-                      ),
-                      TextButton.icon(
-                        style: TextButton.styleFrom(
-                            backgroundColor: Colors.red[900]),
-                        onPressed: () {
-                          if (widget.userData['status'] == 'Pending') {
-                            //Process this booking
-                            Database(uid: currentUser!.uid)
-                                .cancelBooking(bookingDocID: widget.docId)
-                                .then((value) => {
-                                      Navigator.pop(context),
-                                      ShowSnackBar().success(
-                                          'Your booking is cancelled. ',
-                                          context)
-                                    })
-                                .catchError((err) => {
-                                      ShowSnackBar().error(
-                                          'Error while cancelling the booking !',
-                                          context)
-                                    });
-                          } else {
-                            Navigator.pop(context);
-                            ShowSnackBar().info(
-                                'Your booking status is ${widget.userData['status']} !',
-                                context);
-                          }
-                        },
-                        icon: Icon(
-                          Icons.cancel,
-                          color: Colors.white,
-                        ),
-                        label: Text(
-                          'Cancel'.tr,
                           style: TextStyle(color: Colors.white, fontSize: 15),
                         ),
                       ),
