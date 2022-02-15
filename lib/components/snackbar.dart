@@ -18,7 +18,7 @@ class ShowSnackBar {
   dynamic success(String? text, context) {
     return ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        backgroundColor: Color(0xff27ae60),
+        backgroundColor: Colors.green[900],
         content: Text(
           '$text',
           style: TextStyle(color: Colors.white),

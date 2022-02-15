@@ -49,15 +49,22 @@ class _BookingHistoryListState extends State<BookingHistoryList> {
                 icon: data['icon'] ?? '',
                 status: data['status'] ?? '',
                 onClick: () {
-                  //Open sliding up panel
-                  showModalBottomSheet(
+                  //Check if booking status is confirmed or not
+                  if (data['status'] == 'Pending') {
+                    //Open sliding up panel
+                    showModalBottomSheet(
                       isScrollControlled: true,
                       context: context,
                       backgroundColor: Colors.transparent,
                       builder: (context) => BuildSheet(
-                            data: data,
-                            docId: document.id,
-                          ));
+                        data: data,
+                        docId: document.id,
+                      ),
+                    );
+                  } else {
+                    Navigator.pushNamed(context, BookingDetailsScreen.id,
+                        arguments: document.id);
+                  }
                 },
               );
             }).toList(),

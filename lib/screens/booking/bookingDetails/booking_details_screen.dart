@@ -247,42 +247,22 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                           SizedBox(
                             height: 20,
                           ),
-                          YatayatButton(
-                              label: 'Booking Prices'.tr,
-                              onClick: () {
-                                Navigator.popAndPushNamed(
-                                    context, BookingPrice.id,
-                                    arguments: {'data': data, 'docId': docId});
-                              }),
-                          YatayatButton(
-                              label: 'Download Details as PDF'.tr,
-                              bgColor: Colors.black,
-                              onClick: () async {
+                          SizedBox(
+                            width: double.infinity,
+                            height: 55,
+                            child: ElevatedButton.icon(
+                              style: ElevatedButton.styleFrom(
+                                  primary: Colors.black),
+                              onPressed: () {
                                 createPdf(data);
-                              }),
-                          YatayatButton(
-                              label: 'Delete Booking'.tr,
-                              bgColor: Colors.red[900],
-                              onClick: () {
-                                if (data['status'] == "Pending") {
-                                  //Delete Booking
-                                  Database(uid: currentUser.uid)
-                                      .deleteBooking(bookingDocID: docId)
-                                      .then((value) => Navigator.pop(context))
-                                      .catchError((err) => {
-                                            ShowSnackBar().error(
-                                                'Error occured deleting the booking !'
-                                                    .tr,
-                                                context)
-                                          });
-                                } else {
-                                  ShowSnackBar().info(
-                                      'Cannot delete this booking as it\'s status is'
-                                              .tr +
-                                          ' ${data['status']!}',
-                                      context);
-                                }
-                              }),
+                              },
+                              icon: Icon(Icons.file_download),
+                              label: Text(
+                                'Download Details as PDF',
+                                style: TextStyle(fontSize: 16),
+                              ),
+                            ),
+                          ),
                         ],
                       );
                     }
