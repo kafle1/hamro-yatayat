@@ -2,11 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:yatayat/components/appbar.dart';
-import 'package:yatayat/components/button.dart';
-import 'package:yatayat/components/snackbar.dart';
 import 'package:yatayat/models/create_booking_pdf.model.dart';
-import 'package:yatayat/screens/booking/booking_price_check.dart';
-import 'package:yatayat/services/database.dart';
 import 'package:yatayat/shared/constants.dart';
 import 'package:get/get.dart';
 
@@ -258,7 +254,7 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                               },
                               icon: Icon(Icons.file_download),
                               label: Text(
-                                'Download Details as PDF',
+                                'Download Details as PDF'.tr,
                                 style: TextStyle(fontSize: 16),
                               ),
                             ),

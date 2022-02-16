@@ -10,6 +10,7 @@ import 'package:yatayat/screens/booking/bookingDetails/booking_details_screen.da
 import 'package:yatayat/screens/booking/booking_price_check.dart';
 import 'package:yatayat/screens/booking/booking_success_screen.dart';
 import 'package:yatayat/screens/booking/createBooking/create_booking_screen.dart';
+import 'package:yatayat/screens/feedback.dart';
 import 'package:yatayat/screens/home/home_screen.dart';
 import 'package:yatayat/screens/booking/myBookings/my_bookings_screen.dart';
 import 'package:yatayat/screens/notification/notifications_screen.dart';
@@ -64,6 +65,7 @@ class _YatayatState extends State<Yatayat> {
         PhoneAuthentication.id: (context) => PhoneAuthentication(),
         Loading.id: (context) => Loading(),
         Offline.id: (context) => Offline(),
+        FeedbackContact.id: (context) => FeedbackContact(),
       },
       debugShowCheckedModeBanner: false,
     );

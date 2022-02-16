@@ -236,12 +236,6 @@ class _PhoneAuthenticationState extends State<PhoneAuthentication> {
                         }
                       },
                     )
-                    // TextField(
-                    //   controller: _otpController,
-                    //   maxLength: 6,
-
-                    //   keyboardType: TextInputType.number,
-                    // ),
                   ],
                 ),
               ),

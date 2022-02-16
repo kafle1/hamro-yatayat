@@ -190,6 +190,22 @@ class Database {
     }
   }
 
+  //Send feedback message to the driver
+
+  static Future sendMessage(
+      {required String customerId,
+      required String subject,
+      required String messsage}) async {
+    try {
+      await FirebaseFirestore.instance.collection('messages').add(
+          {'customerId': customerId, 'subject': subject, 'message': messsage});
+
+      return 'Added New Feedback Successfully';
+    } catch (e) {
+      return e;
+    }
+  }
+
   //Cancel the booking
   Future<String> cancelBooking({required String bookingDocID}) async {
     try {
