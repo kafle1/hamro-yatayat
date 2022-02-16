@@ -66,6 +66,12 @@
 @import share_plus;
 #endif
 
+#if __has_include(<sms_autofill/SmsAutoFillPlugin.h>)
+#import <sms_autofill/SmsAutoFillPlugin.h>
+#else
+@import sms_autofill;
+#endif
+
 #if __has_include(<url_launcher_ios/FLTURLLauncherPlugin.h>)
 #import <url_launcher_ios/FLTURLLauncherPlugin.h>
 #else
@@ -85,6 +91,7 @@
   [OpenFilePlugin registerWithRegistrar:[registry registrarForPlugin:@"OpenFilePlugin"]];
   [FLTPathProviderPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTPathProviderPlugin"]];
   [FLTSharePlusPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTSharePlusPlugin"]];
+  [SmsAutoFillPlugin registerWithRegistrar:[registry registrarForPlugin:@"SmsAutoFillPlugin"]];
   [FLTURLLauncherPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTURLLauncherPlugin"]];
 }
 

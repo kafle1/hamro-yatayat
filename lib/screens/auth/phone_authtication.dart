@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:sms_autofill/sms_autofill.dart';
 import 'package:yatayat/components/button.dart';
 import 'package:yatayat/components/snackbar.dart';
 import 'package:yatayat/screens/home/home_screen.dart';
@@ -95,8 +96,7 @@ class _PhoneAuthenticationState extends State<PhoneAuthentication> {
                 height: 10,
               ),
               Text(
-                'We will send you an One Time Password on this mobile number'
-                    .tr,
+                'We will send you One Time Password on this mobile number'.tr,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: kThemeColor,
@@ -112,14 +112,6 @@ class _PhoneAuthenticationState extends State<PhoneAuthentication> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      children: [
-                        Text(
-                          'Enter your phone number'.tr,
-                          style: kFormLabelStyle,
-                        ),
-                      ],
-                    ),
                     SizedBox(
                       height: 10,
                     ),
@@ -128,48 +120,60 @@ class _PhoneAuthenticationState extends State<PhoneAuthentication> {
                       controller: _phoneController,
                       maxLength: 10,
                       onChanged: (value) {},
-                      decoration: kInputFieldDecoration.copyWith(
-                          hintText: '9800000000'),
+                      decoration: InputDecoration(
+                        hintText: '98********',
+                        labelText: 'Enter your phone number',
+                        labelStyle: TextStyle(fontSize: 15),
+                        border: OutlineInputBorder(),
+                        prefixIcon: Icon(Icons.phone),
+                      ),
                       keyboardType: TextInputType.number,
                     ),
                   ],
                 ),
               ),
               YatayatButton(
-                  label: 'Get OTP'.tr,
-                  onClick: () async {
-                    //Show loading
-                    startLoading();
+                label: 'Get OTP'.tr,
+                onClick: () async {
+//Set signature for auto fill
+                  final signature = await SmsAutoFill().getAppSignature;
+                  print(signature);
+                  await SmsAutoFill().listenForCode();
+                  //Show loading
+                  startLoading();
 
-                    //User entered phone number
-                    String userNumber = '+977' + _phoneController.text;
-                    //Verify user phone number with firebase phone auth
-                    await _auth.verifyPhoneNumber(
-                        phoneNumber: userNumber,
-                        codeSent: (verificationId, resendingToken) async {
-                          setState(() {
-                            currentState =
-                                MobileVerificationState.SHOW_OTP_FORM_STATE;
-                            this.verificationId = verificationId;
-                            stopLoading();
-                          });
-                        },
-                        verificationCompleted: (phoneAuthCred) async {
+                  //User entered phone number
+                  String userNumber = '+977' + _phoneController.text;
+                  //Verify user phone number with firebase phone auth
+                  await _auth.verifyPhoneNumber(
+                      phoneNumber: userNumber,
+                      codeSent: (verificationId, resendingToken) async {
+                        setState(() {
+                          currentState =
+                              MobileVerificationState.SHOW_OTP_FORM_STATE;
+                          this.verificationId = verificationId;
                           stopLoading();
-                        },
-                        verificationFailed: (e) {
-                          stopLoading();
-                          //Show snack bar
-                          ShowSnackBar().error(e.message, context);
-                        },
-                        codeAutoRetrievalTimeout: (verificationId) async {});
-                  }),
+                        });
+                      },
+                      verificationCompleted: (phoneAuthCred) async {
+                        stopLoading();
+                      },
+                      verificationFailed: (e) {
+                        stopLoading();
+                        //Show snack bar
+                        ShowSnackBar().error(e.message, context);
+                      },
+                      codeAutoRetrievalTimeout: (verificationId) async {});
+                },
+              ),
             ],
           ),
         ),
       ),
     );
   }
+
+  String code = '';
 
   //OTP Verification
   getOTPFormWidget(context) {
@@ -208,42 +212,63 @@ class _PhoneAuthenticationState extends State<PhoneAuthentication> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      children: [
-                        Text(
-                          'Enter OTP :'.tr,
-                          style: kFormLabelStyle,
-                        ),
-                      ],
-                    ),
                     SizedBox(
                       height: 10,
                     ),
-                    TextField(
-                      controller: _otpController,
-                      maxLength: 6,
-                      decoration:
-                          kInputFieldDecoration.copyWith(hintText: '******'),
-                      keyboardType: TextInputType.number,
-                    ),
+                    TextFieldPinAutoFill(
+                      decoration: InputDecoration(
+                        hintText: '******',
+                        labelText: 'Enter the OTP',
+                        labelStyle: TextStyle(fontSize: 15),
+                        border: OutlineInputBorder(),
+                        prefixIcon: Icon(Icons.vpn_key),
+                      ),
+                      codeLength: 6,
+                      currentCode: code,
+                      onCodeSubmitted: (code) {},
+                      onCodeChanged: (val) {
+                        print(val);
+
+                        code = val;
+
+                        if (val.length == 6) {
+                          FocusScope.of(context).requestFocus(FocusNode());
+                        }
+                      },
+                    )
+                    // TextField(
+                    //   controller: _otpController,
+                    //   maxLength: 6,
+
+                    //   keyboardType: TextInputType.number,
+                    // ),
                   ],
                 ),
               ),
               YatayatButton(
-                  label: 'Verify & Proceed'.tr,
-                  onClick: () async {
+                label: 'Verify & Proceed'.tr,
+                onClick: () async {
+                  if (code.length == 6) {
+                    print(code);
                     PhoneAuthCredential phoneAuthCredential =
                         PhoneAuthProvider.credential(
-                            verificationId: verificationId,
-                            smsCode: _otpController.text);
+                            verificationId: verificationId, smsCode: code);
 
                     signIn(phoneAuthCredential);
-                  })
+                  }
+                },
+              )
             ],
           ),
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    SmsAutoFill().unregisterListener();
   }
 
   @override

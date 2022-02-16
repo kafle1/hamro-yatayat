@@ -31,9 +31,9 @@ dependencies:
   open_file: ^3.2.1
   path_provider: ^2.0.6
   pdf: ^3.6.1
-  rename: ^2.0.1
   share_plus: ^3.0.4
   sliding_up_panel: ^2.0.0+1
+  sms_autofill: ^2.2.0
   syncfusion_flutter_pdf: ^19.3.48-beta
   url_launcher: ^6.0.18
 
@@ -45,7 +45,7 @@ dev_dependencies:
 
 flutter_icons:
   android: true
-  image_path: "assets/images/big-dark-logo.png"
+  image_path: "assets/images/logo.png"
 
 flutter:
   generate: true
