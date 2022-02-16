@@ -112,5 +112,12 @@ const Map<String, String> neNP = {
       'आफ्नो बुकिङ फाइनल गर्न इच्छित मूल्य छान्नुहोस्!',
   'Do you want to confirm this booking ?':
       'के तपाइँ यो बुकिङ कन्फर्म गर्न चाहनुहुन्छ ?',
-  'Confirm Booking ?': 'बुकिङ कन्फर्म गरौ ?'
+  'Confirm Booking ?': 'बुकिङ कन्फर्म गरौ ?',
+  'Hiace': 'माइक्रो',
+  'TATA Sumo': 'टाटा सुमो',
+  'Taxi': 'ट्याक्सि',
+  'Landcruiser': 'ल्यान्डक्रूजर',
+  'Are you sure you want to cancel this booking? You cant revert back once you cancel this booking !':
+      'के तपाइँ यो बुकिङ रद्द गर्न निश्चित हुनुहुन्छ? तपाईंले यो बुकिङ रद्द गरेपछि तपाईं फर्कन सक्नुहुन्न!',
+  'Yes Cancel': 'हो रद्द गर्नुहोस्'
 };

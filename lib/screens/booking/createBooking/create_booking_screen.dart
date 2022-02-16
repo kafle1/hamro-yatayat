@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:nepali_date_picker/nepali_date_picker.dart';
 import 'package:yatayat/components/appbar.dart';
 import 'package:yatayat/components/button.dart';
@@ -21,7 +22,6 @@ class CreateBookingScreen extends StatefulWidget {
 }
 
 class _CreateBookingScreenState extends State<CreateBookingScreen> {
-  bool? isEmergencyBooking = false;
   bool? is1Trip = false;
   bool? is2Trip = false;
   String tripSelected = '';
@@ -42,7 +42,8 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
   String? phoneNumber = '';
   String? days;
   String? email;
-  DateTime? _date;
+
+  String? _date;
   String? icon;
 
   @override
@@ -187,21 +188,30 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
 
                                     if (newDate != null) {
                                       var timeOfDay = await showTimePicker(
-                                        initialEntryMode:
-                                            TimePickerEntryMode.input,
-                                        context: context,
-                                        initialTime: TimeOfDay.fromDateTime(
-                                          newDate.toDateTime(),
-                                        ),
-                                      );
-                                      newDate = newDate.mergeTime(
-                                        timeOfDay?.hour ?? 0,
-                                        timeOfDay?.minute ?? 0,
-                                        0,
-                                      );
+                                          // builder: (context, childWidget) {
+                                          //   return MediaQuery(
+                                          //       data: MediaQuery.of(context)
+                                          //           .copyWith(
+                                          //               // Using 24-Hour format
+                                          //               alwaysUse24HourFormat:
+                                          //                   true),
+                                          //       // If you want 12-Hour format, just change alwaysUse24HourFormat to false or remove all the builder argument
+                                          //       child: childWidget!);
+                                          // },
+                                          initialEntryMode:
+                                              TimePickerEntryMode.input,
+                                          context: context,
+                                          initialTime: TimeOfDay.now());
+
+                                      // newDate = newDate.mergeTime(
+                                      //   timeOfDay?.hour ?? 0,
+                                      //   timeOfDay?.minute ?? 0,
+                                      //   0,
+                                      // );
 
                                       setState(() {
-                                        _date = newDate;
+                                        _date =
+                                            '${newDate.toString()} ${timeOfDay?.format(context)}';
                                       });
                                     }
                                   },
@@ -209,7 +219,7 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                                   child: Text(_date != null
                                       ? _date
                                           .toString()
-                                          .replaceAll(':00.000', '')
+                                          .replaceAll('00:00:00.000', '')
                                       : 'Enter your pickup date'.tr),
                                   color: kThemeColor,
                                   textColor: Colors.white,
@@ -328,27 +338,6 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                                     email = value;
                                   });
                                 }),
-                            Row(
-                              children: [
-                                Checkbox(
-                                  value: isEmergencyBooking,
-                                  onChanged: (newValue) {
-                                    setState(() {
-                                      isEmergencyBooking = newValue;
-                                    });
-                                  },
-                                  activeColor: kThemeColor,
-                                ),
-                                Tooltip(
-                                    message:
-                                        'Check this if you want to make an emergency booking!'
-                                            .tr,
-                                    child: Text(
-                                      'Emergency Booking'.tr,
-                                      style: TextStyle(fontSize: 15),
-                                    )),
-                              ],
-                            ),
                             YatayatButton(
                                 label: 'Confirm Booking'.tr,
                                 onClick: () async {
@@ -384,7 +373,8 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                                                 pickupLocation: pickupLocation,
                                                 pickupDate: _date
                                                     .toString()
-                                                    .replaceAll(':00.000', ''),
+                                                    .replaceAll(
+                                                        '00:00:00.000', ''),
                                                 destinationLocation:
                                                     destination,
                                                 noOfDays: days,
@@ -392,8 +382,7 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                                                 phoneNumber: phoneNumber,
                                                 email: email,
                                                 icon: icon,
-                                                emergencyBooking:
-                                                    isEmergencyBooking);
+                                                emergencyBooking: false);
 
 //Create notification of booking
                                         await Database(uid: currentUser.uid)

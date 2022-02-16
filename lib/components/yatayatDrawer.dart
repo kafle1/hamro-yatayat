@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:yatayat/components/drawer_list.dart';
 import 'package:yatayat/components/snackbar.dart';
 import 'package:yatayat/screens/booking/myBookings/my_bookings_screen.dart';
+import 'package:yatayat/screens/feedback.dart';
 import 'package:yatayat/screens/profile/profile_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:share_plus/share_plus.dart';
@@ -42,9 +43,12 @@ class _YatayatDrawerState extends State<YatayatDrawer> {
             onClick: () => selectedItem(context, 0),
           ),
           DrawerListBuilder(
-            icon: Icons.help_outline_rounded,
-            title: 'FAQs',
-            onClick: () => selectedItem(context, 0),
+            icon: Icons.message,
+            title: 'Contact / Feedback',
+            onClick: () => {
+              Navigator.pop(context),
+              Navigator.pushNamed(context, FeedbackContact.id)
+            },
           ),
           DrawerListBuilder(
             icon: Icons.description_outlined,

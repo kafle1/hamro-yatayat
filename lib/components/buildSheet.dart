@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:yatayat/components/button.dart';
 import 'package:yatayat/components/snackbar.dart';
 import 'package:yatayat/screens/booking/bookingDetails/booking_details_screen.dart';
 import 'package:yatayat/screens/booking/booking_price_check.dart';
 import 'package:yatayat/services/database.dart';
 import 'package:yatayat/shared/constants.dart';
+import 'package:get/get.dart';
 
 class BuildSheet extends StatefulWidget {
   final String docId;
@@ -64,7 +64,7 @@ class _BuildSheetState extends State<BuildSheet> {
                   },
                   icon: Icon(Icons.description),
                   label: Text(
-                    'Booking Details',
+                    'Booking Details'.tr,
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
@@ -81,45 +81,47 @@ class _BuildSheetState extends State<BuildSheet> {
                     showDialog(
                       context: context,
                       builder: (builder) => AlertDialog(
-                        title: Text('Cancel Booking ? '),
+                        title: Text('Cancel Booking'.tr + ' ?'),
                         content: Text(
-                            'Are you sure you want to cancel this booking. You cant revert back once you cancel this booking !'),
+                            'Are you sure you want to cancel this booking? You cant revert back once you cancel this booking !'
+                                .tr),
                         actions: [
                           TextButton.icon(
-                              style: TextButton.styleFrom(
-                                backgroundColor: Colors.red[900],
-                              ),
-                              onPressed: () {
-                                //Cancel this booking
-                                Database(uid: currentUser!.uid)
-                                    .cancelBooking(bookingDocID: widget.docId)
-                                    .then((value) => {
-                                          Navigator.pop(context),
-                                          Navigator.pop(context),
-                                          ShowSnackBar().success(
-                                              'Your booking is cancelled. ',
-                                              context),
-                                        })
-                                    .catchError((err) => {
-                                          Navigator.pop(context),
-                                          Navigator.pop(context),
-                                          ShowSnackBar().success(
-                                              'Error while canceling the booking',
-                                              context),
-                                        });
-                              },
-                              icon: Icon(Icons.cancel, color: Colors.white),
-                              label: Text(
-                                'Yes Cancel',
-                                style: TextStyle(color: Colors.white),
-                              ))
+                            style: TextButton.styleFrom(
+                              backgroundColor: Colors.red[900],
+                            ),
+                            onPressed: () {
+                              //Cancel this booking
+                              Database(uid: currentUser!.uid)
+                                  .cancelBooking(bookingDocID: widget.docId)
+                                  .then((value) => {
+                                        Navigator.pop(context),
+                                        Navigator.pop(context),
+                                        ShowSnackBar().success(
+                                            'Your booking is cancelled. ',
+                                            context),
+                                      })
+                                  .catchError((err) => {
+                                        Navigator.pop(context),
+                                        Navigator.pop(context),
+                                        ShowSnackBar().success(
+                                            'Error while canceling the booking',
+                                            context),
+                                      });
+                            },
+                            icon: Icon(Icons.cancel, color: Colors.white),
+                            label: Text(
+                              'Yes Cancel'.tr,
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          )
                         ],
                       ),
                     );
                   },
                   icon: Icon(Icons.cancel),
                   label: Text(
-                    'Cancel Booking',
+                    'Cancel Booking'.tr,
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
