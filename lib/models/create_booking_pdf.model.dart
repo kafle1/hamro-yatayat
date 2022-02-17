@@ -13,7 +13,7 @@ Future<void> createPdf(Map data) async {
   page.graphics.drawString('Hamro Yatayat Booking Details',
       PdfStandardFont(PdfFontFamily.helvetica, 20, style: PdfFontStyle.bold));
   page.graphics.drawString(
-    'Pending',
+    '${data['status']}',
     PdfStandardFont(PdfFontFamily.helvetica, 15, style: PdfFontStyle.bold),
     bounds: Rect.fromLTWH(0, 30, 0, 0),
   );
@@ -201,7 +201,8 @@ Future<void> createPdf(Map data) async {
 
   page.graphics.drawString(
     data['amount'] != null
-        ? 'Total Amount: ${data['amount']}'
+        ? 'Pricing:' +
+            '\nFare: Rs. ${double.parse(data['amount']) * 100 / 102.5} \nHamro Yatayat Charge (2.5%): Rs. ${2.5 / 100 * (double.parse(data['amount']) * 100 / 102.5)} \nTotal Amount: Rs. ${data['amount']}'
         : 'Total Amount: ---',
     PdfStandardFont(PdfFontFamily.helvetica, 13, style: PdfFontStyle.bold),
     bounds: Rect.fromLTWH(0, 470, 0, 0),
@@ -211,10 +212,10 @@ Future<void> createPdf(Map data) async {
   page.graphics.drawString(
     'Make Payment :',
     PdfStandardFont(PdfFontFamily.helvetica, 15, style: PdfFontStyle.bold),
-    bounds: Rect.fromLTWH(0, 510, 0, 0),
+    bounds: Rect.fromLTWH(0, 550, 0, 0),
   );
   page.graphics.drawImage(PdfBitmap(await _readImageData('qrCode.jpg')),
-      Rect.fromLTWH(0, 530, 150, 150));
+      Rect.fromLTWH(0, 567, 150, 150));
 
   //Footer
   page.graphics.drawString(
