@@ -141,10 +141,6 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                                     style: kDetailsLableStyle,
                                   ),
                                   Text(
-                                    'Total Amount :'.tr,
-                                    style: kDetailsLableStyle,
-                                  ),
-                                  Text(
                                     'Payment Status :'.tr,
                                     style: kDetailsLableStyle,
                                   ),
@@ -229,10 +225,6 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                                     style: kDetailsValueStyle,
                                   ),
                                   Text(
-                                    data['amount'] ?? '---',
-                                    style: kDetailsValueStyle,
-                                  ),
-                                  Text(
                                     data['paymentStatus'] ?? '---',
                                     style: kDetailsValueStyle,
                                   ),
@@ -240,6 +232,21 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                               ),
                             ],
                           ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Container(
+                              color: Colors.grey[300],
+                              padding: EdgeInsets.all(12),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    '${data['amount'] == null ? '---' : 'Fare: Rs. ${double.parse(data['amount']) * 100 / 102.5} \nCharge (2.5%): Rs. ${2.5 / 100 * (double.parse(data['amount']) * 100 / 102.5)} \nTotal Amount: Rs. ${data['amount']}'}',
+                                    style: kDetailsValueStyle,
+                                  ),
+                                ],
+                              )),
                           SizedBox(
                             height: 20,
                           ),

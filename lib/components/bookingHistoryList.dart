@@ -43,7 +43,9 @@ class _BookingHistoryListState extends State<BookingHistoryList> {
             children: snapshot.data!.docs.map((DocumentSnapshot document) {
               Map<String, dynamic> data =
                   document.data()! as Map<String, dynamic>;
+
               return MyBookingCard(
+                bookingId: document.id,
                 vehicleType: data['vehicleType'] ?? '',
                 date: data['bookingDate'] ?? '',
                 icon: data['icon'] ?? '',
