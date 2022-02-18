@@ -166,6 +166,11 @@ class Database {
       DocumentSnapshot driverData = await driverCollection.doc(driverId).get();
       dynamic data = driverData.data();
 
+//Add 5% to pending amount of the driver
+      await driverCollection.doc(driverId).set(
+          {'pendingAmount': 5 / 100 * (double.parse(price) * 100 / 102.5)},
+          SetOptions(merge: true));
+
       //Update the booking accordingly
       await usersCollection
           .doc(uid)

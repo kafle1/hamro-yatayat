@@ -25,7 +25,7 @@ class _BookingHistoryListState extends State<BookingHistoryList> {
         .collection('users')
         .doc(currentUser!.uid)
         .collection('bookings')
-        .orderBy('bookingDate', descending: true)
+        .where('status', isNotEqualTo: 'Cancelled')
         .snapshots();
 
     return StreamBuilder<QuerySnapshot>(

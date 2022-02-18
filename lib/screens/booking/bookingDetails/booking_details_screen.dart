@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:yatayat/components/appbar.dart';
 import 'package:yatayat/models/create_booking_pdf.model.dart';
 import 'package:yatayat/shared/constants.dart';
@@ -144,6 +145,10 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                                     'Payment Status :'.tr,
                                     style: kDetailsLableStyle,
                                   ),
+                                  Text(
+                                    'Total Amount :'.tr,
+                                    style: kDetailsLableStyle,
+                                  ),
                                 ],
                               ),
                               Column(
@@ -228,25 +233,14 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                                     data['paymentStatus'] ?? '---',
                                     style: kDetailsValueStyle,
                                   ),
+                                  Text(
+                                    'Rs. ${data['amount'] ?? '---'}',
+                                    style: kDetailsValueStyle,
+                                  ),
                                 ],
                               ),
                             ],
                           ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Container(
-                              color: Colors.grey[300],
-                              padding: EdgeInsets.all(12),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    '${data['amount'] == null ? '---' : 'Fare: Rs. ${double.parse(data['amount']) * 100 / 102.5} \nCharge (2.5%): Rs. ${2.5 / 100 * (double.parse(data['amount']) * 100 / 102.5)} \nTotal Amount: Rs. ${data['amount']}'}',
-                                    style: kDetailsValueStyle,
-                                  ),
-                                ],
-                              )),
                           SizedBox(
                             height: 20,
                           ),
@@ -263,6 +257,29 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
                               label: Text(
                                 'Download Details as PDF'.tr,
                                 style: TextStyle(fontSize: 16),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Visibility(
+                            visible:
+                                data['status'] == 'Confirmed' ? true : false,
+                            child: SizedBox(
+                              width: double.infinity,
+                              height: 55,
+                              child: ElevatedButton.icon(
+                                style: ElevatedButton.styleFrom(
+                                    primary: Colors.green[900]),
+                                onPressed: () {
+                                  launch("tel://${data['driverNumber']}");
+                                },
+                                icon: Icon(Icons.phone),
+                                label: Text(
+                                  'Call Driver'.tr,
+                                  style: TextStyle(fontSize: 16),
+                                ),
                               ),
                             ),
                           ),

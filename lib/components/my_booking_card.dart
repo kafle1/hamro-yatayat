@@ -94,8 +94,7 @@ class _MyBookingCardState extends State<MyBookingCard> {
                             ),
                             Text(
                               'Status: '.tr +
-                                  '${widget.status}' +
-                                  '${vehicleAvailable ? ' ( VEHICLES AVAILABLE ! )' : ' '} ',
+                                  '${vehicleAvailable ? ' ${widget.status} | Vehicle Available' : widget.status} ',
                               style: kBookingTextStyle.copyWith(
                                   color: widget.status != 'Completed'
                                       ? Colors.white
