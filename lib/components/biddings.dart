@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
-import 'package:yatayat/components/button.dart';
 import 'package:yatayat/components/snackbar.dart';
 import 'package:yatayat/screens/booking/bookingDetails/booking_details_screen.dart';
 import 'package:yatayat/services/database.dart';
@@ -54,6 +53,7 @@ class _GetBiddingsState extends State<GetBiddings> {
             count++;
             return Material(
               color: Colors.grey[200],
+              elevation: 1,
               borderRadius: BorderRadius.circular(5),
               child: ListTile(
                 leading: Text('$count.'),
@@ -73,6 +73,7 @@ class _GetBiddingsState extends State<GetBiddings> {
                   onPressed: () {
                     showDialog(
                       context: context,
+                      barrierDismissible: false,
                       builder: (context) => AlertDialog(
                         title: Text('Confirm Booking ?'.tr),
                         content: Text(
@@ -119,6 +120,24 @@ class _GetBiddingsState extends State<GetBiddings> {
                             ),
                             label: Text(
                               'Confirm'.tr,
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 15),
+                            ),
+                          ),
+
+                          TextButton.icon(
+                            style: TextButton.styleFrom(
+                              backgroundColor: Colors.red[900],
+                            ),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            icon: Icon(
+                              Icons.close,
+                              color: Colors.white,
+                            ),
+                            label: Text(
+                              'No'.tr,
                               style:
                                   TextStyle(color: Colors.white, fontSize: 15),
                             ),
