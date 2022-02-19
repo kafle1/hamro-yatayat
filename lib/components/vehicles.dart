@@ -114,7 +114,9 @@ class VehicleTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: Material(
-        elevation: 4.0,
+        elevation: 1,
+        color: Colors.grey[200],
+        borderRadius: BorderRadius.circular(5),
         child: ListTile(
           leading: Image(
             image: AssetImage('assets/images/icons/$icon.png'),
