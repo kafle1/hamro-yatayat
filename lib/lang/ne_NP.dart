@@ -19,10 +19,10 @@ const Map<String, String> neNP = {
   'Number of Trips :': 'यात्रा संख्या (Trip)',
   '1 Trip includes: Pickup Location to Destination Location':
       '१ यात्रा समावेश: गन्तव्य देखि चढ्ने स्थान',
-  'One Way': '१ यात्रा',
+  'One Way': 'एकतर्फी',
   '2 Trip includes: Pickup Location to Destination and again to Pickup Location':
       '२ यात्रा समावेश: गन्तव्य देखि चढ्ने स्थान अनि फिर्ता चढ्ने स्थान सम्म',
-  'Two Way': '२ यात्रा',
+  'Two Way': 'दुईतर्फी',
   'Phone Number': 'फोन नंबर',
   'Enter your phone number': 'फोन नंबर लेख्नुहोस्',
   'Email': 'इमेल',

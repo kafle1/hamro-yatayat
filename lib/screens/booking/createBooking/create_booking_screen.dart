@@ -188,30 +188,29 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
 
                                     if (newDate != null) {
                                       var timeOfDay = await showTimePicker(
-                                          // builder: (context, childWidget) {
-                                          //   return MediaQuery(
-                                          //       data: MediaQuery.of(context)
-                                          //           .copyWith(
-                                          //               // Using 24-Hour format
-                                          //               alwaysUse24HourFormat:
-                                          //                   true),
-                                          //       // If you want 12-Hour format, just change alwaysUse24HourFormat to false or remove all the builder argument
-                                          //       child: childWidget!);
-                                          // },
+                                          builder: (context, childWidget) {
+                                            return MediaQuery(
+                                                data: MediaQuery.of(context)
+                                                    .copyWith(
+                                                        // Using 24-Hour format
+                                                        alwaysUse24HourFormat:
+                                                            false),
+                                                child: childWidget!);
+                                          },
                                           initialEntryMode:
                                               TimePickerEntryMode.input,
                                           context: context,
                                           initialTime: TimeOfDay.now());
 
-                                      // newDate = newDate.mergeTime(
-                                      //   timeOfDay?.hour ?? 0,
-                                      //   timeOfDay?.minute ?? 0,
-                                      //   0,
-                                      // );
+                                      newDate = newDate.mergeTime(
+                                        timeOfDay?.hour ?? 0,
+                                        timeOfDay?.minute ?? 0,
+                                        0,
+                                      );
 
                                       setState(() {
                                         _date =
-                                            '${newDate.toString()} ${timeOfDay?.format(context)}';
+                                            '${DateFormat('yyyy-MM-dd hh:mm a').format(newDate!)}';
                                       });
                                     }
                                   },
