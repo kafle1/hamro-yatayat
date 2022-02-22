@@ -11,6 +11,7 @@ import 'package:yatayat/components/yatayatDrawer.dart';
 import 'package:yatayat/components/yatayat_bottom_navigation.dart';
 import 'package:yatayat/lang/localization_service.dart';
 import 'package:yatayat/screens/auth/signin_screen.dart';
+import 'package:yatayat/screens/booking/book_driver.screen.dart';
 import 'package:yatayat/screens/booking/bookingDetails/booking_details_screen.dart';
 import 'package:yatayat/services/database.dart';
 import 'package:yatayat/shared/constants.dart';
@@ -239,12 +240,10 @@ class _HomePageState extends State<HomePage> {
                       booking: false,
                     ),
                     VehicleCard(
-                      iconPath: 'assets/images/icons/Carrier.png',
-                      onClick: () => {
-                        Navigator.pushNamed(context, CreateBookingScreen.id,
-                            arguments: {'vehicle': '', 'icon': ''})
-                      },
-                      lable: 'Other'.tr,
+                      iconPath: 'assets/images/icons/Driver.png',
+                      onClick: () =>
+                          {Navigator.pushNamed(context, BookDriver.id)},
+                      lable: 'Driver'.tr,
                       booking: false,
                     ),
                   ],

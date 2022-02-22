@@ -6,6 +6,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:yatayat/components/vehicles.dart';
 import 'package:yatayat/lang/localization_service.dart';
 import 'package:yatayat/screens/auth/phone_authtication.dart';
+import 'package:yatayat/screens/booking/book_driver.screen.dart';
 import 'package:yatayat/screens/booking/bookingDetails/booking_details_screen.dart';
 import 'package:yatayat/screens/booking/booking_price_check.dart';
 import 'package:yatayat/screens/booking/booking_success_screen.dart';
@@ -68,6 +69,7 @@ class _YatayatState extends State<Yatayat> {
         Offline.id: (context) => Offline(),
         FeedbackContact.id: (context) => FeedbackContact(),
         PaymentMethod.id: (context) => PaymentMethod(),
+        BookDriver.id: (context) => BookDriver(),
       },
       debugShowCheckedModeBanner: false,
     );

@@ -44,7 +44,7 @@ class _YatayatDrawerState extends State<YatayatDrawer> {
           ),
           DrawerListBuilder(
             icon: Icons.message,
-            title: 'Contact / Feedback',
+            title: 'Message / Feedback',
             onClick: () => {
               Navigator.pop(context),
               Navigator.pushNamed(context, FeedbackContact.id)
