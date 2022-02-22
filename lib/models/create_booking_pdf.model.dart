@@ -137,17 +137,12 @@ Future<void> createPdf(Map data) async {
     ),
     bounds: Rect.fromLTWH(0, 280, 0, 0),
   );
-  page.graphics.drawString(
-    data['isEmergency'] ? 'Booking Type: Emergency' : 'Booking Type: Normal',
-    PdfStandardFont(PdfFontFamily.helvetica, 13, style: PdfFontStyle.bold),
-    bounds: Rect.fromLTWH(0, 300, 0, 0),
-  );
 
   //Vehicle Details
   page.graphics.drawString(
     'Driver and Vehicle Details :',
     PdfStandardFont(PdfFontFamily.helvetica, 15, style: PdfFontStyle.bold),
-    bounds: Rect.fromLTWH(0, 340, 0, 0),
+    bounds: Rect.fromLTWH(0, 310, 0, 0),
   );
 
   page.graphics.drawString(
@@ -158,7 +153,7 @@ Future<void> createPdf(Map data) async {
       PdfFontFamily.helvetica,
       13,
     ),
-    bounds: Rect.fromLTWH(0, 370, 0, 0),
+    bounds: Rect.fromLTWH(0, 340, 0, 0),
   );
   page.graphics.drawString(
     data['driverNumber'] != null
@@ -168,7 +163,7 @@ Future<void> createPdf(Map data) async {
       PdfFontFamily.helvetica,
       13,
     ),
-    bounds: Rect.fromLTWH(0, 390, 0, 0),
+    bounds: Rect.fromLTWH(0, 360, 0, 0),
   );
   page.graphics.drawString(
     data['vehicleId'] != null
@@ -178,7 +173,7 @@ Future<void> createPdf(Map data) async {
       PdfFontFamily.helvetica,
       13,
     ),
-    bounds: Rect.fromLTWH(0, 410, 0, 0),
+    bounds: Rect.fromLTWH(0, 380, 0, 0),
   );
 
   page.graphics.drawString(
@@ -189,33 +184,83 @@ Future<void> createPdf(Map data) async {
       PdfFontFamily.helvetica,
       13,
     ),
-    bounds: Rect.fromLTWH(0, 430, 0, 0),
+    bounds: Rect.fromLTWH(0, 400, 0, 0),
   );
   page.graphics.drawString(
     data['paymentStatus'] != null
         ? 'Payment Status: ${data['paymentStatus']}'
         : 'Payment Status: ---',
     PdfStandardFont(PdfFontFamily.helvetica, 13, style: PdfFontStyle.bold),
-    bounds: Rect.fromLTWH(0, 450, 0, 0),
+    bounds: Rect.fromLTWH(0, 420, 0, 0),
+  );
+
+  page.graphics.drawString(
+    'Pricing: ',
+    PdfStandardFont(PdfFontFamily.helvetica, 13, style: PdfFontStyle.bold),
+    bounds: Rect.fromLTWH(0, 440, 0, 0),
   );
 
   page.graphics.drawString(
     data['amount'] != null
-        ? 'Pricing:' +
-            '\nFare: Rs. ${double.parse(data['amount']) * 100 / 102.5} \nHamro Yatayat Charge (2.5%): Rs. ${2.5 / 100 * (double.parse(data['amount']) * 100 / 102.5)} \nTotal Amount: Rs. ${data['amount']}'
-        : 'Total Amount: ---',
-    PdfStandardFont(PdfFontFamily.helvetica, 13, style: PdfFontStyle.bold),
-    bounds: Rect.fromLTWH(0, 470, 0, 0),
+        ? 'Fare: Rs. ${double.parse(data['amount']) * 100 / 102.5}'
+        : '---',
+    PdfStandardFont(
+      PdfFontFamily.helvetica,
+      13,
+    ),
+    bounds: Rect.fromLTWH(0, 460, 0, 0),
+  );
+  page.graphics.drawString(
+    data['amount'] != null
+        ? 'Hamro Yatayat Charge (2.5%): Rs. ${2.5 / 100 * (double.parse(data['amount']) * 100 / 102.5)}'
+        : '---',
+    PdfStandardFont(
+      PdfFontFamily.helvetica,
+      13,
+    ),
+    bounds: Rect.fromLTWH(0, 480, 0, 0),
+  );
+  page.graphics.drawString(
+    data['amount'] != null ? 'Total Amount: Rs. ${data['amount']}' : '---',
+    PdfStandardFont(
+      PdfFontFamily.helvetica,
+      13,
+    ),
+    bounds: Rect.fromLTWH(0, 500, 0, 0),
   );
 
   //Make Payment
   page.graphics.drawString(
-    'Make Payment :',
+    'Payment Options:',
     PdfStandardFont(PdfFontFamily.helvetica, 15, style: PdfFontStyle.bold),
-    bounds: Rect.fromLTWH(0, 550, 0, 0),
+    bounds: Rect.fromLTWH(0, 530, 0, 0),
+  );
+  page.graphics.drawString(
+    '1. Scan the Qr Code below and pay the amount from digital payment \nmedium like Esewa (Esewa Id: 9860461944), Khalti, Phone Pay, Ime Pay etc.',
+    PdfStandardFont(
+      PdfFontFamily.helvetica,
+      15,
+    ),
+    bounds: Rect.fromLTWH(0, 555, 0, 0),
+  );
+  page.graphics.drawString(
+    '2. Pay the amount in the bank account below: \nA/C Holder Name: Nischal Kafle \nAccount Number: 08501606630690000001 \nBank Name: Nepal Bank Limited',
+    PdfStandardFont(
+      PdfFontFamily.helvetica,
+      15,
+    ),
+    bounds: Rect.fromLTWH(0, 595, 0, 0),
+  );
+  page.graphics.drawString(
+    '3. Pay the amount to the driver.',
+    PdfStandardFont(
+      PdfFontFamily.helvetica,
+      15,
+    ),
+    bounds: Rect.fromLTWH(0, 675, 0, 0),
   );
   page.graphics.drawImage(PdfBitmap(await _readImageData('qrCode.jpg')),
-      Rect.fromLTWH(0, 567, 150, 150));
+      Rect.fromLTWH(370, 590, 120, 120));
 
   //Footer
   page.graphics.drawString(
@@ -224,7 +269,7 @@ Future<void> createPdf(Map data) async {
       PdfFontFamily.helvetica,
       12,
     ),
-    bounds: Rect.fromLTWH(75, 730, 0, 0),
+    bounds: Rect.fromLTWH(75, 740, 0, 0),
   );
 
   List<int> bytes = document.save();

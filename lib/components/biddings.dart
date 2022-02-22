@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import 'package:yatayat/components/snackbar.dart';
 import 'package:yatayat/screens/booking/bookingDetails/booking_details_screen.dart';
+import 'package:yatayat/screens/payment.dart';
 import 'package:yatayat/services/database.dart';
 import 'package:yatayat/shared/constants.dart';
 
@@ -103,13 +104,67 @@ class _GetBiddingsState extends State<GetBiddings> {
                                               .toString())
                                       .then((value) => {
                                             Navigator.pop(context),
-                                            Navigator.pop(context),
-                                            Navigator.pushNamed(context,
-                                                BookingDetailsScreen.id,
-                                                arguments: widget.docId),
-                                            ShowSnackBar().success(
-                                                'Your booking is confirmed with final price of Rs.${data['amount']}. Happy Journey !!',
-                                                context)
+                                            showDialog(
+                                                context: context,
+                                                builder: (ctxt) => AlertDialog(
+                                                      title: Text(
+                                                          'Choose a Payment Method !'),
+                                                      content: Text(
+                                                          'Select payment method for this booking .'),
+                                                      actions: [
+                                                        TextButton(
+                                                          style: TextButton
+                                                              .styleFrom(
+                                                            backgroundColor:
+                                                                Colors
+                                                                    .green[900],
+                                                          ),
+                                                          onPressed: () {
+                                                            Navigator.pop(ctxt);
+                                                            Navigator.pop(ctxt);
+                                                            Navigator.pushNamed(
+                                                                ctxt,
+                                                                PaymentMethod
+                                                                    .id);
+                                                            ShowSnackBar().success(
+                                                                'Your booking is confirmed with final price of Rs.${data['amount']}. Happy Journey !!',
+                                                                ctxt);
+                                                          },
+                                                          child: Text('Pay Now',
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .white)),
+                                                        ),
+                                                        TextButton(
+                                                          style: TextButton
+                                                              .styleFrom(
+                                                            backgroundColor:
+                                                                kThemeColor,
+                                                          ),
+                                                          onPressed: () {
+                                                            Navigator.pop(ctxt);
+                                                            Navigator.pop(ctxt);
+                                                            Navigator.pushNamed(
+                                                                ctxt,
+                                                                BookingDetailsScreen
+                                                                    .id,
+                                                                arguments:
+                                                                    widget
+                                                                        .docId);
+                                                            ShowSnackBar().success(
+                                                                'Your booking is confirmed with final price of Rs.${data['amount']}. Happy Journey !!',
+                                                                ctxt);
+                                                          },
+                                                          child: Text(
+                                                            'Pay Later',
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .white),
+                                                          ),
+                                                        )
+                                                      ],
+                                                    ),
+                                                barrierDismissible: false),
                                           })
                                       .catchError((err) => {
                                             Navigator.pop(context),
