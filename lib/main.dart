@@ -15,6 +15,7 @@ import 'package:yatayat/screens/home/home_screen.dart';
 import 'package:yatayat/screens/booking/myBookings/my_bookings_screen.dart';
 import 'package:yatayat/screens/notification/notifications_screen.dart';
 import 'package:yatayat/screens/offline.dart';
+import 'package:yatayat/screens/payment.dart';
 import 'package:yatayat/screens/profile/profile_screen.dart';
 import 'package:yatayat/screens/auth/signin_screen.dart';
 import 'package:yatayat/screens/home/splash_screen.dart';
@@ -66,6 +67,7 @@ class _YatayatState extends State<Yatayat> {
         Loading.id: (context) => Loading(),
         Offline.id: (context) => Offline(),
         FeedbackContact.id: (context) => FeedbackContact(),
+        PaymentMethod.id: (context) => PaymentMethod(),
       },
       debugShowCheckedModeBanner: false,
     );
