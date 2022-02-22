@@ -211,6 +211,26 @@ class Database {
     }
   }
 
+//Create Driver Booking
+  static Future createDriverBooking(
+      {required String name,
+      required String number,
+      required String address,
+      required String bookingDays}) async {
+    try {
+      await FirebaseFirestore.instance.collection('driverBookings').add({
+        'name': name,
+        'number': number,
+        'address': address,
+        'bookingDays': bookingDays
+      });
+
+      return 'Added New Feedback Successfully';
+    } catch (e) {
+      return e;
+    }
+  }
+
   //Cancel the booking
   Future<String> cancelBooking({required String bookingDocID}) async {
     try {
