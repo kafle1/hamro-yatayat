@@ -108,9 +108,11 @@ class _GetBiddingsState extends State<GetBiddings> {
                                                 context: context,
                                                 builder: (ctxt) => AlertDialog(
                                                       title: Text(
-                                                          'Choose a Payment Method !'),
+                                                          'Choose a Payment Method !'
+                                                              .tr),
                                                       content: Text(
-                                                          'Select payment method for this booking .'),
+                                                          'Select payment method for this booking .'
+                                                              .tr),
                                                       actions: [
                                                         TextButton(
                                                           style: TextButton
@@ -130,7 +132,8 @@ class _GetBiddingsState extends State<GetBiddings> {
                                                                 'Your booking is confirmed with final price of Rs.${data['amount']}. Happy Journey !!',
                                                                 ctxt);
                                                           },
-                                                          child: Text('Pay Now',
+                                                          child: Text(
+                                                              'Pay Now'.tr,
                                                               style: TextStyle(
                                                                   color: Colors
                                                                       .white)),
@@ -156,7 +159,7 @@ class _GetBiddingsState extends State<GetBiddings> {
                                                                 ctxt);
                                                           },
                                                           child: Text(
-                                                            'Pay Later',
+                                                            'Pay Later'.tr,
                                                             style: TextStyle(
                                                                 color: Colors
                                                                     .white),

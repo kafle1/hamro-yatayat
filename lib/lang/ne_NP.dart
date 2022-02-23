@@ -120,5 +120,24 @@ const Map<String, String> neNP = {
   'Are you sure you want to cancel this booking? You cant revert back once you cancel this booking !':
       'के तपाइँ यो बुकिङ रद्द गर्न निश्चित हुनुहुन्छ? तपाईंले यो बुकिङ रद्द गरेपछि तपाईं फर्कन सक्नुहुन्न!',
   'Yes Cancel': 'हो रद्द गर्नुहोस्',
-  'Call Driver': 'ड्राइभरलाई कल गर्नुहोस्'
+  'Call Driver': 'ड्राइभरलाई कल गर्नुहोस्',
+  'Enter required details to book a driver.':
+      'चालक बुक गर्न आवश्यक विवरणहरू लेख्नुहोस् ।',
+  'Book Driver': 'चालक बुक गर्नुहोस्',
+  'Enter Company Name': 'कम्पनीको नाम लेख्नुहोस्',
+  'Company Name': 'कम्पनीको नाम',
+  'Enter Your Phone Number': 'फोन नम्बर लेख्नुहोस्',
+  'Enter Company\'s Address': 'कम्पनीको ठेगाना लेख्नुहोस्',
+  'Address': 'ठेगाना',
+  'Enter Number of Booking Days': 'बुकिङ दिनहरूको संख्या लेख्नुहोस्',
+  'Enter Valid Phone Number': 'मान्य फोन नम्बर लेख्नुहोस्',
+  'Booking Days Cannot be Empty': "बुकिङ दिनहरू खाली हुन सक्दैन",
+  'Driver Booked Successfully. You will get a detailed call about this booking from Yatayat. Thank you for booking !!':
+      'चालक सफलतापूर्वक बुक गरियो। तपाईंले यातायातबाट यस बुकिङको बारेमा विस्तृत कल प्राप्त गर्नुहुनेछ। बुकिंग को लागी धन्यवाद !!',
+  'Driver': 'ड्राइभर',
+  'Choose a Payment Method !': 'भुक्तानी विधि छान्नुहोस्!',
+  'Select payment method for this booking .':
+      'यो बुकिङको लागि भुक्तानी विधि चयन गर्नुहोस्।',
+  'Pay Now': 'अहिले तिर्नुहोस्',
+  'Pay Later': 'पछि तिर्नुहोस्'
 };

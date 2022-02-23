@@ -32,25 +32,25 @@ class _BookDriverState extends State<BookDriver> {
 
   @override
   Widget build(BuildContext context) {
-    return showSpinner
-        ? Center(
-            child: CircularProgressIndicator(
-              color: kThemeColor,
-              backgroundColor: Colors.white,
-            ),
-          )
-        : Scaffold(
-            appBar: YatayatAppbar(
-              height: 60,
-              title: Text('Book Driver'),
-            ),
-            body: SingleChildScrollView(
+    return Scaffold(
+      appBar: YatayatAppbar(
+        height: 60,
+        title: Text('Book Driver'.tr),
+      ),
+      body: showSpinner
+          ? Center(
+              child: CircularProgressIndicator(
+                color: kThemeColor,
+                backgroundColor: Colors.white,
+              ),
+            )
+          : SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
                   children: [
                     Text(
-                      'Enter required details to book a driver.',
+                      'Enter required details to book a driver.'.tr,
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                     ),
@@ -63,7 +63,7 @@ class _BookDriverState extends State<BookDriver> {
                         controller: _companyNameCtrl,
                         decoration: InputDecoration(
                           hintText: 'Enter Company Name'.tr,
-                          labelText: 'Company Name',
+                          labelText: 'Company Name'.tr,
                           errorMaxLines: 3,
                           border: OutlineInputBorder(),
                           prefixIcon: Icon(Icons.business),
@@ -80,7 +80,7 @@ class _BookDriverState extends State<BookDriver> {
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                           hintText: 'Enter Your Phone Number'.tr,
-                          labelText: 'Phone Number',
+                          labelText: 'Phone Number'.tr,
                           errorText: _numberError,
                           errorMaxLines: 3,
                           border: OutlineInputBorder(),
@@ -98,7 +98,7 @@ class _BookDriverState extends State<BookDriver> {
                         controller: _companyAddressCtrl,
                         decoration: InputDecoration(
                           hintText: 'Enter Company\'s Address'.tr,
-                          labelText: 'Address',
+                          labelText: 'Address'.tr,
                           border: OutlineInputBorder(),
                           prefixIcon: Icon(Icons.place),
                         ),
@@ -114,7 +114,7 @@ class _BookDriverState extends State<BookDriver> {
                         controller: _bookingDaysCtrl,
                         decoration: InputDecoration(
                           hintText: 'Enter Number of Booking Days'.tr,
-                          labelText: 'Booking Days',
+                          labelText: 'Booking Days'.tr,
                           errorMaxLines: 3,
                           errorText: _bookingDaysError,
                           border: OutlineInputBorder(),
@@ -135,7 +135,7 @@ class _BookDriverState extends State<BookDriver> {
                         onPressed: () {
                           if (_companyNumberCtrl.text.isEmpty) {
                             setState(() {
-                              _numberError = 'Enter Valid Phone Number';
+                              _numberError = 'Enter Valid Phone Number'.tr;
                             });
                           } else {
                             setState(() {
@@ -145,7 +145,7 @@ class _BookDriverState extends State<BookDriver> {
                           if (_bookingDaysCtrl.text.isEmpty) {
                             setState(() {
                               _bookingDaysError =
-                                  'Booking Days Cannot be Empty';
+                                  'Booking Days Cannot be Empty'.tr;
                             });
                           } else {
                             _bookingDaysError = null;
@@ -167,14 +167,15 @@ class _BookDriverState extends State<BookDriver> {
                               });
                               Navigator.pop(context);
                               ShowSnackBar().success(
-                                  'Driver Booked Successfully. You will get a detailed call about this booking from Yatayat. Thank you for booking !!',
+                                  'Driver Booked Successfully. You will get a detailed call about this booking from Yatayat. Thank you for booking !!'
+                                      .tr,
                                   context);
                             });
                           }
                         },
                         icon: Icon(Icons.check),
                         label: Text(
-                          'Book A Driver'.tr,
+                          'Book Driver'.tr,
                           style: TextStyle(fontSize: 16),
                         ),
                       ),
@@ -183,6 +184,6 @@ class _BookDriverState extends State<BookDriver> {
                 ),
               ),
             ),
-          );
+    );
   }
 }
