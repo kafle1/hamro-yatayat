@@ -236,10 +236,10 @@ Future<void> createPdf(Map data) async {
     bounds: Rect.fromLTWH(0, 530, 0, 0),
   );
   page.graphics.drawString(
-    '1. Scan the Qr Code below and pay the amount from digital payment \nmedium like Esewa (Esewa Id: 9860461944), Khalti, Phone Pay, Ime Pay etc.',
+    '1. Scan the Qr Code below and pay the amount from digital payment medium like \nEsewa (Esewa Id: 9845807600), Khalti, Phone Pay, Ime Pay etc.',
     PdfStandardFont(
       PdfFontFamily.helvetica,
-      15,
+      13,
     ),
     bounds: Rect.fromLTWH(0, 555, 0, 0),
   );
@@ -247,7 +247,7 @@ Future<void> createPdf(Map data) async {
     '2. Pay the amount in the bank account below: \nA/C Holder Name: Nischal Kafle \nAccount Number: 08501606630690000001 \nBank Name: Nepal Bank Limited',
     PdfStandardFont(
       PdfFontFamily.helvetica,
-      15,
+      13,
     ),
     bounds: Rect.fromLTWH(0, 595, 0, 0),
   );
@@ -255,21 +255,21 @@ Future<void> createPdf(Map data) async {
     '3. Pay the amount to the driver.',
     PdfStandardFont(
       PdfFontFamily.helvetica,
-      15,
+      13,
     ),
-    bounds: Rect.fromLTWH(0, 675, 0, 0),
+    bounds: Rect.fromLTWH(0, 670, 0, 0),
   );
   page.graphics.drawImage(PdfBitmap(await _readImageData('qrCode.jpg')),
       Rect.fromLTWH(370, 590, 120, 120));
 
   //Footer
   page.graphics.drawString(
-    'Hamro Yatayat | Nawalpur, Chitwan  | 9829490671 ,9861595869',
+    'Hamro Yatayat | Nawalpur, Chitwan  | 9829490671',
     PdfStandardFont(
       PdfFontFamily.helvetica,
       12,
     ),
-    bounds: Rect.fromLTWH(75, 740, 0, 0),
+    bounds: Rect.fromLTWH(110, 740, 0, 0),
   );
 
   List<int> bytes = document.save();

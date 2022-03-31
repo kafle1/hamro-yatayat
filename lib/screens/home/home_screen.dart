@@ -152,101 +152,39 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(
                   height: 10,
                 ),
-                Row(
-                  children: [
-                    VehicleCard(
-                      iconPath: 'assets/images/icons/Bus.png',
-                      onClick: () => {
-                        Navigator.pushNamed(context, CreateBookingScreen.id,
-                            arguments: {
-                              'vehicle': 'Bus (Normal)',
-                              'icon': 'Bus'
-                            })
-                      },
-                      lable: 'Bus'.tr,
-                      booking: false,
+                SizedBox(
+                  width: double.infinity,
+                  height: 55,
+                  child: ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(primary: kThemeColor),
+                    onPressed: () {
+                      Navigator.pushNamed(context, CreateBookingScreen.id,
+                          arguments: {'vehicle': '', 'icon': ''});
+                    },
+                    icon: Icon(Icons.directions_car),
+                    label: Text(
+                      'Hire a Vehicle'.tr,
+                      style: TextStyle(fontSize: 16),
                     ),
-                    VehicleCard(
-                      iconPath: 'assets/images/icons/Car.png',
-                      onClick: () => {
-                        Navigator.pushNamed(context, CreateBookingScreen.id,
-                            arguments: {
-                              'vehicle': 'Car (Sedan)',
-                              'icon': 'Car'
-                            })
-                      },
-                      lable: 'Car'.tr,
-                      booking: false,
-                    ),
-                    VehicleCard(
-                      iconPath: 'assets/images/icons/Suv.png',
-                      onClick: () => {
-                        Navigator.pushNamed(context, CreateBookingScreen.id,
-                            arguments: {'vehicle': 'Scorpio', 'icon': 'Suv'})
-                      },
-                      lable: 'Scorpio'.tr,
-                      booking: false,
-                    ),
-                    VehicleCard(
-                      iconPath: 'assets/images/icons/Taxi.png',
-                      onClick: () => {
-                        Navigator.pushNamed(context, CreateBookingScreen.id,
-                            arguments: {'vehicle': 'Taxi', 'icon': 'Taxi'})
-                      },
-                      lable: 'Taxi'.tr,
-                      booking: false,
-                    ),
-                  ],
+                  ),
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                Row(
-                  children: [
-                    VehicleCard(
-                      iconPath: 'assets/images/icons/Micro.png',
-                      onClick: () => {
-                        Navigator.pushNamed(context, CreateBookingScreen.id,
-                            arguments: {
-                              'vehicle': 'Toyota Hiace',
-                              'icon': 'Micro'
-                            })
-                      },
-                      lable: 'Hiace'.tr,
-                      booking: false,
+                SizedBox(
+                  width: double.infinity,
+                  height: 55,
+                  child: ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(primary: kThemeColor),
+                    onPressed: () {
+                      Navigator.pushNamed(context, BookDriver.id);
+                    },
+                    icon: Icon(Icons.person),
+                    label: Text(
+                      'Hire a Driver'.tr,
+                      style: TextStyle(fontSize: 16),
                     ),
-                    VehicleCard(
-                      iconPath: 'assets/images/icons/Jeep.png',
-                      onClick: () => {
-                        Navigator.pushNamed(context, CreateBookingScreen.id,
-                            arguments: {
-                              'vehicle': 'TATA Sumo (A/c)',
-                              'icon': 'Jeep'
-                            })
-                      },
-                      lable: 'TATA Sumo'.tr,
-                      booking: false,
-                    ),
-                    VehicleCard(
-                      iconPath: 'assets/images/icons/Cruiser.png',
-                      onClick: () => {
-                        Navigator.pushNamed(context, CreateBookingScreen.id,
-                            arguments: {
-                              'vehicle': 'Landcruiser',
-                              'icon': 'Cruiser'
-                            })
-                      },
-                      lable: 'Landcruiser'.tr,
-                      booking: false,
-                    ),
-                    VehicleCard(
-                      iconPath: 'assets/images/icons/Driver.png',
-                      onClick: () =>
-                          {Navigator.pushNamed(context, BookDriver.id)},
-                      lable: 'Driver'.tr,
-                      booking: false,
-                    ),
-                  ],
+                  ),
                 ),
               ],
             ),

@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:carousel_pro_nullsafety/carousel_pro_nullsafety.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +31,7 @@ class Database {
       String title =
           'Welcome to Hamro Yatayat ! हाम्रो यातायातमा तपाइलाई स्वागत  छ !';
       String body =
-          'Hamro Yatayat is a company established to provide rental service for all kinds of vehicles to its customers with best service possible. You can go to Create Booking page to create a new booking. To contact or learn more about us check out our facebook page @yatayatnep. Thank you for downloading Hamro Yatayat. \n \n हाम्रो यातायात आफ्ना ग्राहकहरूलाई भएसम्म सबै प्रकारका सवारी साधनहरू भाडामा लिने सेवा प्रदान गर्न स्थापना गरिएको कम्पनी हो। तपाईंले नयाँ बुकिङ सिर्जना गर्न \'Create Booking\' पेजमा जान सक्नुहुन्छ। सम्पर्क गर्न वा हाम्रो बारेमा थप जान्नको लागि हाम्रो फेसबुक पेज @yatayatnep हेर्नुहोस् । हाम्रो यातायात डाउनलोड गर्नुभएकोमा धन्यवाद । ';
+          'Hamro Yatayat is a company established to provide rental service for all kinds of vehicles to its customers with best service possible. You can go to Create Booking page to create a new booking. To contact or learn more about us check out our facebook page @yatayathamro. Thank you for downloading Hamro Yatayat. \n \n हाम्रो यातायात आफ्ना ग्राहकहरूलाई भएसम्म सबै प्रकारका सवारी साधनहरू भाडामा लिने सेवा प्रदान गर्न स्थापना गरिएको कम्पनी हो। तपाईंले नयाँ बुकिङ सिर्जना गर्न \'Create Booking\' पेजमा जान सक्नुहुन्छ। सम्पर्क गर्न वा हाम्रो बारेमा थप जान्नको लागि हाम्रो फेसबुक पेज @yatayatnep हेर्नुहोस् । हाम्रो यातायात डाउनलोड गर्नुभएकोमा धन्यवाद । ';
       if (phoneNumber == null) {
         //create new user
         final user =

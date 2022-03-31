@@ -32,7 +32,7 @@ class BookingSuccess extends StatelessWidget {
               height: 10,
             ),
             Text(
-              'Please go to Booking Details section to check your booking\'s total price. It might take some time for the total price to appear as our drivers will be bidding their prices for your booking. So please have patience and keep checking the app. You can confirm this booking by choosing the price suitable for you after the bidding price is updated in your app.'
+              'Thank you for booking ! Click on the booking to see all the details of your booking. Please have patience as it might take some time to update the prices. Once prices are updated you can click on \'Confirm\'  beside the bidding price to confirm your booking. Thank you for using Yatayat !'
                   .tr,
               style: TextStyle(
                 fontSize: 15,
