@@ -58,7 +58,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
               height: 10,
             ),
             Text(
-              'Name: Nischal Kafle \nEsewa ID: 9860461944',
+              'Name: Uddav Sigdyal \nEsewa ID: 9845807600',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
             ),
           ],

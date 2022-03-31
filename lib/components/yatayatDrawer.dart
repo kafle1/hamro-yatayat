@@ -63,9 +63,8 @@ class _YatayatDrawerState extends State<YatayatDrawer> {
             title: 'Contact Us',
             onClick: () => {
               Navigator.pop(context),
-              ShowSnackBar().info(
-                  'Ph No: 9829490671, 9861595869 \nFacebook: @yatayatnep',
-                  context)
+              ShowSnackBar()
+                  .info('Ph No: 9829490671 \nFacebook: @yatayathamro', context)
             },
           ),
           DrawerListBuilder(

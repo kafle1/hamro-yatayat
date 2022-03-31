@@ -1,15 +1,14 @@
 const Map<String, String> neNP = {
-  'hello_title': 'नमस्ते, कस्तो हुनुहुन्छ ?',
   'Create Booking': 'नयाँ बुकिङ',
   'Name': 'नाम',
   'Enter your full name': 'पुरा नाम लेख्नुहोस्',
   'Vehicle Type :': 'गाडीको प्रकार',
-  'Enter your vehicle type': 'गाडीको प्रकार छनोट गर्नुहोस',
+  'Select your vehicle type': 'गाडीको प्रकार छनोट गर्नुहोस',
   'Pickup Location': 'चढ्ने स्थान ',
   'Enter your pickup location': 'चढ्ने स्थान लेख्नुहोस्',
   'Pickup Date :': 'चढ्ने मिति',
   'Select pickup date': 'चढ्ने मिति छनोट गर्नुहोस्',
-  'Enter your pickup date': 'चढ्ने मिति लेख्नुहोस्',
+  'Select your pickup date': 'चढ्ने मिति लेख्नुहोस्',
   'Destination Location': 'गन्तब्य स्थान ',
   'Enter your destination location': 'गन्तब्य स्थान लेख्नुहोस्',
   'Booking Days': 'बुकिंग दिन',
@@ -42,18 +41,14 @@ const Map<String, String> neNP = {
       'तपाइको बुकिङ सफलता पुर्बक सम्पन्न भएको छ | आफ्नो बुकिङको पूर्ण विवरण जाँच गर्न र बुकिङ कन्फर्म गर्न \'My Bookings\' स्क्रिनमा जानुहोस्। त्यसपछि आफ्नो बुकिङमा गएर \'Booking Prices\'मा क्लिक गर्नुहोस् अनि बुकिङ कनफर्म गर्न आफुलाइ उचित लाग्ने रकम चयन गर्नुहोस | हाम्रो यातायात प्रयोग गर्नुभएकोमा धन्यवाद।',
   'Your Booking has been successfully completed!':
       'तपाईको बुकिङ सफलतापूर्वक सम्पन्न भएको छ!',
-  'Please go to Booking Details section to check your booking\'s total price. It might take some time for the total price to appear as our drivers will be bidding their prices for your booking. So please have patience and keep checking the app. You can confirm this booking by choosing the price suitable for you after the bidding price is updated in your app.':
-      'आफ्नो बुकिङको अन्तिम मूल्य हेर्न बुकिङ विवरणमा जानुहोस्। हाम्रा ड्राइभरहरूले तपाईंको बुकिङको लागि आफ्नो मूल्य हल्नपर्ने भएकाले अन्तिम मूल्य देखिन केही समय लाग्न सक्छ। त्यसैले कृपया धैर्य राख्नुहोस् र एप जाँच गरिरहनुहोस्। तपाईंको बुकिङको मूल्य आउने बित्तिकै तपाईंले बुकिङ विवरणमा गएर आफ्नो बुकिङको लागि उपयुक्त मूल्य छनोट गरेर यो बुकिङ कन्फर्म गर्न सक्नुहुन्छ।',
+  'Thank you for booking ! Click on the booking to see all the details of your booking. Please have patience as it might take some time to update the prices. Once prices are updated you can click on \'Confirm\'  beside the bidding price to confirm your booking. Thank you for using Yatayat !':
+      'बुकिङ गर्नुभएकोमा धन्यवाद! तपाईंको बुकिङको सबै विवरणहरू हेर्नको लागि बुकिङमा क्लिक गर्नुहोस्। कृपया धैर्य गर्नुहोस् किनकि मूल्यहरू अद्यावधिक गर्न केही समय लाग्न सक्छ। एकपटक मूल्यहरू अद्यावधिक भएपछि तपाईंले आफ्नो बुकिङ कन्फर्म गर्न बिडिङ मूल्यको छेउमा \'Confirm (कन्फर्म)\' मा क्लिक गर्न सक्नुहुन्छ। यातायात प्रयोग गर्नुभएकोमा धन्यवाद! ',
   'Back to Home': 'ठिक छ',
   'Select your vehicle : ': 'आफ्नो गाडी चयन गर्नुहोस्:',
-  'Hamro Yatayat': 'यातायात',
+  'Hamro Yatayat': 'हाम्रो यातायात',
   'Hire any Vehicle': 'कुनै पनि गाडी भाडामा ',
   'Book Now': 'बुक गर्नुहोस्',
   'My Bookings': 'मेरो बुकिङहरू',
-  'Bus': 'बस',
-  'Car': 'कार',
-  'Scorpio': 'स्कोर्पीयो',
-  'Other': 'अन्य',
   'Something went wrong': 'केहि गलत भयो',
   'Vehicle Type: ': 'गाडीको प्रकार : ',
   'Date: ': 'बुकिङ मिति : ',
@@ -113,10 +108,6 @@ const Map<String, String> neNP = {
   'Do you want to confirm this booking ?':
       'के तपाइँ यो बुकिङ कन्फर्म गर्न चाहनुहुन्छ ?',
   'Confirm Booking ?': 'बुकिङ कन्फर्म गरौ ?',
-  'Hiace': 'माइक्रो',
-  'TATA Sumo': 'टाटा सुमो',
-  'Taxi': 'ट्याक्सि',
-  'Landcruiser': 'ल्यान्डक्रूजर',
   'Are you sure you want to cancel this booking? You cant revert back once you cancel this booking !':
       'के तपाइँ यो बुकिङ रद्द गर्न निश्चित हुनुहुन्छ? तपाईंले यो बुकिङ रद्द गरेपछि तपाईं फर्कन सक्नुहुन्न!',
   'Yes Cancel': 'हो रद्द गर्नुहोस्',
@@ -139,5 +130,7 @@ const Map<String, String> neNP = {
   'Select payment method for this booking .':
       'यो बुकिङको लागि भुक्तानी विधि चयन गर्नुहोस्।',
   'Pay Now': 'अहिले तिर्नुहोस्',
-  'Pay Later': 'पछि तिर्नुहोस्'
+  'Pay Later': 'पछि तिर्नुहोस्',
+  'Hire a Vehicle': 'गाडी भाडामा लिनुहोस्',
+  'Hire a Driver': 'ड्राइभर भाडामा लिनुहोस्'
 };

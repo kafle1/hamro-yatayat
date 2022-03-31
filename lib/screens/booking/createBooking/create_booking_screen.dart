@@ -146,7 +146,7 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                                   },
                                   height: 50,
                                   child: Text(vehicleType == ''
-                                      ? 'Enter your vehicle type'.tr
+                                      ? 'Select your vehicle type'.tr
                                       : '$vehicleType'),
                                   color: kThemeColor,
                                   textColor: Colors.white,
@@ -219,7 +219,7 @@ class _CreateBookingScreenState extends State<CreateBookingScreen> {
                                       ? _date
                                           .toString()
                                           .replaceAll('00:00:00.000', '')
-                                      : 'Enter your pickup date'.tr),
+                                      : 'Select your pickup date'.tr),
                                   color: kThemeColor,
                                   textColor: Colors.white,
                                   minWidth: double.infinity,
