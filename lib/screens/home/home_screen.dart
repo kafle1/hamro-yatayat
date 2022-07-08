@@ -1,7 +1,9 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:nepali_utils/nepali_utils.dart';
 import 'package:yatayat/components/appbar.dart';
 import 'package:yatayat/components/bookingHistoryList.dart';
@@ -115,6 +117,36 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     //Get details of current user
     final currentUser = _auth.currentUser;
+
+    //add token to db
+
+    if (GetStorage().read('token') == null) {
+      final _firebaseMessaging = FirebaseMessaging.instance;
+      _firebaseMessaging.getToken().then((value) async {
+        FirebaseMessaging messaging = FirebaseMessaging.instance;
+
+        NotificationSettings settings = await messaging.requestPermission(
+          alert: true,
+          announcement: false,
+          badge: true,
+          carPlay: false,
+          criticalAlert: false,
+          provisional: false,
+          sound: true,
+        );
+
+        if (settings.authorizationStatus == AuthorizationStatus.authorized) {
+          print('User granted permission');
+        } else if (settings.authorizationStatus ==
+            AuthorizationStatus.provisional) {
+          print('User granted provisional permission');
+        } else {
+          print('User declined or has not accepted permission');
+        }
+        await Database(uid: currentUser!.uid).createToken(token: '$value');
+        GetStorage().write("token", '$value');
+      });
+    }
 
     //Getting stream of bookings from firebase
     final Stream<QuerySnapshot> _bookingStream = FirebaseFirestore.instance

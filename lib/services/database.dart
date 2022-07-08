@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:carousel_pro_nullsafety/carousel_pro_nullsafety.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'dart:math';
+import 'package:http/http.dart' as http;
 
 import 'package:nepali_date_picker/nepali_date_picker.dart';
 
@@ -36,6 +39,7 @@ class Database {
         //create new user
         final user =
             await usersCollection.doc(uid).set({'name': name, 'email': email});
+
         //create new notification for the new user
         await usersCollection
             .doc(uid)
@@ -224,6 +228,58 @@ class Database {
       });
 
       return 'Added New Feedback Successfully';
+    } catch (e) {
+      return e;
+    }
+  }
+
+  //Create a token in db
+  Future createToken({required String token}) async {
+    try {
+      await FirebaseFirestore.instance
+          .collection('tokens')
+          .doc(uid)
+          .set({'id': uid, 'token': token});
+    } catch (e) {
+      return e;
+    }
+  }
+
+  //Send notification to the customer
+  static Future sendConfirmNotification(
+      {required String id,
+      required String bookingId,
+      required String bidId}) async {
+    try {
+      var info =
+          await FirebaseFirestore.instance.collection('tokens').doc(id).get();
+      Map<String, dynamic>? token = info.data();
+
+      var headers = {
+        'Content-Type': 'application/json',
+        'Authorization':
+            'key=AAAAbFMLzsw:APA91bHfAEwznjJUX5mY31SlsA0UafLrKI_wdhWH1noQCRSddc_p1KmROT79UdVnf8XWM27-q9vddtTiQYWJ7VH71RgNoezGsNIXu7k8j0OrKWVPJgXl7hWzrFTeErYOZlG70T5BlnZ2 '
+      };
+      var request = http.Request(
+          'POST', Uri.parse('https://fcm.googleapis.com/fcm/send'));
+      request.body = json.encode({
+        "registration_ids": [token!['token']],
+        "notification": {
+          "title": "बधाई छ, तपाईको गाडीको बुकिङ्ग कन्फर्म भएको छ !",
+          "body":
+              "तपाईले बुकिङ्ग (ID): $bookingId को लागि गरेको बिड ग्राहकद्वारा कन्फर्म गरिएको छ | तपाईको गाडीको बुकिङ्ग कन्फर्म भएकाले यस बुकिङ्गको सम्पूर्ण जानकारीकोलागी छिटो भन्दा छिटो एप हेर्नुहोला | सुभ यात्रा |",
+          "sound": "default"
+        }
+      });
+      request.headers.addAll(headers);
+
+      http.StreamedResponse response = await request.send();
+
+      if (response.statusCode == 200) {
+        return await response.stream.bytesToString();
+      } else {
+        return response.reasonPhrase;
+      }
     } catch (e) {
       return e;
     }
