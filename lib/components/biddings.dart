@@ -102,7 +102,16 @@ class _GetBiddingsState extends State<GetBiddings> {
                                           bookingId: widget
                                               .userData['bookingId']
                                               .toString())
-                                      .then((value) => {
+                                      .then((value) async => {
+                                            //Send confirm notification
+                                            await Database
+                                                .sendConfirmNotification(
+                                                    id: data['driverId'],
+                                                    bookingId: widget
+                                                        .userData['bookingId']
+                                                        .toString(),
+                                                    bidId: document.id),
+
                                             Navigator.pop(context),
                                             showDialog(
                                                 context: context,
