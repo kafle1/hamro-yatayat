@@ -1,3 +1,6 @@
+
+![Image](https://i.ibb.co/CtN97sf/logo.png)
+
 # Hamro Yatayat
 
 Mobile based service platform that provides Vehicles and Drivers rental service on reservation basis.
@@ -8,8 +11,6 @@ Hire any Vehicle !
 ## Preview
 
 ![App Screenshot](https://i.ibb.co/jDP1cL4/2.png)
-
-![App Screenshot](https://i.ibb.co/3vjGQYY/4.png)
 
   
 ## Tech Stack
