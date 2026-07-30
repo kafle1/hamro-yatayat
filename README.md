@@ -41,7 +41,37 @@ flutter pub get
 flutter run
 ```
 
-Add your own `google-services.json` under `android/app/` before running on Android.
+Add your own `google-services.json` under `android/app/` before running on Android, and
+your own release keystore before building a signed release.
+
+### Toolchain note
+
+This is a 2022-era Flutter project (pubspec targets Dart `>=2.12.0 <3.0.0`) with
+dependencies pinned to versions from that time, for example `cloud_firestore ^3.0.0`,
+`firebase_core ^1.10.6`, and `intl ^0.17.0`. On a current toolchain (tested with
+Flutter 3.32.8 / Dart 3.8.1), `flutter pub get` fails immediately:
+
+```
+Because yatayat depends on flutter_localizations from sdk which depends on intl 0.20.2,
+intl 0.20.2 is required.
+So, because yatayat depends on intl ^0.17.0, version solving failed.
+```
+
+`flutter_localizations` in modern Flutter SDKs pins a newer `intl` than this project
+allows, and bumping `intl` alone cascades into major-version upgrades across the
+Firebase plugins (whose APIs changed between those majors), which is not a bounded fix.
+To actually run this app, use a Flutter SDK from around the project's `.metadata`
+revision (`3595343e20a61ff16d14e8ecc25f364276bb1b8b`, Flutter 2.x/early 3.x stable), or
+plan a real dependency upgrade pass rather than a quick patch.
+
+## Security note
+
+`keystore.jks` (the Android release signing key) and `android/app/google-services.json`
+were committed to this repo. They have been removed from tracking and added to
+`.gitignore`, but since this repo is public and history has not been rewritten (no force
+push), both files remain visible in old commits. Treat the signing key as compromised:
+generate a new release keystore and re-sign future releases with it rather than reusing
+this one.
 
 ## Developer
 

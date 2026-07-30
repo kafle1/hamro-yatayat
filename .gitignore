@@ -44,3 +44,7 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Signing key and Firebase config, provide your own locally
+/keystore.jks
+/android/app/google-services.json
